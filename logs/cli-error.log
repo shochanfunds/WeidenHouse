@@ -1,0 +1,42 @@
+2017-03-29 07:46:09 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'personaltool.commision_admits' doesn't exist in /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Database/Schema/Collection.php on line 131
+Stack Trace:
+#0 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'commision_admit...', Array, Object(Cake\Database\Schema\TableSchema))
+#1 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('commision_admit...', Array)
+#2 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/ORM/Table.php(531): Cake\Database\Schema\CachedCollection->describe('commision_admit...')
+#3 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/ORM/Table.php(652): Cake\ORM\Table->getSchema()
+#4 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/bake/src/Shell/Task/ModelTask.php(215): Cake\ORM\Table->getPrimaryKey()
+#5 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/bake/src/Shell/Task/ModelTask.php(127): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/bake/src/Shell/Task/ModelTask.php(110): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'commision_admit...', 'CommisionAdmits')
+#7 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/bake/src/Shell/Task/ModelTask.php(97): Bake\Shell\Task\ModelTask->bake('CommisionAdmits')
+#8 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/bake/src/Shell/BakeShell.php(260): Bake\Shell\Task\ModelTask->main('CommisionAdmits')
+#9 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Collection/CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('commision_admit...', 0)
+#10 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/bake/src/Shell/BakeShell.php(263): Cake\Collection\Collection->each(Object(Closure))
+#11 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Console/Shell.php(458): Bake\Shell\BakeShell->all('commision_admit...')
+#12 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(230): Cake\Console\Shell->runCommand(Array, true, Array)
+#13 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#14 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#15 /Applications/MAMP/htdocs/PersonalTool/bin/cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#16 {main}
+
+
+2017-03-29 07:46:58 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'personaltool.payreasons' doesn't exist in /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Database/Schema/Collection.php on line 131
+Stack Trace:
+#0 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'payreasons', Array, Object(Cake\Database\Schema\TableSchema))
+#1 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('payreasons', Array)
+#2 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/ORM/Table.php(531): Cake\Database\Schema\CachedCollection->describe('payreasons')
+#3 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/ORM/Table.php(652): Cake\ORM\Table->getSchema()
+#4 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/bake/src/Shell/Task/ModelTask.php(215): Cake\ORM\Table->getPrimaryKey()
+#5 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/bake/src/Shell/Task/ModelTask.php(127): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/bake/src/Shell/Task/ModelTask.php(110): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'payreasons', 'Payreasons')
+#7 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/bake/src/Shell/Task/ModelTask.php(97): Bake\Shell\Task\ModelTask->bake('Payreasons')
+#8 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/bake/src/Shell/BakeShell.php(260): Bake\Shell\Task\ModelTask->main('Payreasons')
+#9 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Collection/CollectionTrait.php(51): Bake\Shell\BakeShell->Bake\Shell\{closure}('payreasons', 0)
+#10 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/bake/src/Shell/BakeShell.php(263): Cake\Collection\Collection->each(Object(Closure))
+#11 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Console/Shell.php(458): Bake\Shell\BakeShell->all('payreasons')
+#12 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(230): Cake\Console\Shell->runCommand(Array, true, Array)
+#13 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#14 /Applications/MAMP/htdocs/PersonalTool/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#15 /Applications/MAMP/htdocs/PersonalTool/bin/cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#16 {main}
+
+
