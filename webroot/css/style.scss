@@ -1,0 +1,344 @@
+$gray_color:#585858;
+$white_color:#FFFFFF;
+$orange_color:#FA8258;
+$water_color:#4D9BE8;
+$navy_color:#00336D;
+$gold_color:#DBA901;
+.test{
+	background-color:#000000;
+}
+@mixin border_radius{
+	border-radius: 5px !important;		/* CSS3草案 */
+	-webkit-border-radius: 5px;	/* Safari,Google Chrome用 */
+-moz-border-radius: 5px !important;	/* Firefox用 */
+}
+@mixin border_radius_half{
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+}
+@mixin submit_button{
+	background-color:$navy_color;
+	@include border_radius;
+	color:$white_color;
+	border:none;
+}
+.green_text{
+	color:green;
+	font-weight:bold;
+}
+.red_color{
+	color:#DF0101;
+	font-weight:bold;
+}
+.gray_background{
+	background-color:#F2F2F2;
+}
+//login画面
+html{
+  height:100%;
+}
+body{
+  height:100%;
+}
+.loginform_wrapper{
+	margin-top:15%;
+  margin-left:25%;
+	.submit_button{
+    @include submit_button;
+		padding:10px;
+	}
+}
+.search_form{
+	float:right;
+	@include border_radius;
+	border:3px solid $navy_color;
+	form{
+		display:none;
+		padding:15px 10px;
+	}
+	.search_form_button{
+		@include submit_button;
+		padding:10px 20px;
+		display:block;
+		margin:0 auto;
+	}
+	h2{
+		margin: 2px 2px;
+		text-align:center;
+		font-size:20px;
+		span{
+			font-size:30px;
+			color:$navy_color;
+		}
+	}
+}
+//header
+.header-wrapper{
+  background-color: $navy_color;
+	height: 64px;
+	margin-bottom: 18px;
+  .system-title{
+    padding-top: 10px;
+		padding-left: 16px;
+    margin-bottom:0px;
+    a{
+      color:white;
+      font-weight:bold;
+      font-size:30px;
+    }
+  }
+  .header-navigation{
+      float:right;
+      padding:10px 0;
+      ul{
+        margin-bottom:0px;
+        li{
+					margin-top: 12px;
+          a{
+            font-weight:bold;
+						font-size: 13px;
+						padding-right: 12px;
+						color: white;
+          }
+        }
+      }
+  }
+}
+.login{
+  height:100%;
+  .login_icon{
+    margin-top:200px;
+    .icon{
+      width:10%;
+    }
+    .balloon{
+      width:20%;
+    }
+  }
+}
+
+.client_info{
+  padding-left:0px;
+  padding-right:0px;
+  width:1000px;
+  .detailsheet_title{
+    color:$navy_color;
+  }
+  .detail_title{
+    background-color:$navy_color;
+    .detal_text{
+      margin:0 auto;
+      font-size:15px;
+			height: 431px;
+      ul{
+        .client_name{
+          font-size:30px;
+        }
+        .client_name_ruby{
+          font-size:10px;
+          margin-bottom:20px;
+        }
+        .group_name{
+
+          border-top:1px solid $white_color;
+          padding-top:20px;
+        }
+        li{
+          letter-spacing:1px;
+          color:$white_color;
+          padding-top:5px;
+        }
+        li:last-child{
+          margin-bottom:120px;
+        }
+      }
+    }
+    .thumbnail{
+      margin:auto;
+      margin-top:20px;
+      margin-bottom:20px;
+      background-position:center center;
+      background-size:150px;
+      background-repeat:no-repeat;
+      width:170px;
+      height:170px;
+    }
+  }
+	tbody {
+		border:1px solid #ddd;
+	}
+  table{
+    margin-top:-1px;
+    tr{
+      td:first-child{
+        font-weight:bold;
+      }
+    }
+    .infocategory_tag{
+      color:$white_color;
+      td{
+        padding-top:11px;
+        padding-bottom:9px;
+      }
+      background-color:$navy_color;
+    }
+  }
+}
+.all_wrapper{
+	width:90%;
+	margin:0 auto;
+	.clients{
+	  table{
+	    margin-top:10px;
+	    thead{
+	        tr{
+	          th{
+	            color:$white_color;
+	            background-color:$navy_color;
+	          }
+	          th:first-child{
+	            -webkit-border-top-left-radius: 5px;
+	            background-color:$navy-color;
+	          }
+	          th:last-child{
+	            -webkit-border-top-right-radius: 5px;
+	          }
+	        }
+	    }
+	  }
+	}
+}
+.sidebar{
+  padding-left:5px;
+	padding-right:0px;
+  margin-top:38px;
+  @include border_radius;
+  ul{
+    .sidebar_tag{
+      background-color:$navy_color;
+			padding:10px 0px;
+			padding-left:5px;
+      padding-top:5px;
+      padding-bottom:5px;
+			margin-left:0px;
+      color:$white_color;
+    }
+    .sidebar_tag{
+      @include border_radius_half;
+    }
+    li{
+			margin-left:10px;
+			padding:5px 0px;
+      a{
+        display:block;
+        padding-top:5px;
+        padding-bottom:5px;
+        color:black;
+      }
+			ul{
+				display:none;
+			}
+    }
+  }
+}
+.pagination{
+  margin-left:32%;
+  ul{
+    li{
+      .now-hear{
+        background-color:$navy_color;
+        color:$gold_color;
+      }
+      a{
+        padding:5px 10px;
+        color:$navy_color;
+        border:2px solid $navy_color;
+        @include border_radius;
+      }
+    }
+    li:first-child{
+      a{
+        background-color:$navy_color;
+        color:$gold_color;
+      }
+    }
+    li:last-child{
+      a{
+        background-color:$navy_color;
+        color:$gold_color;
+      }
+    }
+  }
+}
+/*managers-add*/
+.form-container {
+	margin-top: 40px;
+	margin-left: 30px;
+	label {
+		width: 100%;
+		margin-top: 12px;
+	}
+	input {
+		width: 100%;
+		font-weight: normal;
+	}
+}
+.title {
+	p {
+    font-size: 16px;
+	  font-weight: bold;
+	  color: #08298A;
+    border-bottom: 2px solid #08298A;
+	  padding-bottom: 4px;
+	}
+}
+.input{
+	select{
+		background: url(../img/sankaku.png) no-repeat right;
+		-webkit-appearance: none;
+		-moz-appearance:none;
+		appearance: none;
+		width: 18%;
+		padding: 5px 6px;
+		font-size: 14px;
+		font-weight: normal;
+		border-radius: 0;
+		border: 1px solid #D8D8D8;
+		background-color: white;
+		background-size: 20px, 100%;
+	}
+}
+.submit-button {
+	width: 10%;
+	margin-top: 30px;
+  border: 5px solid #08298A;
+	button {
+		width:100%;
+		background-color: #08298A;
+		color: white;
+		border-style: none;
+		padding: 6px 10px;
+	}
+}
+.submit-button:hover {
+	opacity: 0.8;
+}
+/*clients*/
+.clients-title {
+	font-size: 16px;
+	font-weight: bold;
+	color: $gold_color;
+	border-bottom: 2px solid $gold_color;
+	margin-top: 37px;
+	margin-bottom: 16px;
+	padding-bottom: 2px;
+}
+.search_form {
+	position: fixed;
+	right: 30px;
+	top: 75px;
+	background-color: white;
+	.radio-padding {
+		padding-left: 6px;
+	}
+}
