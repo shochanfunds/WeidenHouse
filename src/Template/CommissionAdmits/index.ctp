@@ -3,40 +3,39 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Commission Admit'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="commissionAdmits index large-9 medium-8 columns content">
-    <h3><?= __('Commission Admits') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modifed') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($commissionAdmits as $commissionAdmit): ?>
-            <tr>
-                <td><?= $this->Number->format($commissionAdmit->id) ?></td>
-                <td><?= h($commissionAdmit->name) ?></td>
-                <td><?= h($commissionAdmit->created) ?></td>
-                <td><?= h($commissionAdmit->modifed) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $commissionAdmit->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $commissionAdmit->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $commissionAdmit->id], ['confirm' => __('Are you sure you want to delete # {0}?', $commissionAdmit->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+<div class="clearfix all_wrapper">
+  <?php echo $this->element('sidebar');?>
+  <div class="container-fluid col-md-10 clients">
+        <div>
+          <?php
+           /*
+            特定の条件に当てはまるクライアント一覧を表示する画面
+           */
+          ?>
+
+          <p class="clients-title">手数料差引項目一覧</p>
+          <table class="table">
+            <thead>
+                <tr><th>id</th><th>手数料差引</th><th>作成日</th><th>修正日</th><th>操作</th><tr>
+            </thead>
+            <tbody>
+                <?php foreach ($commissionAdmits as $commissionAdmit): ?>
+                  <tr class="gray_background">
+                    <td><?= $this->Number->format($commissionAdmit->id) ?></td>
+                    <td><?= h($commissionAdmit->name) ?></td>
+                    <td><?= h($commissionAdmit->created) ?></td>
+                    <td><?= h($commissionAdmit->modifed) ?></td>
+                    <td class="actions">
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $commissionAdmit->id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $commissionAdmit->id], ['confirm' => __('Are you sure you want to delete # {0}?', $commissionAdmit->id)]) ?>
+                    </td>
+                  </tr>
+                <?php endforeach;?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
@@ -47,4 +46,3 @@
         </ul>
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
-</div>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PersonalTool</title>
@@ -9,7 +8,6 @@
     <!--CSS-->
     <?= $this->Html->css('bootstrap.min.css')?>
     <?= $this->Html->css('style.css')?>
-    <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         <?= $cakeDescription ?>:
@@ -29,7 +27,6 @@
           <li><?php echo $this->Html->link('エンドクライアント管理',['controller' => 'endclients' , 'action' => 'index']);?></li>
           <li><?php echo $this->Html->link('運用者管理',['controller' => 'managers' , 'action' => 'index']);?></li>
           <li><?php echo $this->Html->link('謝礼管理',['controller' => 'clients' , 'action' => 'index']);?></li>
-          <li><a href="#"></a></li>
         </ul>
       </nav>
     </header>

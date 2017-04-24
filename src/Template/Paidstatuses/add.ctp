@@ -3,20 +3,24 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Paidstatuses'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="paidstatuses form large-9 medium-8 columns content">
-    <?= $this->Form->create($paidstatus) ?>
-    <fieldset>
-        <legend><?= __('Add Paidstatus') ?></legend>
-        <?php
-            echo $this->Form->control('status_name');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+    <div class="clearfix all_wrapper">
+      <?php echo $this->element('sidebar');?>
+      <!--main contents-->
+      <div class="container-fluid col-md-10 clients">
+        <?= $this->Form->create($paidstatus) ?>
+        <div class="form-container">
+          <div class="title">
+            <p>支払状況追加</p>
+          </div>
+          <form action="index.html" method="post">
+            <p>
+              <?php echo $this->Form->control('status_name');?>
+            </p>
+          </form>
+          <p class="submit-button">
+            <?= $this->Form->button(__('送信')) ?>
+          </p>
+          <?= $this->Form->end() ?>
+        </div>
+      </div>
+    </div>

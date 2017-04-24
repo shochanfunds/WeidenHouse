@@ -33,7 +33,7 @@ class PaidstatusesTable extends Table
         parent::initialize($config);
 
         $this->setTable('paidstatuses');
-        $this->setDisplayField('id');
+        $this->setDisplayField('status_name');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

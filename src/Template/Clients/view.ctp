@@ -16,14 +16,14 @@
     <div class="row col-md-12 detal_text">
       <ul class="list-unstyled">
         <li class="client_name text-center"><?= h($client->first_name) ?> <?= h($client->last_name) ?></li>
-        <li class="client_name_ruby text-center">いしづ しょう</li>
+        <li class="client_name_ruby text-center"><?= h($client->first_name_ruby)?> <?= h($client->last_name_ruby)?></li>
         <li class="group_name">所属 <?= h($client->universities_name) ?></li>
         <li class="sex">性別 <?= $client->has('sex') ? h($client->sex->name) : ''?></li>
         <li class="category">カテゴリ 若者研</li>
         <li class="age">年齢 <?= h($client->age)?>歳</li>
         <li>出身地 <?= h($client->lived_place) ?></li>
-        <li>住所 神奈川県横浜市戸塚区品濃町545-15ヴィラいさみ103</li>
-        <li class="email">email shochanfunds@gmail.com</li>
+        <li>住所 <?= h($client->prefecture).h($client->address1).h($client->address2)?></li>
+        <li class="email">email <?= h($client->email)?></li>
         <li class="phone">phone <?= $this->Number->format($client->phone_number) ?></li>
         <li class="sns">id <?= h($client->sns_info)?></li>
       </ul>
@@ -39,8 +39,9 @@
       <tr class="infocategory_tag"><td>プロジェクト情報</td><td></td></tr>
       <tr><td class="col-md-5">担当者</td><td class="col-md-7"><?= $client->has('manager') ? $this->Html->link($client->manager->username, ['controller' => 'Managers', 'action' => 'view', $client->manager->id]) : '' ?></td></tr>
       <tr><td>プロジェクト名</td><td><?= $client->has('project') ? $this->Html->link($client->project->name, ['controller' => 'Projects', 'action' => 'view', $client->project->id]) : '' ?></td></tr>
-      <tr><td>実施日</td><td>2017/4/1</td></tr>
+      <tr><td>実施日</td><td><?= h($client->project->dateof)?></td></tr>
       <tr><td>エンドクライアント名</td><td><?= $client->has('endclient') ? $this->Html->link($client->endclient->name, ['controller' => 'Endclients', 'action' => 'view', $client->endclient->id]) : '' ?></td></tr>
+      <tr><td>評価</td><td><?= $this->Number->format($client->evaluation) ?></td></tr>
       <tr class="infocategory_tag"><td>対人情報</td><td></td></tr>
       <tr><td>リクルート元</td><td>第1:<?= h($client->first_recruiter_name) ?> 第2:<?= h($client->second_recruiter_name)?></td></tr>
       <tr><td>関連の友達</td><td>飯田、飯田、飯田</td></tr>
@@ -51,8 +52,8 @@
       <tr><td>支払日</td><td>2017/4/1</td></tr>
       <tr><td>謝礼理由</td><td><?= $client->has('pay_reason') ? h($client->pay_reason->name) : '' ?></td></tr>
       <tr><td>支払状況</td><td class="green_text"><?= $client->has('paidstatus') ? h($client->paidstatus->status_name) : '' ?></td></tr>
-      <tr><td>その他活動</td><td>教育</td></tr>
-      <tr><td>評価</td><td><?= $this->Number->format($client->evaluation) ?></td></tr>
+      <tr><td>その他活動</td><td><?= h($client->activities)?></td></tr>
+      <tr><td>備考</td><td><?= h($client->remarks)?></td></tr>
     </table>
   </div>
 </div>

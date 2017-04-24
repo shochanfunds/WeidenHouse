@@ -52,7 +52,6 @@ class StatusesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->integer('name')
             ->requirePresence('name', 'create')
             ->notEmpty('name');
 

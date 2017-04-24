@@ -112,7 +112,7 @@ body {
     .client_info .detail_title .detal_text {
       margin: 0 auto;
       font-size: 15px;
-      height: 431px; }
+      height: 467px; }
       .client_info .detail_title .detal_text ul .client_name {
         font-size: 30px; }
       .client_info .detail_title .detal_text ul .client_name_ruby {
@@ -192,8 +192,6 @@ body {
       padding-top: 5px;
       padding-bottom: 5px;
       color: black; }
-    .sidebar ul li ul {
-      display: none; }
 
 .pagination {
   margin-left: 32%; }

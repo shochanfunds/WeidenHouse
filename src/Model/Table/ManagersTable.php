@@ -36,7 +36,7 @@ class ManagersTable extends Table
         parent::initialize($config);
 
         $this->setTable('managers');
-        $this->setDisplayField('id');
+        $this->setDisplayField('username');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

@@ -10,7 +10,7 @@
     <?= $this->Form->create($client) ?>
     <div class="form-container">
       <div class="title">
-        <p>Add Manager</p>
+        <p>インタビュー対象者情報追加</p>
       </div>
       <form action="index.html" method="post">
         <p>
@@ -38,6 +38,18 @@
           <?php echo $this->Form->control('last_name_ruby');?>
         </p>
         <p>
+          <?php echo $this->Form->control('prefecture');?>
+        </p>
+        <p>
+          <?php echo $this->Form->control('address1');?>
+        </p>
+        <p>
+          <?php echo $this->Form->control('address2');?>
+        </p>
+        <p>
+          <?php echo $this->Form->control('post_number');?>
+        </p>
+        <p>
           <?php echo $this->Form->control('fee');?>
         </p>
         <p>
@@ -48,6 +60,9 @@
         </p>
         <p>
           <?php echo $this->Form->control('phone_number');?>
+        </p>
+        <p>
+          <?php echo $this->Form->control('email');?>
         </p>
         <p>
           <?php echo $this->Form->control('evaluation');?>
@@ -95,6 +110,9 @@
           <?php echo $this->Form->control('companies_name');?>
         </p>
         <p>
+          <?php echo $this->Form->control('activities');?>
+        </p>
+        <p>
           <?php echo $this->Form->control('sns_info');?>
         </p>
         <p>
@@ -105,6 +123,9 @@
         </p>
         <p>
           <?php echo $this->Form->control('lived_place');?>
+        </p>
+        <p>
+          <?php echo $this->Form->control('remarks');?>
         </p>
       </form>
       <p class="submit-button">

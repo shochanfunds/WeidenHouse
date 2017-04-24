@@ -12,7 +12,6 @@
             特定の条件に当てはまるクライアント一覧を表示する画面
            */
           ?>
-          <?php echo $this->element('seachform');?>
           <p class="clients-title">管理者一覧 (全て)</p>
           <table id="account-list" class="table">
             <thead>
@@ -28,9 +27,9 @@
                   <td><?= h($manager->created) ?></td>
                   <td><?= h($manager->modified)?></td>
                   <td class="actions">
-                      <?= $this->Html->link(__('View'), ['action' => 'view', $manager->id]) ?>
-                      <?= $this->Html->link(__('Edit'), ['action' => 'edit', $manager->id]) ?>
-                      <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $manager->id], ['confirm' => __('本当に削除してよろしいですか？ # {0}?', $manager->id)]) ?>
+                      <?= $this->Html->link(__('詳細'), ['action' => 'view', $manager->id]) ?>
+                      <?= $this->Html->link(__('編集'), ['action' => 'edit', $manager->id]) ?>
+                      <?= $this->Form->postLink(__('削除'), ['action' => 'delete', $manager->id], ['confirm' => __('本当に削除してよろしいですか？ # {0}?', $manager->id)]) ?>
                   </td>
                 </tr>
               <?php endforeach;?>

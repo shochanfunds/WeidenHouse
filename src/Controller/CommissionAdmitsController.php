@@ -25,23 +25,6 @@ class CommissionAdmitsController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Commission Admit id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $commissionAdmit = $this->CommissionAdmits->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('commissionAdmit', $commissionAdmit);
-        $this->set('_serialize', ['commissionAdmit']);
-    }
-
-    /**
      * Add method
      *
      * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
