@@ -52,11 +52,11 @@ class PaidstatusesController extends AppController
         if ($this->request->is('post')) {
             $paidstatus = $this->Paidstatuses->patchEntity($paidstatus, $this->request->getData());
             if ($this->Paidstatuses->save($paidstatus)) {
-                $this->Flash->success(__('The paidstatus has been saved.'));
+                $this->Flash->success(__('支払状況が新たに追加されました。'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The paidstatus could not be saved. Please, try again.'));
+            $this->Flash->error(__('登録できませんでした。登録内容を再度ご確認ください'));
         }
         $this->set(compact('paidstatus'));
         $this->set('_serialize', ['paidstatus']);
@@ -77,11 +77,11 @@ class PaidstatusesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $paidstatus = $this->Paidstatuses->patchEntity($paidstatus, $this->request->getData());
             if ($this->Paidstatuses->save($paidstatus)) {
-                $this->Flash->success(__('The paidstatus has been saved.'));
+                $this->Flash->success(__('支払状況が編集されました'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The paidstatus could not be saved. Please, try again.'));
+            $this->Flash->error(__('編集できませんでした。再度編集内容をご確認ください'));
         }
         $this->set(compact('paidstatus'));
         $this->set('_serialize', ['paidstatus']);
@@ -99,9 +99,9 @@ class PaidstatusesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $paidstatus = $this->Paidstatuses->get($id);
         if ($this->Paidstatuses->delete($paidstatus)) {
-            $this->Flash->success(__('The paidstatus has been deleted.'));
+            $this->Flash->success(__('削除しました'));
         } else {
-            $this->Flash->error(__('The paidstatus could not be deleted. Please, try again.'));
+            $this->Flash->error(__('削除できませんでした'));
         }
 
         return $this->redirect(['action' => 'index']);

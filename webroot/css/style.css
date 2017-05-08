@@ -36,6 +36,7 @@ body {
 
 .search_form {
   float: right;
+  z-index: 999;
   border-radius: 5px !important;
   /* CSS3草案 */
   -webkit-border-radius: 5px;
@@ -44,8 +45,9 @@ body {
   /* Firefox用 */
   border: 3px solid #00336D; }
   .search_form form {
-    display: none;
-    padding: 15px 10px; }
+    padding: 0px 10px; }
+  .search_form #search_form_input {
+    display: none; }
   .search_form .search_form_button {
     background-color: #00336D;
     border-radius: 5px !important;
@@ -112,7 +114,7 @@ body {
     .client_info .detail_title .detal_text {
       margin: 0 auto;
       font-size: 15px;
-      height: 467px; }
+      height: 431px; }
       .client_info .detail_title .detal_text ul .client_name {
         font-size: 30px; }
       .client_info .detail_title .detal_text ul .client_name_ruby {
@@ -192,6 +194,8 @@ body {
       padding-top: 5px;
       padding-bottom: 5px;
       color: black; }
+    .sidebar ul li ul {
+      display: none; }
 
 .pagination {
   margin-left: 32%; }
@@ -278,5 +282,26 @@ body {
   background-color: white; }
   .search_form .radio-padding {
     padding-left: 6px; }
+
+/*info*/
+.info-box {
+  font-size: 13px;
+  width: 900px;
+  margin: 0 auto; }
+  .info-box table {
+    width: 100%;
+    margin-top: 30px; }
+  .info-box td {
+    padding: 24px 0;
+    border-top: 0.5px solid #D3D3D3; }
+  .info-box p {
+    padding-top: 88px; }
+
+.map-img img {
+  margin: 0 auto;
+  width: 700px;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 100px; }
 
 /*# sourceMappingURL=style.css.map */

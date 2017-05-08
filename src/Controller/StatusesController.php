@@ -52,11 +52,11 @@ class StatusesController extends AppController
         if ($this->request->is('post')) {
             $status = $this->Statuses->patchEntity($status, $this->request->getData());
             if ($this->Statuses->save($status)) {
-                $this->Flash->success(__('The status has been saved.'));
+                $this->Flash->success(__('アカウントステータスを追加しました'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The status could not be saved. Please, try again.'));
+            $this->Flash->error(__('登録できませんでした。登録内容を再度ご確認ください'));
         }
         $this->set(compact('status'));
         $this->set('_serialize', ['status']);
@@ -77,11 +77,11 @@ class StatusesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $status = $this->Statuses->patchEntity($status, $this->request->getData());
             if ($this->Statuses->save($status)) {
-                $this->Flash->success(__('The status has been saved.'));
+                $this->Flash->success(__('アカウントステータスが新たに追加されました'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The status could not be saved. Please, try again.'));
+            $this->Flash->error(__('登録できませんでした。登録内容を再度ご確認ください'));
         }
         $this->set(compact('status'));
         $this->set('_serialize', ['status']);

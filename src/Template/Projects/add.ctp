@@ -14,10 +14,10 @@
           </div>
           <form action="index.html" method="post">
             <p>
-              <?php echo $this->Form->control('name');?>
+              <?php echo $this->Form->control('name',['label' => 'プロジェクト名']);?>
             </p>
             <p>
-              <?php echo $this->Form->control('dateof');?>
+              <?php echo $this->Form->control('dateof' ,['label' => '実施日']);?>
             </p>
           </form>
           <p class="submit-button">

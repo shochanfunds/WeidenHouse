@@ -9,7 +9,6 @@
           ?>
           <?php echo $this->element('seachform');?>
 
-
           <p class="clients-title">インタビュー対象者一覧 (全て)</p>
           <table class="table">
             <thead>
@@ -18,10 +17,10 @@
             <tbody>
               <?php $counter = 0;$person = "";?>
               <?php foreach($clients as $client):?>
-                <?php if($person != $client->endclient->name): $counter = $counter + 1;?>
+                <?php if($person != $client->project->name): $counter = $counter + 1;?>
                 <?php else: $counter = $counter;?>
                 <?php endif;?>
-                <?php $person = $client->endclient->name;?>
+                <?php $person = $client->project->name;?>
                 <?php if($counter % 2 == 0):?>
                   <tr  data-paidstatuse = "<?= h($client->paidstatus->statuse_name)?>" data-username="<?= h($client->first_name)?><?= h($client->last_name) ?>" data-client-name-ruby="<?= h($client->first_name_ruby) . h($client->last_name_ruby)?>" data-birthday="<?= h($client->birthday)?>" data-phone-number ="<?= h($client->phone_number)?>" data-projectname="<?= h($client->project->name)?>" data-groupname="<?= h($client->universities_name) ?>">
                 <?php else:?>
@@ -46,17 +45,12 @@
         </div>
       </div>
     </div>
-
     <div class="pagination">
       <ul class="list-unstyled list-inline">
-        <li><a href="#">戻る</a></li>
-        <li><a class="now-hear" href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">6</a></li>
-        <li><a href="#">7</a></li>
-        <li><a href="#">次へ</a></li>
+        <?= $this->Paginator->first('<< ' . __('first')) ?>
+        <?= $this->Paginator->prev('< ' . __('previous')) ?>
+        <?= $this->Paginator->numbers() ?>
+        <?= $this->Paginator->next(__('next') . ' >') ?>
+        <?= $this->Paginator->last(__('last') . ' >>') ?>
       </ul>
     </div>

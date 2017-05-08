@@ -2,6 +2,11 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Filesystem\Folder;
+use Cake\Filesystem\File;
+use RuntimeException;
+use Cake\ORM\TableRegistry;
+use Cake\Routing\Router;
 
 /**
  * Clients Controller
@@ -11,6 +16,31 @@ use App\Controller\AppController;
 class ClientsController extends AppController
 {
 
+    public function initialize()
+    {
+      parent::initialize();
+      $this->projects = TableRegistry::get('Projects');
+      $this->clientsprojects = TableRegistry::get('ClientsProjects');
+    }
+    public function errorLog($message,$error_name){
+      $today = date("Y-m-d");
+      $now = date("Y-m-d H:i:s");
+      $file_name = "/Applications/MAMP/htdocs/PersonalTool/webroot/logs/error/" . $today . ".log";
+      $file = fopen($file_name,'a');
+      $message = $now . ":" ."< $error_name >". $message;
+      fwrite($file, $message . "\n");
+      fclose($file);
+    }
+    public function actionLog($message,$action_name){
+      $today = date("Y-m-d");
+      $now = date("Y-m-d H:i:s");
+      $file_name = "/Applications/MAMP/htdocs/PersonalTool/webroot/logs/action/" . $today . ".log";
+      $file = fopen($file_name,'a');
+      $message = $now . ":" ."< $action_name >". $message;
+      fwrite($file, $message . "\n");
+      fclose($file);
+    }
+
     /**
      * Index method
      *
@@ -19,13 +49,22 @@ class ClientsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Paidstatuses', 'Managers', 'Howtopays', 'Projects', 'CommissionAdmits', 'Sexes', 'PayReasons', 'Endclients'],
-            'order' => ['Endclients.name ASC']
+            'contain' => ['Paidstatuses', 'Managers', 'Howtopays', 'Projects', 'CommissionAdmits', 'Sexes', 'PayReasons', 'Endclients' ,'Categories'],
+            'order' => ['Projects.name ASC']
         ];
-        $clients = $this->paginate($this->Clients);
 
+        $clients = $this->paginate($this->Clients);
         $this->set(compact('clients'));
         $this->set('_serialize', ['clients']);
+    }
+    public function paidornot(){
+      $this->paginate = [
+          'contain' => ['Paidstatuses', 'Managers', 'Howtopays', 'Projects', 'CommissionAdmits', 'Sexes', 'PayReasons', 'Endclients' ,'Categories'],
+          'order' => ['Endclients.name ASC']
+      ];
+      $clients = $this->paginate($this->Clients);
+      $this->set(compact('clients'));
+      $this->set('_serialize', ['clients']);
     }
 
     /**
@@ -37,15 +76,26 @@ class ClientsController extends AppController
      */
     public function view($id = null)
     {
+
         $client = $this->Clients->get($id, [
-            'contain' => ['Paidstatuses', 'Managers', 'Howtopays', 'Projects', 'CommissionAdmits', 'Sexes', 'PayReasons' ,'Endclients']
+            'contain' => ['Paidstatuses', 'Managers', 'Howtopays', 'Projects', 'CommissionAdmits', 'Sexes', 'PayReasons' ,'Endclients' ,'Categories']
         ]);
 
         //とりあえずThumbnail画像を表示する
+        $projects_query = $this->clientsprojects->find('all')->where(['clients_id' =>$id]);
+        $project_array = array();
+        foreach($projects_query as $data){
+          $project =$this->projects->find('all')->where(['id' => $data->projects_id]);
+          foreach($project as $test){
+            $project_array[] = $test->name;
+          }
+        }
+        $thumbnail_path = Router::url("/",true) . 'img/thumbnail/';
         $this->loadModel('Clients');
         $thumbnail = $this->Clients->thumbnail();
-
+        $this->set("test",$project_array);
         $this->set('thumbnail',$thumbnail);
+        $this->set('thumbnail_position' , $thumbnail_path);
         $this->set('client', $client);
         $this->set('_serialize', ['client']);
     }
@@ -57,15 +107,21 @@ class ClientsController extends AppController
      */
     public function add()
     {
+
         $client = $this->Clients->newEntity();
         if ($this->request->is('post')) {
             $client = $this->Clients->patchEntity($client, $this->request->getData());
+            $client->thumbnail_name = $client->thumbnail["name"];
+            $this->actionLog($input_data,"クライアント登録");
             if ($this->Clients->save($client)) {
-                $this->Flash->success(__('The client has been saved.'));
-
+                $this->Flash->success(__('クライアント情報が新たに追加されました'));
+                $input_data = "Clientname : " . $client->first_name . $client->last_name."が新たに追加されました";
+                move_uploaded_file($this->request->data['thumbnail']['tmp_name'],  ROOT . "/webroot/img/thumbnail/" . $this->request->data['thumbnail']['name']);
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The client could not be saved. Please, try again.'));
+            $this->Flash->error(__('登録できませんでした。登録内容を再度ご確認ください'));
+            $input_data = "クライアント情報登録時に不正を検出しました。処理をブロックしました";
+            $this->errorLog($input_data,'クライアント登録失敗');
         }
         $paidstatuses = $this->Clients->Paidstatuses->find('list', ['limit' => 200]);
         $managers = $this->Clients->Managers->find('list', ['limit' => 200]);
@@ -75,7 +131,8 @@ class ClientsController extends AppController
         $sexes = $this->Clients->Sexes->find('list', ['limit' => 200]);
         $payReasons = $this->Clients->PayReasons->find('list', ['limit' => 200]);
         $endclients = $this->Clients->Endclients->find('list' ,['limit' => 200]);
-        $this->set(compact('client', 'paidstatuses', 'managers', 'howtopays', 'projects', 'commissionAdmits', 'sexes', 'payReasons', 'endclients'));
+        $categories = $this->Clients->Categories->find('list' , ['limit' => 200]);
+        $this->set(compact('client', 'paidstatuses', 'managers', 'howtopays', 'projects', 'commissionAdmits', 'sexes', 'payReasons', 'endclients' ,'categories'));
         $this->set('_serialize', ['client']);
     }
 
@@ -93,12 +150,20 @@ class ClientsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $client = $this->Clients->patchEntity($client, $this->request->getData());
+            $data = $this->request->data;
+            $client->thumbnail_name = $client->thumbnail["name"];
             if ($this->Clients->save($client)) {
-                $this->Flash->success(__('The client has been saved.'));
+                $this->Flash->success(__('クライアント情報が編集されました'));
+                $input_data ="$client->first_name $client->last_name が編集されました";
+                $this->actionLog($input_data,'クライアント情報編集');
+
+                move_uploaded_file($this->request->data['thumbnail']['tmp_name'],  ROOT . "/webroot/img/thumbnail/" . $this->request->data['thumbnail']['name']);
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The client could not be saved. Please, try again.'));
+            $input_data = "$client->first_name $client->last_name を編集しようとしましたが、編集内容に不正を検出したため処理をブロックしました";
+            $this->errorLog($input_data,'クライアント情報編集失敗');
+            $this->Flash->error(__('編集できませんでした。編集内容を再度ご確認ください'));
         }
         $paidstatuses = $this->Clients->Paidstatuses->find('list', ['limit' => 200]);
         $managers = $this->Clients->Managers->find('list', ['limit' => 200]);
@@ -108,7 +173,8 @@ class ClientsController extends AppController
         $sexes = $this->Clients->Sexes->find('list', ['limit' => 200]);
         $payReasons = $this->Clients->PayReasons->find('list', ['limit' => 200]);
         $endclients = $this->Clients->Endclients->find('list' ,['limit' => 200]);
-        $this->set(compact('client', 'paidstatuses', 'managers', 'howtopays', 'projects', 'commissionAdmits', 'sexes', 'payReasons', 'endclients'));
+        $categories = $this->Clients->Categories->find('list' ,['limit' => 200]);
+        $this->set(compact('client', 'paidstatuses', 'managers', 'howtopays', 'projects', 'commissionAdmits', 'sexes', 'payReasons', 'endclients' ,'categories'));
         $this->set('_serialize', ['client']);
     }
 
@@ -124,9 +190,13 @@ class ClientsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $client = $this->Clients->get($id);
         if ($this->Clients->delete($client)) {
-            $this->Flash->success(__('The client has been deleted.'));
+            $this->Flash->success(__('削除しました'));
+            $input_data = "$client->first_name $client->last_name を削除しました";
+            $this->actionLog($input_data,'クライアント削除');
         } else {
-            $this->Flash->error(__('The client could not be deleted. Please, try again.'));
+            $input_data = "$client->first_name $client->last_name を削除しようとしましたが、失敗しました";
+            $this->errorLog($input_data,'クライアント情報削除失敗');
+            $this->Flash->error(__('削除できませんでした。'));
         }
 
         return $this->redirect(['action' => 'index']);

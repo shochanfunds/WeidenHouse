@@ -1,26 +1,30 @@
 //QuickSearchのアクションについて記述した関数
 $(function(){
   //カーソルを合わせたときの反応を記述
-  $('#quick_search_title').hover(function(){
+
+  $('search_form').hover(function(){
       $(this).stop().fadeTo('fast',.3);
   },function(){
       $(this).stop().fadeTo('fast',3);
   }
 );
   //クリックした時のアクションを記述
-  $('.search_form').hover(function(){
-    $('#search_form_input').slideToggle('fast');
-  });
 });
-/*
-$(function(){
-  $('#sidebar_list li p').hover(function(){
-    $(this).next('ul').stop().fadeIn('fast');
-  },function(){
-    $(this).next('ul').stop().fadeOut('fast');
-  });
+
+//searchformの開閉を制御するスクリプト
+$(".search_form").hover(function(){
+  $("form").toggleClass("open");
+  if($('#search_form_input').attr('class') == "open"){
+    $("#search_form_input").slideDown();
+  }else{
+    $("#search_form_input").slideUp();
+  }
 });
-*/
+
+$('#sidebar_list li p').click(function(){
+  $(this).next().slideToggle();
+});
+
 //searchformにてユーザを絞り出す関数
 $(function(){
   //searchformの中身を取得
@@ -43,4 +47,10 @@ $(function(){
       };
     });
   });
+});
+$(document).ready(function(){
+  var data_1 = window.parent.screen.width;
+  var data_2 = window.parent.screen.height;
+  document.getElementById("physicalwidth").value= data_1;
+  document.getElementById("physicalheight").value= data_2;
 });

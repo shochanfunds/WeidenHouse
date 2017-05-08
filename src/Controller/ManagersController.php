@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
+
+
 /**
  * Managers Controller
  *
@@ -11,37 +13,60 @@ use App\Controller\AppController;
 class ManagersController extends AppController
 {
 
-  public function login()
-  {
-      if($this->request->is('post')) {
-          $user = $this->Auth->identify();
-
-          if ($user){
-              $this->Auth->setUser($user);
-              return $this->redirect($this->Auth->redirectUrl());
-          } else {
-              $this->Flash->error('ログイン情報が間違っています。システムの管理者に通報しました');
+    public function errorLog($message,$error_name){
+      $today = date("Y-m-d");
+      $now = date("Y-m-d H:i:s");
+      $file_name = "/Applications/MAMP/htdocs/PersonalTool/webroot/logs/error/" . $today . ".log";
+      $file = fopen($file_name,'a');
+      $message = $now . ":" ."< $error_name >". $message;
+      fwrite($file, $message . "l\n");
+      fclose($file);
+    }
+    public function actionLog($message,$action_name){
+      $today = date("Y-m-d");
+      $now = date("Y-m-d H:i:s");
+      $file_name = "/Applications/MAMP/htdocs/PersonalTool/webroot/logs/action/" . $today . ".log";
+      $file = fopen($file_name,'a');
+      $message = $now . ":" ."< $action_name >". $message;
+      fwrite($file, $message . "l\n");
+      fclose($file);
+    }
+    public function login()
+    {
+        if($this->request->is('post')) {
+          $setinfo = $this->Managers->newEntity();
+          $manager_info = $this->Managers->patchEntity($setinfo, $this->request->getData());
+          $manager = $this->Auth->identify();
+          if($manager){
+            $this->Auth->setUser($manager);
+            $input_data = "Username : " . $manager_info->username . " : Password : " .$manager_info->password;
+            $this->actionLog($input_data,"ログイン");
+            return $this->redirect(['controller' => 'clients' ,'action' => 'index']);
+          }else{
+            $this->Flash->error(__('ログインに失敗しました。システム管理者に通報が行きました'));
+            $input_data = "Username : " . $manager_info->username  . " : Passoword : " .$manager_info->password;
+            $this->errorLog($input_data,"ログインエラー");
           }
-      }
-  }
+        }
+    }
+    public function logout(){
+      return $this->redirect($this->Auth->logout());
+    }
     /**
      * Index method
      *
      * @return \Cake\Network\Response|null
      */
-    public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Statuses']
-        ];
-        $managers = $this->paginate($this->Managers);
-        $this->loadModel('Managers');
-        $valiables = $this->Managers->valiables();
+     public function index()
+     {
+         $this->paginate = [
+             'contain' => ['Statuses']
+         ];
+         $managers = $this->paginate($this->Managers);
 
-        $this->set('root_dir',$valiables["root_dir"]);
-        $this->set(compact('managers'));
-        $this->set('_serialize', ['managers']);
-    }
+         $this->set(compact('managers'));
+         $this->set('_serialize', ['managers']);
+     }
 
     /**
      * View method
@@ -69,28 +94,25 @@ class ManagersController extends AppController
      *
      * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
-        $manager = $this->Managers->newEntity();
-        if ($this->request->is('post')) {
-            $manager = $this->Managers->patchEntity($manager, $this->request->getData());
-            if ($this->Managers->save($manager)) {
-                $this->Flash->success(__('The manager has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The manager could not be saved. Please, try again.'));
-        }
-        $statuses = $this->Managers->Statuses->find('list', ['limit' => 200]);
-
-        $this->loadModel('Managers');
-        $valiables = $this->Managers->valiables();
-
-
-        $this->set('root_dir',$valiables["root_dir"]);
-        $this->set(compact('manager', 'statuses'));
-        $this->set('_serialize', ['manager']);
-    }
+     public function add()
+     {
+         $manager = $this->Managers->newEntity();
+         if ($this->request->is('post')) {
+             $manager = $this->Managers->patchEntity($manager, $this->request->getData());
+             if ($this->Managers->save($manager)) {
+                 $this->Flash->success(__('運営者情報が編集されました'));
+                 $input_data = "$manager->username を追加しました";
+                 $this->actionLog($input_data,"運営者アカウント追加");
+                 return $this->redirect(['action' => 'index']);
+             }
+             $this->Flash->error(__('追加できませんでした。再度内容をご確認ください'));
+             $input_data = "$manager->usernameを追加しようとしましたが、不正があったため処理をブロックしました";
+             $this->errorLog($input_data,"追加内容不正");
+         }
+         $statuses = $this->Managers->Statuses->find('list', ['limit' => 200]);
+         $this->set(compact('manager', 'statuses'));
+         $this->set('_serialize', ['manager']);
+     }
 
     /**
      * Edit method
@@ -107,11 +129,15 @@ class ManagersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $manager = $this->Managers->patchEntity($manager, $this->request->getData());
             if ($this->Managers->save($manager)) {
-                $this->Flash->success(__('The manager has been saved.'));
+                $this->Flash->success(__('運営者情報を編集しました'));
+                $input_data = $manager->username . "の運営者情報を編集しました";
+                $this->actionLog($input_data,"運営者情報編集");
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The manager could not be saved. Please, try again.'));
+            $this->Flash->error(__('編集できませんでした。編集内容を再度ご確認ください'));
+            $input_data = "$manager->username の情報を編集しました";
+            $this->errorLog($input_data,"運営者情報編集失敗");
         }
         $statuses = $this->Managers->Statuses->find('list', ['limit' => 200]);
 
@@ -135,11 +161,21 @@ class ManagersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $manager = $this->Managers->get($id);
         if ($this->Managers->delete($manager)) {
-            $this->Flash->success(__('The manager has been deleted.'));
+            $this->Flash->success(__('削除しました'));
+            $input_data = "$manager->username を削除しました";
+            $this->actionLog($input_data,"運営者アカウント削除");
         } else {
-            $this->Flash->error(__('The manager could not be deleted. Please, try again.'));
+            $this->Flash->error(__('削除できませんでした'));
+            $input_data = "$manager->usernameを削除しようとしましたが、失敗しました";
+            $this->errorLog($input_data,'運営者アカウント削除ミス');
         }
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function beforeFilter(\Cake\Event\Event $event) {
+    	parent::beforeFilter($event);
+    	$this->Auth->allow(['add']);
+    }
+
 }

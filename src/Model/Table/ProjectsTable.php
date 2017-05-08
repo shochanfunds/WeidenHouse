@@ -37,6 +37,9 @@ class ProjectsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->belongsToMany('Clients',[
+          'joinTable' => 'clients_projects',
+        ]);
     }
 
     /**

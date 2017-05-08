@@ -35,11 +35,11 @@ class CommissionAdmitsController extends AppController
         if ($this->request->is('post')) {
             $commissionAdmit = $this->CommissionAdmits->patchEntity($commissionAdmit, $this->request->getData());
             if ($this->CommissionAdmits->save($commissionAdmit)) {
-                $this->Flash->success(__('The commission admit has been saved.'));
+                $this->Flash->success(__('手数料差引管理情報が新たに追加されました'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The commission admit could not be saved. Please, try again.'));
+            $this->Flash->error(__('登録できませんでした。登録内容を再度ご確認ください'));
         }
         $this->set(compact('commissionAdmit'));
         $this->set('_serialize', ['commissionAdmit']);
@@ -60,11 +60,11 @@ class CommissionAdmitsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $commissionAdmit = $this->CommissionAdmits->patchEntity($commissionAdmit, $this->request->getData());
             if ($this->CommissionAdmits->save($commissionAdmit)) {
-                $this->Flash->success(__('The commission admit has been saved.'));
+                $this->Flash->success(__('手数料差引管理情報が編集されました'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The commission admit could not be saved. Please, try again.'));
+            $this->Flash->error(__('編集できませんでした。再度編集内容をご確認ください'));
         }
         $this->set(compact('commissionAdmit'));
         $this->set('_serialize', ['commissionAdmit']);
@@ -82,9 +82,9 @@ class CommissionAdmitsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $commissionAdmit = $this->CommissionAdmits->get($id);
         if ($this->CommissionAdmits->delete($commissionAdmit)) {
-            $this->Flash->success(__('The commission admit has been deleted.'));
+            $this->Flash->success(__('削除しました'));
         } else {
-            $this->Flash->error(__('The commission admit could not be deleted. Please, try again.'));
+            $this->Flash->error(__('削除できませんでした'));
         }
 
         return $this->redirect(['action' => 'index']);

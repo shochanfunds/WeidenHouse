@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\Routing\Router;
 
 /**
  * Application Controller
@@ -43,7 +44,6 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        /*
         $this->loadComponent('Auth',[
           'loginAction' => [
             'controller' => 'Managers',
@@ -52,9 +52,14 @@ class AppController extends Controller
           'authError' => 'ログイン情報が間違っています。システムの管理者に通報しました',
           'authenticate' => [
             'Form' => [
+              'userModel' => 'Managers',
               'fields' => [
                 'username' => 'username',
-                'password' => 'password'
+                'password' => 'password',
+              ],
+              'scope' =>[
+                //稼働中のアカウントのみ許可
+                'Managers.statuses_id' => 1,
               ]
             ]
           ],
@@ -63,7 +68,6 @@ class AppController extends Controller
             'action' => 'index'
           ]
         ]);
-        */
 
 
         /*

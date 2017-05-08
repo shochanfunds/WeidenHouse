@@ -50,11 +50,14 @@ body{
 }
 .search_form{
 	float:right;
+	z-index:999;
 	@include border_radius;
 	border:3px solid $navy_color;
 	form{
+		padding:0px 10px;
+	}
+	#search_form_input{
 		display:none;
-		padding:15px 10px;
 	}
 	.search_form_button{
 		@include submit_button;
@@ -129,7 +132,7 @@ body{
     .detal_text{
       margin:0 auto;
       font-size:15px;
-			height: 467px;
+			height: 431px;
       ul{
         .client_name{
           font-size:30px;
@@ -236,7 +239,7 @@ body{
         color:black;
       }
 			ul{
-				
+				display:none;
 			}
     }
   }
@@ -340,5 +343,31 @@ body{
 	background-color: white;
 	.radio-padding {
 		padding-left: 6px;
+	}
+}
+/*info*/
+.info-box{
+	font-size: 13px;
+	width: 900px;
+	margin: 0 auto;
+	table {
+    width: 100%;
+		margin-top: 30px;
+	}
+	td {
+		padding: 24px 0;
+		border-top: 0.5px solid #D3D3D3;
+	}
+	p {
+		padding-top: 88px;
+	}
+}
+.map-img {
+	img {
+		margin: 0 auto;
+		width: 700px;
+		display: block;
+		margin-top: 10px;
+		margin-bottom: 100px;
 	}
 }

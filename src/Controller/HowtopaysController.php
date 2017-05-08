@@ -52,11 +52,11 @@ class HowtopaysController extends AppController
         if ($this->request->is('post')) {
             $howtopay = $this->Howtopays->patchEntity($howtopay, $this->request->getData());
             if ($this->Howtopays->save($howtopay)) {
-                $this->Flash->success(__('The howtopay has been saved.'));
+                $this->Flash->success(__('支払い方法が新たに追加されました'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The howtopay could not be saved. Please, try again.'));
+            $this->Flash->error(__('登録できませんでした。登録内容を再度ご確認ください'));
         }
         $this->set(compact('howtopay'));
         $this->set('_serialize', ['howtopay']);
@@ -77,11 +77,11 @@ class HowtopaysController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $howtopay = $this->Howtopays->patchEntity($howtopay, $this->request->getData());
             if ($this->Howtopays->save($howtopay)) {
-                $this->Flash->success(__('The howtopay has been saved.'));
+                $this->Flash->success(__('支払い方法を編集しました'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The howtopay could not be saved. Please, try again.'));
+            $this->Flash->error(__('編集できませんでした。再度編集内容をご確認ください'));
         }
         $this->set(compact('howtopay'));
         $this->set('_serialize', ['howtopay']);
@@ -99,9 +99,9 @@ class HowtopaysController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $howtopay = $this->Howtopays->get($id);
         if ($this->Howtopays->delete($howtopay)) {
-            $this->Flash->success(__('The howtopay has been deleted.'));
+            $this->Flash->success(__('削除しました'));
         } else {
-            $this->Flash->error(__('The howtopay could not be deleted. Please, try again.'));
+            $this->Flash->error(__('削除できませんでした'));
         }
 
         return $this->redirect(['action' => 'index']);

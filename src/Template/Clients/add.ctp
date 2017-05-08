@@ -7,129 +7,144 @@
   <?php echo $this->element('sidebar');?>
   <!--main contents-->
   <div class="container-fluid col-md-10 clients">
-    <?= $this->Form->create($client) ?>
+    <?= $this->Form->create($client,['type' => 'file']) ?>
     <div class="form-container">
       <div class="title">
         <p>インタビュー対象者追加</p>
       </div>
       <form action="index.html" method="post">
         <p>
-          <?php echo $this->Form->control('paidstatuses_id', ['options' => $paidstatuses]);?>
+          <?php echo $this->Form->control('paidstatuses_id', ['label' => '支払状況','options' => $paidstatuses]);?>
         </p>
         <p>
-          <?php echo $this->Form->control('managers_id', ['options' => $managers]);?>
+          <?php echo $this->Form->control('managers_id', ['label' => '担当者' ,'options' => $managers]);?>
         </p>
         <p>
-          <?php echo $this->Form->control('age'); ?>
+          <?php echo $this->Form->control('age' ,['label' => '年齢']); ?>
         </p>
         <p>
-          <?php echo $this->Form->file('thumbnail');?>
+          <?php echo $this->Form->input('thumbnail', ['label' => 'プロフィール画像','type' => 'file']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('endclients_id',['options' => $endclients]);?>
+          <?php echo $this->Form->control('categories_id' , ['label' => 'カテゴリ' ,'options' => $categories]);?>
         </p>
         <p>
-          <?php echo $this->Form->control('first_name');?>
+          <?php echo $this->Form->control('endclients_id',['label' => 'エンドクライアント名' ,'options' => $endclients]);?>
         </p>
         <p>
-          <?php echo $this->Form->control('last_name');?>
+          <?php echo $this->Form->control('first_name' ,['label' => '氏']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('first_name_ruby');?>
+          <?php echo $this->Form->control('last_name' ,['label' => '名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('last_name_ruby');?>
+          <?php echo $this->Form->control('first_name_ruby' ,['label' => '氏フリガナ']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('post_number');?>
+          <?php echo $this->Form->control('last_name_ruby' ,['label' => '名フリガナ']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('email');?>
+          <?php echo $this->Form->control('post_number',['label' => '郵便番号']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('prefecture');?>
+          <?php echo $this->Form->control('email' ,['label' => 'Emailアドレス']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('address1');?>
+          <?php echo $this->Form->control('prefecture' ,['label' => '都道府県']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('address2');?>
+          <?php echo $this->Form->control('address1',['label' => '市区町村番地']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('fee');?>
+          <?php echo $this->Form->control('address2',['label' => '建物名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('howtopays_id', ['options' => $howtopays]);?>
+          <?php echo $this->Form->control('fee' ,['label' => '謝礼金額']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('birthday');?>
+          <?php echo $this->Form->control('howtopays_id', ['label' => '支払い方法','options' => $howtopays]);?>
         </p>
         <p>
-          <?php echo $this->Form->control('phone_number');?>
+          <?php echo $this->Form->control('bunk_name' ,['label'=>'銀行名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('evaluation');?>
+          <?php echo $this->Form->control('branch_name' ,['label' => '支店名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('first_recruiter_name');?>
+          <?php echo $this->Form->control('branch_num' ,['label' => '支店番号']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('first_rectuiter_fee');?>
+          <?php echo $this->Form->control('bank_number' ,['label' => '口座番号']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('second_recruiter_name');?>
+          <?php echo $this->Form->control('birthday' ,['生年月日']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('second_recruiter_fee');?>
+          <?php echo $this->Form->control('phone_number' ,['label' => '電話番号']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('third_recruiter_name');?>
+          <?php echo $this->Form->control('evaluation' ,['label' => '評価']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('third_recruiter_fee');?>
+          <?php echo $this->Form->control('first_recruiter_name' ,['label' => '第一リクルーター名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('forth_recruiter_name');?>
+          <?php echo $this->Form->control('first_rectuiter_fee' ,['label' => '第一リクルーター謝礼額']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('forth_rectuiter_fee');?>
+          <?php echo $this->Form->control('second_recruiter_name' ,['label' => '第二リクルーター名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('projects_id', ['options' => $projects]);?>
+          <?php echo $this->Form->control('second_recruiter_fee' ,['label' => '第二リクルーター謝礼額']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('commission_admits_id', ['options' => $commissionAdmits]);?>
+          <?php echo $this->Form->control('third_recruiter_name' ,['label' => '第三リクルーター名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('high_schools_name');?>
+          <?php echo $this->Form->control('third_recruiter_fee',['label' => '第三リクルーター謝礼額']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('universities_name');?>
+          <?php echo $this->Form->control('forth_recruiter_name' ,['label' => '第四リクルーター名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('sexes_id', ['options' => $sexes]);?>
+          <?php echo $this->Form->control('forth_rectuiter_fee' ,['label' => '第四リクルーター謝礼額']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('companies_name');?>
+          <?php echo $this->Form->control('projects_id', ['label' => '関わったプロジェクト','options' => $projects]);?>
         </p>
         <p>
-          <?php echo $this->Form->control('actitivies');?>
+          <?php echo $this->Form->control('commission_admits_id', ['label' => '手数料差引' ,'options' => $commissionAdmits]);?>
         </p>
         <p>
-          <?php echo $this->Form->control('sns_info');?>
+          <?php echo $this->Form->control('high_schools_name',['label' => '出身高校名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('pay_reasons_id', ['options' => $payReasons]);?>
+          <?php echo $this->Form->control('universities_name' ,['label' => '出身大学名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('school_year');?>
+          <?php echo $this->Form->control('school_year',['label' => '学年']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('lived_place');?>
+          <?php echo $this->Form->control('sexes_id', ['label' => '性別' ,'options' => $sexes]);?>
+        </p>
+        <p>
+          <?php echo $this->Form->control('companies_name' ,['label' => '企業名']);?>
+        </p>
+        <p>
+          <?php echo $this->Form->control('actitivies' ,['label' => 'その他活動']);?>
+        </p>
+        <p>
+          <?php echo $this->Form->control('sns_info',['label' => 'SNS情報']);?>
+        </p>
+        <p>
+          <?php echo $this->Form->control('pay_reasons_id', ['label' => '謝礼理由' ,'options' => $payReasons]);?>
+        </p>
+        <p>
+          <?php echo $this->Form->control('lived_place' ,['label' => '出身地']);?>
         </p>
       </form>
       <p>
-        <?php echo $this->Form->control('remarks');?>
+        <?php echo $this->Form->control('remarks' ,['label' => '備考欄']);?>
       </p>
       <p class="submit-button">
         <?= $this->Form->button(__('送信')) ?>

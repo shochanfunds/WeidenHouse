@@ -53,11 +53,11 @@ class EndclientsTable extends Table
 
         $validator
             ->requirePresence('phone_number', 'create')
-            ->notEmpty('phone_number');
+            ->allowEmpty('phone_number');
 
         $validator
             ->requirePresence('address', 'create')
-            ->notEmpty('address');
+            ->allowEmpty('address');
 
         return $validator;
     }

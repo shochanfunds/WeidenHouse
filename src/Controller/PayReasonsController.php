@@ -52,11 +52,11 @@ class PayReasonsController extends AppController
         if ($this->request->is('post')) {
             $payReason = $this->PayReasons->patchEntity($payReason, $this->request->getData());
             if ($this->PayReasons->save($payReason)) {
-                $this->Flash->success(__('The pay reason has been saved.'));
+                $this->Flash->success(__('謝礼理由が新たに登録されました'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The pay reason could not be saved. Please, try again.'));
+            $this->Flash->error(__('登録できませんでした。登録内容を再度ご確認ください'));
         }
         $this->set(compact('payReason'));
         $this->set('_serialize', ['payReason']);

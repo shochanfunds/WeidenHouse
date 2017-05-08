@@ -27,6 +27,7 @@
           <li><?php echo $this->Html->link('エンドクライアント管理',['controller' => 'endclients' , 'action' => 'index']);?></li>
           <li><?php echo $this->Html->link('運用者管理',['controller' => 'managers' , 'action' => 'index']);?></li>
           <li><?php echo $this->Html->link('謝礼管理',['controller' => 'clients' , 'action' => 'index']);?></li>
+          <li><?php echo $this->Html->link('ログアウト',['controller' => 'managers','action' => 'logout']);?></li>
         </ul>
       </nav>
     </header>

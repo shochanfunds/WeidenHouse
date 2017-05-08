@@ -22,6 +22,8 @@
     <ul class="list-unstyled">
       <li><?php echo $this->Html->link('一覧表示' ,['controller' => 'clients' , 'action' => 'index']); ?></li>
       <li><?php echo $this->Html->link('登録' ,['controller' => 'clients' ,'action' =>'add']); ?></li>
+      <li><?php echo $this->Html->link('支払情報確認' ,['controller' => 'clients', 'action' => 'paidornot']);?></li>
+      <li><?php echo $this->Html->link('タグ付け',['controller' => 'clients-projects','action' => 'add']);?></li>
     </ul>
   </li>
   <li>

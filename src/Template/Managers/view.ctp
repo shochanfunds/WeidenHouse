@@ -13,7 +13,7 @@
            */
           ?>
 
-          <p class="clients-title">管理者一覧 (全て)</p>
+          <p class="clients-title"><?= h($manager->username)?>基本情報</p>
           <table class="table">
             <thead>
                 <tr><th>id</th><th>ユーザ名</th><th>email</th><th>パスワード</th><th>ステータス</th><th>作成日</th><th>修正日</th><tr>

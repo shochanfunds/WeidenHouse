@@ -27,7 +27,7 @@
                     <td class="actions">
                         <?= $this->Html->link(__('詳細'), ['action' => 'view', $endclient->id]) ?>
                         <?= $this->Html->link(__('修正'), ['action' => 'edit', $endclient->id]) ?>
-                        <?= $this->Form->postLink(__('削除'), ['action' => 'delete', $endclient->id], ['confirm' => __('Are you sure you want to delete # {0}?', $endclient->id)]) ?>
+                        <?= $this->Form->postLink(__('削除'), ['action' => 'delete', $endclient->id], ['confirm' => __('本当に削除してもよろしいですか？ # {0}?', $endclient->id)]) ?>
                     </td>
                   </tr>
               <?php endforeach;?>
@@ -39,14 +39,10 @@
 
     <div class="pagination">
       <ul class="list-unstyled list-inline">
-        <li><a href="#">戻る</a></li>
-        <li><a class="now-hear" href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">6</a></li>
-        <li><a href="#">7</a></li>
-        <li><a href="#">次へ</a></li>
+        <?= $this->Paginator->first('<< ' . __('first')) ?>
+        <?= $this->Paginator->prev('< ' . __('previous')) ?>
+        <?= $this->Paginator->numbers() ?>
+        <?= $this->Paginator->next(__('next') . ' >') ?>
+        <?= $this->Paginator->last(__('last') . ' >>') ?>
       </ul>
     </div>

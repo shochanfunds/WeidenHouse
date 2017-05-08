@@ -52,11 +52,11 @@ class SexesController extends AppController
         if ($this->request->is('post')) {
             $sex = $this->Sexes->patchEntity($sex, $this->request->getData());
             if ($this->Sexes->save($sex)) {
-                $this->Flash->success(__('The sex has been saved.'));
+                $this->Flash->success(__('性別が新たに追加されました'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The sex could not be saved. Please, try again.'));
+            $this->Flash->error(__('登録できませんでした。登録内容を再度ご確認ください'));
         }
         $this->set(compact('sex'));
         $this->set('_serialize', ['sex']);

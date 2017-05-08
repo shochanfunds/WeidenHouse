@@ -32,6 +32,28 @@ use Cake\Routing\Router;
 class ClientsTable extends Table
 {
 
+
+      public function beforeSave($event, $entity, $options)
+      {
+
+
+          if (!empty($entity->thumbnail["name"])) {
+              $entity->thumbnail = $this->_buildThumbnail($entity->thumbnail);
+          } else {
+              unset($entity->thumbnail);
+          }
+      }
+
+      protected function _buildThumbnail($thumbnail)
+      {
+          $ret = file_get_contents($thumbnail['tmp_name']);
+          if ($ret === false) {
+              throw new RuntimeException('Can not get thumbnail image.');
+          }
+
+          return $ret;
+      }
+
     /**
      * Initialize method
      *
@@ -43,42 +65,54 @@ class ClientsTable extends Table
         parent::initialize($config);
 
         $this->setTable('clients');
-        $this->setDisplayField('id');
+        $this->setDisplayField('first_name');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Paidstatuses', [
             'foreignKey' => 'paidstatuses_id',
-            'joinType' => 'INNER'
+            'joinType' => 'LEFT'
         ]);
         $this->belongsTo('Managers', [
             'foreignKey' => 'managers_id',
-            'joinType' => 'INNER'
+            'joinType' => 'LEFT'
         ]);
         $this->belongsTo('Howtopays', [
             'foreignKey' => 'howtopays_id',
-            'joinType' => 'INNER'
+            'joinType' => 'LEFT'
         ]);
+/*
         $this->belongsTo('Projects', [
             'foreignKey' => 'projects_id',
-            'joinType' => 'INNER'
+            'joinType' => 'LEFT'
+        ]);
+*/
+
+        $this->belongsTo('Projects',[
+          //'joinTable' => 'clients_projects',
+          'foreignKey' => 'projects_id',
+          'joinType' => 'LEFT'
         ]);
         $this->belongsTo('CommissionAdmits', [
             'foreignKey' => 'commission_admits_id',
-            'joinType' => 'INNER'
+            'joinType' => 'LEFT'
         ]);
         $this->belongsTo('Sexes', [
             'foreignKey' => 'sexes_id',
-            'joinType' => 'INNER'
+            'joinType' => 'LEFT'
         ]);
         $this->belongsTo('PayReasons', [
             'foreignKey' => 'pay_reasons_id',
-            'joinType' => 'INNER'
+            'joinType' => 'LEFT'
         ]);
         $this->belongsTo('Endclients',[
             'foreignKey' => 'endclients_id',
-            'joinType' => 'INNER'
+            'joinType' => 'LEFT'
+        ]);
+        $this->belongsTo('Categories',[
+            'foreignKey' => 'categories_id',
+            'joinType' => 'LEFT'
         ]);
     }
 
@@ -88,106 +122,135 @@ class ClientsTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator)
-    {
-        $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+     public function validationDefault(Validator $validator)
+     {
+         $validator
+             ->integer('id')
+             ->allowEmpty('id', 'create');
 
-        $validator
-            ->requirePresence('first_name', 'create')
-            ->notEmpty('first_name');
+         $validator
+             ->integer('age')
+             ->allowEmpty('age');
 
-        $validator
-            ->requirePresence('last_name', 'create')
-            ->notEmpty('last_name');
+         $validator
+             ->allowEmpty('thumbnail');
 
-        $validator
-            ->requirePresence('first_name_ruby', 'create')
-            ->notEmpty('first_name_ruby');
+         $validator
+             ->allowEmpty('first_name');
 
-        $validator
-            ->requirePresence('last_name_ruby', 'create')
-            ->notEmpty('last_name_ruby');
+         $validator
+             ->allowEmpty('last_name');
 
-        $validator
-            ->integer('fee')
-            ->requirePresence('fee', 'create')
-            ->notEmpty('fee');
+         $validator
+             ->allowEmpty('first_name_ruby');
 
-        $validator
-            ->date('birthday')
-            ->requirePresence('birthday', 'create')
-            ->notEmpty('birthday');
+         $validator
+             ->allowEmpty('last_name_ruby');
 
-        $validator
-            ->integer('phone_number')
-            ->requirePresence('phone_number', 'create')
-            ->notEmpty('phone_number');
+         $validator
+             ->integer('fee')
+             ->allowEmpty('fee');
 
-        $validator
-            ->integer('evaluation')
-            ->requirePresence('evaluation', 'create')
-            ->notEmpty('evaluation');
+         $validator
+             ->date('birthday')
+             ->allowEmpty('birthday');
 
-        $validator
-            ->allowEmpty('first_recruiter_name');
+         $validator
+             ->allowEmpty('phone_number');
 
-        $validator
-            ->integer('first_rectuiter_fee')
-            ->allowEmpty('first_rectuiter_fee');
+         $validator
+             ->email('email')
+             ->allowEmpty('email');
 
-        $validator
-            ->allowEmpty('second_recruiter_name');
+         $validator
+             ->integer('evaluation')
+             ->allowEmpty('evaluation');
 
-        $validator
-            ->integer('second_recruiter_fee')
-            ->allowEmpty('second_recruiter_fee');
+         $validator
+             ->allowEmpty('first_recruiter_name');
 
-        $validator
-            ->allowEmpty('third_recruiter_name');
+         $validator
+             ->integer('first_rectuiter_fee')
+             ->allowEmpty('first_rectuiter_fee');
 
-        $validator
-            ->integer('third_recruiter_fee')
-            ->allowEmpty('third_recruiter_fee');
+         $validator
+             ->allowEmpty('second_recruiter_name');
 
-        $validator
-            ->allowEmpty('forth_recruiter_name');
+         $validator
+             ->integer('second_recruiter_fee')
+             ->allowEmpty('second_recruiter_fee');
 
-        $validator
-            ->integer('forth_rectuiter_fee')
-            ->allowEmpty('forth_rectuiter_fee');
+         $validator
+             ->allowEmpty('third_recruiter_name');
 
-        $validator
-            ->requirePresence('high_schools_name', 'create')
-            ->notEmpty('high_schools_name');
+         $validator
+             ->integer('third_recruiter_fee')
+             ->allowEmpty('third_recruiter_fee');
 
-        $validator
-            ->requirePresence('universities_name', 'create')
-            ->notEmpty('universities_name');
+         $validator
+             ->allowEmpty('forth_recruiter_name');
 
-        $validator
-            ->requirePresence('companies_name', 'create')
-            ->notEmpty('companies_name');
+         $validator
+             ->integer('forth_rectuiter_fee')
+             ->allowEmpty('forth_rectuiter_fee');
 
-        $validator
-            ->requirePresence('sns_info', 'create')
-            ->notEmpty('sns_info');
+         $validator
+             ->allowEmpty('high_schools_name');
 
-        $validator
-            ->integer('school_year')
-            ->requirePresence('school_year', 'create')
-            ->notEmpty('school_year');
+         $validator
+             ->allowEmpty('universities_name');
 
-        $validator
-            ->requirePresence('lived_place', 'create')
-            ->notEmpty('lived_place');
+         $validator
+             ->allowEmpty('companies_name');
 
-        return $validator;
-    }
+         $validator
+             ->allowEmpty('sns_info');
+
+         $validator
+             ->allowEmpty('activities');
+
+         $validator
+             ->integer('school_year')
+             ->allowEmpty('school_year');
+
+         $validator
+             ->allowEmpty('lived_place');
+
+         $validator
+             ->allowEmpty('remarks');
+
+         $validator
+             ->allowEmpty('prefecture');
+
+         $validator
+             ->allowEmpty('address1');
+
+         $validator
+             ->allowEmpty('address2');
+
+         $validator
+             ->allowEmpty('post_number');
+
+         $validator
+             ->allowEmpty('bunk_name');
+
+         $validator
+             ->allowEmpty('branch_name');
+
+         $validator
+             ->allowEmpty('branch_num');
+
+         $validator
+             ->allowEmpty('bank_number');
+
+         $validator
+             ->allowEmpty('thumbnail_name');
+
+         return $validator;
+     }
     //Thumbnail画像に関する処理
     function thumbnail(){
-      $noimage =  Router::url('/',true) . "img/thumbnail.jpg";
+      $noimage =  Router::url('/',true) . "img/thumbnail/";
 
       return $noimage;
     }
@@ -202,14 +265,14 @@ class ClientsTable extends Table
 
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['paidstatuses_id'], 'Paidstatuses'));
-        $rules->add($rules->existsIn(['managers_id'], 'Managers'));
-        $rules->add($rules->existsIn(['howtopays_id'], 'Howtopays'));
-        $rules->add($rules->existsIn(['projects_id'], 'Projects'));
-        $rules->add($rules->existsIn(['commission_admits_id'], 'CommissionAdmits'));
-        $rules->add($rules->existsIn(['sexes_id'], 'Sexes'));
-        $rules->add($rules->existsIn(['pay_reasons_id'], 'PayReasons'));
-        $rules->add($rules->existsIn(['endclients_id'], 'Endclients'));
+        //$rules->add($rules->existsIn(['paidstatuses_id'], 'Paidstatuses'));
+        //$rules->add($rules->existsIn(['managers_id'], 'Managers'));
+        //$rules->add($rules->existsIn(['howtopays_id'], 'Howtopays'));
+        //$rules->add($rules->existsIn(['projects_id'], 'Projects'));
+        //$rules->add($rules->existsIn(['commission_admits_id'], 'CommissionAdmits'));
+        //$rules->add($rules->existsIn(['sexes_id'], 'Sexes'));
+        //$rules->add($rules->existsIn(['pay_reasons_id'], 'PayReasons'));
+        //$rules->add($rules->existsIn(['endclients_id'], 'Endclients'));
 
         return $rules;
     }

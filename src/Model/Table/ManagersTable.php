@@ -53,37 +53,35 @@ class ManagersTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator)
-    {
-        $validator
-            ->integer('id')
-            ->allowEmpty('id', 'create');
+     public function validationDefault(Validator $validator)
+     {
+         $validator
+             ->integer('id')
+             ->allowEmpty('id', 'create');
 
-        $validator
-            ->requirePresence('username', 'create')
-            ->notEmpty('username');
+         $validator
+             ->requirePresence('username', 'create')
+             ->notEmpty('username');
 
-        $validator
-            ->requirePresence('password', 'create')
-            ->notEmpty('password');
+         $validator
+             ->requirePresence('password', 'create')
+             ->notEmpty('password');
 
-        $validator
-            ->email('email')
-            ->requirePresence('email', 'create')
-            ->notEmpty('email');
+         $validator
+             ->email('email')
+             ->requirePresence('email', 'create')
+             ->notEmpty('email');
 
-        $validator
-            ->integer('physicalwidth')
-            ->requirePresence('physicalwidth', 'create')
-            ->notEmpty('physicalwidth');
+         $validator
+             ->requirePresence('physicalwidth', 'create')
+             ->notEmpty('physicalwidth');
 
-        $validator
-            ->integer('physicalheight')
-            ->requirePresence('physicalheight', 'create')
-            ->notEmpty('physicalheight');
+         $validator
+             ->requirePresence('physicalheight', 'create')
+             ->notEmpty('physicalheight');
 
-        return $validator;
-    }
+         return $validator;
+     }
 
     /**
      * Returns a rules checker object that will be used for validating
@@ -100,7 +98,6 @@ class ManagersTable extends Table
 
         return $rules;
     }
-
     function valiables(){
       $valiables = array(
         'root_dir' => Router::url('/',true),

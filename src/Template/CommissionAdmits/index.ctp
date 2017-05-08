@@ -27,7 +27,7 @@
                     <td><?= h($commissionAdmit->modifed) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $commissionAdmit->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $commissionAdmit->id], ['confirm' => __('Are you sure you want to delete # {0}?', $commissionAdmit->id)]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $commissionAdmit->id], ['confirm' => __('本当に削除してもよろしいですか？ # {0}?', $commissionAdmit->id)]) ?>
                     </td>
                   </tr>
                 <?php endforeach;?>
