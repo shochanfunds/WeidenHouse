@@ -230,7 +230,7 @@ return [
              */
             //'port' => 'non_standard_port_number',
             'username' => 'root',
-            'password' => 'root',
+            'password' => 'password',
             'database' => 'Weiden',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
