@@ -77,7 +77,7 @@
           <?php echo $this->Form->control('bank_number' ,['label' => '口座番号']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('birthday' ,['生年月日']);?>
+          <?php echo $this->Form->control('birthday' , array('type' => 'date','dateFormat' => 'YMD','monthNames' => false,'maxYear' => date('Y'),'minYear' => date('Y') - 100,));?>
         </p>
         <p>
           <?php echo $this->Form->control('phone_number' ,['label' => '電話番号']);?>

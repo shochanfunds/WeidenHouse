@@ -17,7 +17,7 @@
               <?php echo $this->Form->control('name');?>
             </p>
             <p>
-              <?php echo $this->Form->control('modifed');?>
+              <?php echo $this->Form->control('modifed',['type' =>'hidden']);?>
             </p>
           </form>
           <p class="submit-button">

@@ -455,11 +455,16 @@ body {
 .birth_alert {
 	height: 70px;
 }
-.form-container {
-	.input:nth-child(4) {
-		display: none;
-	}
-	.input:nth-child(5) {
-		display: none;
+
+.managers {
+	form {
+		.form-container {
+			div:nth-child(12) {
+				display: none;
+			}
+			div:nth-child(15) {
+	 	 	  display: none;
+	 	  }
+		}
 	}
 }

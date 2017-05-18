@@ -36,7 +36,7 @@
 
   <?= $this->fetch('content') ?>
 
-  <script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.4.3.min.js"></script>
   <?= $this->Html->script('action.js')?>
   <?= $this->Html->script('bootstrap.min.js')?>
   <?= $this->fetch('script') ?>

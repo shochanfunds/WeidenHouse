@@ -37,6 +37,8 @@ class ManagersController extends AppController
           $setinfo = $this->Managers->newEntity();
           $manager_info = $this->Managers->patchEntity($setinfo, $this->request->getData());
           $manager = $this->Auth->identify();
+          //var_dump($manager);
+          //exit;
           if($manager){
             $this->Auth->setUser($manager);
             $input_data = "Username : " . $manager_info->username . " : Password : " .$manager_info->password;
@@ -50,6 +52,8 @@ class ManagersController extends AppController
               $this->actionLog($input_data,"ログイン");
               return $this->redirect(['controller' => 'clients' ,'action' => 'index']);
             }else{
+              var_dump($physicalwidth_input);
+              exit;
               $this->Flash->error(__('ログインに失敗しました。システム管理者に通報が行きました'));
               $input_data = "Username : " . $manager_info->username  . " : Passoword : " .$manager_info->password;
               $this->errorLog($input_data,"ログインエラー");

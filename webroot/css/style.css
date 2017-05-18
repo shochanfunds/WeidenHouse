@@ -362,9 +362,9 @@ body {
 .birth_alert {
   height: 70px; }
 
-.form-container .input:nth-child(4) {
+.managers form .form-container div:nth-child(12) {
   display: none; }
-.form-container .input:nth-child(5) {
+.managers form .form-container div:nth-child(15) {
   display: none; }
 
 /*# sourceMappingURL=style.css.map */
