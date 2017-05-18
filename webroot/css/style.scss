@@ -286,9 +286,6 @@ body{
 .form-container {
 	margin-top: 40px;
 	margin-left: 30px;
-	div:first-child{
-		display:none;
-	}
 	label {
 		width: 100%;
 		margin-top: 12px;
@@ -457,4 +454,12 @@ body {
 }
 .birth_alert {
 	height: 70px;
+}
+.form-container {
+	.input:nth-child(4) {
+		display: none;
+	}
+	.input:nth-child(5) {
+		display: none;
+	}
 }

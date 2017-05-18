@@ -228,8 +228,6 @@ body {
 .form-container {
   margin-top: 40px;
   margin-left: 30px; }
-  .form-container div:first-child {
-    display: none; }
   .form-container label {
     width: 100%;
     margin-top: 12px; }
@@ -363,5 +361,10 @@ body {
 
 .birth_alert {
   height: 70px; }
+
+.form-container .input:nth-child(4) {
+  display: none; }
+.form-container .input:nth-child(5) {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */
