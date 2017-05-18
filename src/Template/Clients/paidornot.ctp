@@ -10,10 +10,10 @@
           <?php echo $this->element('seachform');?>
 
 
-          <p class="clients-title">インタビュー対象者一覧 (全て)</p>
+          <p class="clients-title">報酬支払情報 (全て)</p>
           <table class="table">
             <thead>
-                <tr><th>名前 (年齢)</th><th>性別</th><th>フリガナ</th><th>プロジェクト名</th><th>銀行名</th><th>口座番号</th><th>支店名</th><th>支店番号</th><th>支払状況</th><th>操作</th><tr>
+                <tr><th>名前 (年齢)</th><th>フリガナ</th><th>プロジェクト名</th><th>金額</th><th>銀行名</th><th>口座番号</th><th>支店名</th><th>支店番号</th><th>支払状況</th><th>操作</th><tr>
             </thead>
             <tbody>
               <?php $counter = 0;$person = "";?>
@@ -28,9 +28,9 @@
                   <tr class="gray_background" data-paidstatuse = "<?= h($client->paidstatus->status_name)?>" data-username="<?= h($client->first_name)?><?= h($client->last_name) ?>" data-birthday="<?= h($client->birthday)?>" data-phone-number ="<?= h($client->phone_number)?>" data-client-name-ruby="<?= h($client->first_name_ruby) . h($client->last_name_ruby)?>" data-projectname="<?= h($client->project->name)?>" data-groupname="<?= h($client->universities_name) ?>">
                 <?php endif;?>
                     <td><?= $this->Html->link(__(h($client->first_name) . ' ' . h($client->last_name)), ['action' => 'view', $client->id]) ?> (<?= h($client->age)?>)</td>
-                    <td><?= $client->has('sex') ? $this->Html->link($client->sex->name, ['controller' => 'Sexes', 'action' => 'view', $client->sex->id]) : '' ?></td>
                     <td><?= h($client->first_name_ruby)?> <?= h($client->last_name_ruby)?></td>
                     <td><?= h($client->project->name)?></td>
+                    <td><?= h($client->fee)?>円</td>
                     <td><?= h($client->bunk_name) ?></td>
                     <td><?= h($client->bank_number) ?></td>
                     <td><?= h($client->branch_name) ?></td>

@@ -16,7 +16,7 @@ class ManagersController extends AppController
     public function errorLog($message,$error_name){
       $today = date("Y-m-d");
       $now = date("Y-m-d H:i:s");
-      $file_name = "/Applications/MAMP/htdocs/PersonalTool/webroot/logs/error/" . $today . ".log";
+      $file_name = "/logs/error/" . $today . ".log";
       $file = fopen($file_name,'a');
       $message = $now . ":" ."< $error_name >". $message;
       fwrite($file, $message . "l\n");
@@ -25,7 +25,7 @@ class ManagersController extends AppController
     public function actionLog($message,$action_name){
       $today = date("Y-m-d");
       $now = date("Y-m-d H:i:s");
-      $file_name = "/Applications/MAMP/htdocs/PersonalTool/webroot/logs/action/" . $today . ".log";
+      $file_name = "/logs/action/" . $today . ".log";
       $file = fopen($file_name,'a');
       $message = $now . ":" ."< $action_name >". $message;
       fwrite($file, $message . "l\n");
@@ -40,12 +40,26 @@ class ManagersController extends AppController
           if($manager){
             $this->Auth->setUser($manager);
             $input_data = "Username : " . $manager_info->username . " : Password : " .$manager_info->password;
-            $this->actionLog($input_data,"ログイン");
-            return $this->redirect(['controller' => 'clients' ,'action' => 'index']);
+            $user_data = $this->Managers->findByUsername($manager_info->username);
+            $manager = $user_data->toArray();
+            $physicalwidth_real = $manager[0]->physicalwidth;
+            $physicalheight_real = $manager[0]->physicalheight;
+            $physicalwidth_input = $manager_info->physicalwidth;
+            $physicalheight_input = $manager_info->physicalheight;
+            if($physicalwidth_real === $physicalwidth_input && $physicalheight_real === $physicalheight_input){
+              $this->actionLog($input_data,"ログイン");
+              return $this->redirect(['controller' => 'clients' ,'action' => 'index']);
+            }else{
+              $this->Flash->error(__('ログインに失敗しました。システム管理者に通報が行きました'));
+              $input_data = "Username : " . $manager_info->username  . " : Passoword : " .$manager_info->password;
+              $this->errorLog($input_data,"ログインエラー");
+              return $this->redirect($this->Auth->logout());
+            }
           }else{
             $this->Flash->error(__('ログインに失敗しました。システム管理者に通報が行きました'));
             $input_data = "Username : " . $manager_info->username  . " : Passoword : " .$manager_info->password;
             $this->errorLog($input_data,"ログインエラー");
+            return $this->redirect($this->Auth->logout());
           }
         }
     }
@@ -175,7 +189,7 @@ class ManagersController extends AppController
 
     public function beforeFilter(\Cake\Event\Event $event) {
     	parent::beforeFilter($event);
-    	$this->Auth->allow(['add']);
+    	//$this->Auth->allow(['add']);
     }
 
 }

@@ -21,12 +21,12 @@
   <body>
   <?php if(!strpos($_SERVER["PHP_SELF"],'login')):?>
     <header class="container-fluid col-md-12 header-wrapper">
-      <p class="col-md-8 system-title"><a>PersonalTool<a></p>
-      <nav class="row col-md-4 header-navigation">
+      <p class="col-md-7 system-title"><?php echo $this->Html->link('PersonalTool',['controller' => 'clients' ,'action' => 'index']);?></p>
+      <nav class="row col-md-5 header-navigation">
         <ul class="list-unstyled list-inline text-right nav-list">
           <li><?php echo $this->Html->link('エンドクライアント管理',['controller' => 'endclients' , 'action' => 'index']);?></li>
           <li><?php echo $this->Html->link('運用者管理',['controller' => 'managers' , 'action' => 'index']);?></li>
-          <li><?php echo $this->Html->link('謝礼管理',['controller' => 'clients' , 'action' => 'index']);?></li>
+          <li><?php echo $this->Html->link('支払情報',['controller' => 'clients' , 'action' => 'paidornot']);?></li>
           <li><?php echo $this->Html->link('ログアウト',['controller' => 'managers','action' => 'logout']);?></li>
         </ul>
       </nav>

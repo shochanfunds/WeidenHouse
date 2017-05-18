@@ -2,6 +2,15 @@
   <ul id="sidebar_list" class="list-unstyled">
   <li class="sidebar_tag">運用システム管理</li>
     <li>
+      <p>インタビュー対象者管理</p>
+      <ul class="list-unstyled">
+        <li><?php echo $this->Html->link('一覧表示' ,['controller' => 'clients' , 'action' => 'index']); ?></li>
+        <li><?php echo $this->Html->link('支払情報確認' ,['controller' => 'clients', 'action' => 'paidornot']);?></li>
+        <li><?php echo $this->Html->link('登録' ,['controller' => 'clients' ,'action' =>'add']); ?></li>
+        <li><?php echo $this->Html->link('タグ付け',['controller' => 'clients-projects','action' => 'add']);?></li>
+      </ul>
+    </li>
+    <li>
       <p>
         エンドクライアント管理
         <ul class="list-unstyled">
@@ -15,15 +24,6 @@
     <ul class="list-unstyled">
       <li><?php echo $this->Html->link('一覧表示' ,['controller' => 'managers' , 'action' => 'index']); ?></li>
       <li><?php echo $this->Html->link('登録' ,['controller' => 'managers' ,'action' =>'add']); ?></li>
-    </ul>
-  </li>
-  <li>
-    <p>インタビュー対象者管理</p>
-    <ul class="list-unstyled">
-      <li><?php echo $this->Html->link('一覧表示' ,['controller' => 'clients' , 'action' => 'index']); ?></li>
-      <li><?php echo $this->Html->link('登録' ,['controller' => 'clients' ,'action' =>'add']); ?></li>
-      <li><?php echo $this->Html->link('支払情報確認' ,['controller' => 'clients', 'action' => 'paidornot']);?></li>
-      <li><?php echo $this->Html->link('タグ付け',['controller' => 'clients-projects','action' => 'add']);?></li>
     </ul>
   </li>
   <li>
@@ -41,10 +41,8 @@
     </ul>
   </li>
     <li><?php echo $this->Html->link('→Topへ戻る' ,['controller' => 'clients' ,'action' => 'index']); ?></li>
-    <li class="sidebar_tag">謝礼管理</li>
-    <li><?php echo $this->Html->link('インタビュー対象者一覧',['controller' => 'clients' , 'action' => 'index']);?></li>
+    <li class="sidebar_tag">拡張機能</li>
     <li><a href="#">Excelエクスポート</a></li>
-    <li><?php echo $this->Html->link('支払状況確認',['controller' => 'paidstatuses' , 'action' => 'index']);?></li>
     <li><?php echo $this->Html->link('→Topへ戻る' ,['controller' => 'clients' ,'action' => 'index']); ?></li>
   </ul>
 </div>

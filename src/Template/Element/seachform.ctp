@@ -1,5 +1,5 @@
 <div class="search_form">
-  <h2><img src="<?php echo ROOT;?>/webroot/img/search_icon.png" width="25px" height="25px"></h2>
+  <h2><img src="/img/search_icon.png" width="25px" height="25px"></h2>
   <form id="search_form_input">
     <div class="form-group">
       <?php /*

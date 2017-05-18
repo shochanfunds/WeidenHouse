@@ -1,4 +1,5 @@
 <div class="clearfix all_wrapper">
+  <p class="birth_alert"><?= $this->Html->link("今日誕生日の人は" . $birthday . "人います",['controller'=>'clients' , 'action' => 'birthday']);?></p>
   <?php echo $this->element('sidebar');?>
   <div class="container-fluid col-md-10 clients">
         <div>
@@ -7,12 +8,27 @@
             特定の条件に当てはまるクライアント一覧を表示する画面
            */
           ?>
-          <?php echo $this->element('seachform');?>
+          <div class="search_form">
+            <h2><img src="/img/search_icon.png" width="25px" height="25px"></h2>
+            <div>
+            <?= $this->Form->create(null, ['type' => 'get'])?>
+              <?php echo $this->Form->input('username',['value' => $this->request->query('username')]);?>
+              <?php echo $this->Form->input('first_name_ruby',['value' => $this->request->query('first_name_ruby')]);?>
+              <?php echo $this->Form->input('project_name',['value' => $this->request->query('project_name')]);?>
+              <?php echo $this->Form->input('phone_number',['value' => $this->request->query('phone_number')]);?>
+              <?php echo $this->Form->input('category',['value' => $this->request->query('category')]);?>
+              <?php echo $this->Form->input('birth',['value' => $this->request->query('birth')]);?>
+              <?= $this->Form->button(__('検索'))?>
+              <?= $this->Form->end() ?>
+            </div>
+          </div>
 
           <p class="clients-title">インタビュー対象者一覧 (全て)</p>
           <table class="table">
             <thead>
-                <tr><th>名前 (年齢)</th><th>性別</th><th>フリガナ</th><th>評価</th><th>所属</th><th>プロジェクト名</th><th>担当者</th><th>エンドクライアント</th><th>操作</th><tr>
+                <tr><th><?= $this->Paginator->sort('first_name',"名前 (年齢)")?></th><th><?= $this->Paginator->sort('first_name',"性別")?></th><th><?= $this->Paginator->sort('first_name_ruby',"フリガナ")?></th>
+                  <th><?= $this->Paginator->sort('evaluation',"評価")?></th><th><?= $this->Paginator->sort('Category.name','所属')?></th><th><?= $this->Paginator->sort('Project.name','プロジェクト名')?></th>
+                  <th><?= $this->Paginator->sort('Manager.username','担当者')?></th><th><?= $this->Paginator->sort('Endclient','エンドクライアント')?></th><th>操作</th><tr>
             </thead>
             <tbody>
               <?php $counter = 0;$person = "";?>

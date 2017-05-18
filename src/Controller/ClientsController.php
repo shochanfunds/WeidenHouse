@@ -25,7 +25,7 @@ class ClientsController extends AppController
     public function errorLog($message,$error_name){
       $today = date("Y-m-d");
       $now = date("Y-m-d H:i:s");
-      $file_name = "/Applications/MAMP/htdocs/PersonalTool/webroot/logs/error/" . $today . ".log";
+      $file_name = "/logs/error/" . $today . ".log";
       $file = fopen($file_name,'a');
       $message = $now . ":" ."< $error_name >". $message;
       fwrite($file, $message . "\n");
@@ -34,7 +34,7 @@ class ClientsController extends AppController
     public function actionLog($message,$action_name){
       $today = date("Y-m-d");
       $now = date("Y-m-d H:i:s");
-      $file_name = "/Applications/MAMP/htdocs/PersonalTool/webroot/logs/action/" . $today . ".log";
+      $file_name = "/logs/action/" . $today . ".log";
       $file = fopen($file_name,'a');
       $message = $now . ":" ."< $action_name >". $message;
       fwrite($file, $message . "\n");
@@ -52,9 +52,23 @@ class ClientsController extends AppController
             'contain' => ['Paidstatuses', 'Managers', 'Howtopays', 'Projects', 'CommissionAdmits', 'Sexes', 'PayReasons', 'Endclients' ,'Categories'],
             'order' => ['Projects.name ASC']
         ];
-
-        $clients = $this->paginate($this->Clients);
+        $today = date("m-d");
+        $birthday = count($this->Clients->find('all')->where(['Clients.birthday LIKE' =>  "%$today%" ])->toArray());
+        if($this->request->query['username']){ $username = $this->request->query['username']; }else{ $username = NULL; }
+        if($this->request->query['first_name_ruby']){ $username_ruby = $this->request->query['first_name_ruby']; }else{ $username_ruby = NULL; }
+        $phone_number = $this->request->query["phone_number"];
+        $project_name = $this->request->query["project_name"];
+        $category = $this->request->query["category"];
+        $birth = $this->request->query["birth"];
+        $choised_clients = $this->Clients->find('all')
+        ->contain(['Projects'])
+        ->where(['Clients.first_name LIKE' => "%$username%"])
+        ->where(['Clients.phone_number LIKE' => "%$phone_number%"])
+        ->where(['Clients.birthday LIKE' => "%$birth%"])
+        ->where(['Projects.name LIKE' =>"%$project_name%"]);
+        $clients = $this->paginate($choised_clients);
         $this->set(compact('clients'));
+        $this->set(compact('birthday'));
         $this->set('_serialize', ['clients']);
     }
     public function paidornot(){
@@ -90,7 +104,7 @@ class ClientsController extends AppController
             $project_array[] = $test->name;
           }
         }
-        $thumbnail_path = Router::url("/",true) . 'img/thumbnail/';
+        $thumbnail_path = '/img/thumbnail/';
         $this->loadModel('Clients');
         $thumbnail = $this->Clients->thumbnail();
         $this->set("test",$project_array);
@@ -112,16 +126,16 @@ class ClientsController extends AppController
         if ($this->request->is('post')) {
             $client = $this->Clients->patchEntity($client, $this->request->getData());
             $client->thumbnail_name = $client->thumbnail["name"];
-            $this->actionLog($input_data,"クライアント登録");
+            $this->actionLog($input_data,"インタビュー対象者登録");
             if ($this->Clients->save($client)) {
-                $this->Flash->success(__('クライアント情報が新たに追加されました'));
+                $this->Flash->success(__('インタビュー対象者情報が新たに追加されました'));
                 $input_data = "Clientname : " . $client->first_name . $client->last_name."が新たに追加されました";
                 move_uploaded_file($this->request->data['thumbnail']['tmp_name'],  ROOT . "/webroot/img/thumbnail/" . $this->request->data['thumbnail']['name']);
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('登録できませんでした。登録内容を再度ご確認ください'));
-            $input_data = "クライアント情報登録時に不正を検出しました。処理をブロックしました";
-            $this->errorLog($input_data,'クライアント登録失敗');
+            $input_data = "インタビュー対象者情報登録時に不正を検出しました。処理をブロックしました";
+            $this->errorLog($input_data,'インタビュー対象者登録失敗');
         }
         $paidstatuses = $this->Clients->Paidstatuses->find('list', ['limit' => 200]);
         $managers = $this->Clients->Managers->find('list', ['limit' => 200]);
@@ -153,16 +167,15 @@ class ClientsController extends AppController
             $data = $this->request->data;
             $client->thumbnail_name = $client->thumbnail["name"];
             if ($this->Clients->save($client)) {
-                $this->Flash->success(__('クライアント情報が編集されました'));
+                $this->Flash->success(__('インタビュー対処者情報が編集されました'));
                 $input_data ="$client->first_name $client->last_name が編集されました";
-                $this->actionLog($input_data,'クライアント情報編集');
-
+                $this->actionLog($input_data,'インタビュー対象者情報編集');
                 move_uploaded_file($this->request->data['thumbnail']['tmp_name'],  ROOT . "/webroot/img/thumbnail/" . $this->request->data['thumbnail']['name']);
 
                 return $this->redirect(['action' => 'index']);
             }
             $input_data = "$client->first_name $client->last_name を編集しようとしましたが、編集内容に不正を検出したため処理をブロックしました";
-            $this->errorLog($input_data,'クライアント情報編集失敗');
+            $this->errorLog($input_data,'インタビュー対象者情報編集失敗');
             $this->Flash->error(__('編集できませんでした。編集内容を再度ご確認ください'));
         }
         $paidstatuses = $this->Clients->Paidstatuses->find('list', ['limit' => 200]);
@@ -176,6 +189,12 @@ class ClientsController extends AppController
         $categories = $this->Clients->Categories->find('list' ,['limit' => 200]);
         $this->set(compact('client', 'paidstatuses', 'managers', 'howtopays', 'projects', 'commissionAdmits', 'sexes', 'payReasons', 'endclients' ,'categories'));
         $this->set('_serialize', ['client']);
+    }
+
+    public function birthday(){
+      $today = date("m-d");
+      $clients = $this->Clients->find('all')->where(['Clients.birthday LIKE' =>  "%$today%" ]);
+      $this->set(compact('clients'));
     }
 
     /**
@@ -192,10 +211,10 @@ class ClientsController extends AppController
         if ($this->Clients->delete($client)) {
             $this->Flash->success(__('削除しました'));
             $input_data = "$client->first_name $client->last_name を削除しました";
-            $this->actionLog($input_data,'クライアント削除');
+            $this->actionLog($input_data,'インタビュー対象者削除');
         } else {
             $input_data = "$client->first_name $client->last_name を削除しようとしましたが、失敗しました";
-            $this->errorLog($input_data,'クライアント情報削除失敗');
+            $this->errorLog($input_data,'インタビュー対象者情報削除失敗');
             $this->Flash->error(__('削除できませんでした。'));
         }
 

@@ -20,7 +20,7 @@ body {
   height: 100%; }
 
 .loginform_wrapper {
-  margin-top: 15%;
+  margin-top: 13%;
   margin-left: 25%; }
   .loginform_wrapper .submit_button {
     background-color: #00336D;
@@ -189,6 +189,8 @@ body {
   .sidebar ul li {
     margin-left: 10px;
     padding: 5px 0px; }
+    .sidebar ul li p:hover {
+      opacity: 0.5; }
     .sidebar ul li a {
       display: block;
       padding-top: 5px;
@@ -218,11 +220,16 @@ body {
   .pagination ul li:last-child a {
     background-color: #00336D;
     color: #DBA901; }
+  .pagination ul li.active a {
+    background-color: #00336D;
+    color: #DBA901; }
 
 /*managers-add*/
 .form-container {
   margin-top: 40px;
   margin-left: 30px; }
+  .form-container div:first-child {
+    display: none; }
   .form-container label {
     width: 100%;
     margin-top: 12px; }
@@ -303,5 +310,58 @@ body {
   display: block;
   margin-top: 10px;
   margin-bottom: 100px; }
+
+/*5/17編集*/
+.loginform_wrapper form .text {
+  margin-bottom: 20px; }
+  .loginform_wrapper form .text label {
+    padding-right: 10px;
+    font-size: 18px; }
+  .loginform_wrapper form .text input {
+    width: 350px;
+    height: 30px; }
+.loginform_wrapper form .password {
+  margin-bottom: 20px; }
+  .loginform_wrapper form .password label {
+    padding-right: 12px;
+    font-size: 18px; }
+  .loginform_wrapper form .password input {
+    width: 352px;
+    height: 30px; }
+.loginform_wrapper form button {
+  background-color: navy;
+  color: white;
+  border-color: navy;
+  padding: 7px 18px;
+  border-style: none; }
+.loginform_wrapper form button:hover {
+  opacity: 0.5; }
+
+.search_form .input {
+  margin-bottom: 8px; }
+  .search_form .input label {
+    display: block;
+    margin-bottom: 2px; }
+  .search_form .input input {
+    width: 175px; }
+.search_form button {
+  padding: 8px 26px;
+  margin: 15px auto 10px;
+  background-color: navy;
+  color: white;
+  border-style: none;
+  display: block;
+  border-radius: 2px; }
+.search_form button:hover {
+  opacity: 0.5; }
+
+body {
+  font-size: 13px; }
+
+.table th a {
+  color: white; }
+
+.birth_alert {
+  height: 70px; }
 
 /*# sourceMappingURL=style.css.map */
