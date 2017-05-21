@@ -25,7 +25,7 @@
         <li>出身地 <?= h($client->lived_place) ?></li>
         <li>住所 <?= h($client->prefecture).h($client->address1).h($client->address2)?></li>
         <li class="email">email <?= h($client->email)?></li>
-        <li class="phone">phone <?= $this->Number->format($client->phone_number) ?></li>
+        <li class="phone">phone <?= h($client->phone_number) ?></li>
         <li class="sns">id <?= h($client->sns_info)?></li>
       </ul>
     </div>
@@ -60,7 +60,6 @@
       <tr><td>支店番号</td><td><?= h($client->branch_num)?></td></td>
       <tr><td>謝礼額</td><td><?= $this->Number->format($client->fee) ?>円</td></tr>
       <tr><td>手数料差引</td><td><?= $client->has('commission_admit') ? h($client->commission_admit->name): '' ?></td></tr>
-      <tr><td>支払日</td><td>2017/4/1</td></tr>
       <tr><td>謝礼理由</td><td><?= $client->has('pay_reason') ? h($client->pay_reason->name) : '' ?></td></tr>
       <tr><td>支払状況</td><td class="green_text"><?= $client->has('paidstatus') ? h($client->paidstatus->status_name) : '' ?></td></tr>
       <tr><td>その他活動</td><td><?= h($client->activities)?></td></tr>

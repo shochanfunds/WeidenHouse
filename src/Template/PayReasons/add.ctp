@@ -14,10 +14,10 @@
           </div>
           <form action="index.html" method="post">
             <p>
-              <?php echo $this->Form->control('name');?>
+              <?php echo $this->Form->control('name',['label'=>'謝礼理由']);?>
             </p>
             <p>
-              <?php echo $this->Form->control('modifed');?>
+              <?php echo $this->Form->hidden('modifed');?>
             </p>
           </form>
           <p class="submit-button">

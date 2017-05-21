@@ -50,14 +50,14 @@ class ClientsController extends AppController
     {
         $this->paginate = [
             'contain' => ['Paidstatuses', 'Managers', 'Howtopays', 'Projects', 'CommissionAdmits', 'Sexes', 'PayReasons', 'Endclients' ,'Categories'],
-            'order' => ['Projects.name ASC']
+            'order' => [ 'id' => 'desc']
         ];
         $today = date("m-d");
         $birthday = count($this->Clients->find('all')->where(['Clients.birthday LIKE' =>  "%$today%" ])->toArray());
         if($this->request->query['username']){ $username = $this->request->query['username']; }else{ $username = NULL; }
-        if($this->request->query['first_name_ruby']){ $username_ruby = $this->request->query['first_name_ruby']; }else{ $username_ruby = NULL; }
         $phone_number = $this->request->query["phone_number"];
         $project_name = $this->request->query["project_name"];
+        if($this->request->query['first_name_ruby']){ $username_ruby = $this->request->query['first_name_ruby']; }else{ $username_ruby = NULL; }
         $category = $this->request->query["category"];
         $birth = $this->request->query["birth"];
         $choised_clients = $this->Clients->find('all')
@@ -74,9 +74,22 @@ class ClientsController extends AppController
     public function paidornot(){
       $this->paginate = [
           'contain' => ['Paidstatuses', 'Managers', 'Howtopays', 'Projects', 'CommissionAdmits', 'Sexes', 'PayReasons', 'Endclients' ,'Categories'],
-          'order' => ['Endclients.name ASC']
+          'order' => ['id' => 'desc']
       ];
-      $clients = $this->paginate($this->Clients);
+      if($this->request->query['username']){ $username = $this->request->query['username']; }else{ $username = NULL; }
+      $username_ruby = $this->request->query['first_name_ruby'];
+      $phone_number = $this->request->query["phone_number"];
+      $project_name = $this->request->query["project_name"];
+      $category = $this->request->query["category"];
+      $birth = $this->request->query["birth"];
+      $choised_clients = $this->Clients->find('all')
+      ->contain(['Projects'])
+      ->where(['Clients.first_name LIKE' => "%$username%"])
+      ->where(['Clients.phone_number LIKE' => "%$phone_number%"])
+      ->where(['Clients.birthday LIKE' => "%$birth%"])
+      ->where(['Projects.name LIKE' =>"%$project_name%"]);
+      $clients = $this->paginate($choised_clients);
+      //$clients = $this->paginate($this->Clients);
       $this->set(compact('clients'));
       $this->set('_serialize', ['clients']);
     }
@@ -125,12 +138,18 @@ class ClientsController extends AppController
         $client = $this->Clients->newEntity();
         if ($this->request->is('post')) {
             $client = $this->Clients->patchEntity($client, $this->request->getData());
-            $client->thumbnail_name = $client->thumbnail["name"];
+            $client->thumbnail_name = $this->request->data['thumbnail']['name'];
+            $thumbnail_img = "img_" . $client->id . "_" . $this->request->data['thumbnail']['name'];
+            if($this->request->data['thumbnail']['name'] == NULL){
+              $client->thumbnail_name = NULL;
+            }else{
+              $client->thumbnail_name = $thumbnail_img;
+            }
             $this->actionLog($input_data,"インタビュー対象者登録");
             if ($this->Clients->save($client)) {
                 $this->Flash->success(__('インタビュー対象者情報が新たに追加されました'));
                 $input_data = "Clientname : " . $client->first_name . $client->last_name."が新たに追加されました";
-                move_uploaded_file($this->request->data['thumbnail']['tmp_name'],  ROOT . "/webroot/img/thumbnail/" . $this->request->data['thumbnail']['name']);
+                move_uploaded_file($this->request->data['thumbnail']['tmp_name'],  ROOT . "/webroot/img/thumbnail/" .$thumbnail_img);
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('登録できませんでした。登録内容を再度ご確認ください'));
@@ -165,12 +184,17 @@ class ClientsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $client = $this->Clients->patchEntity($client, $this->request->getData());
             $data = $this->request->data;
-            $client->thumbnail_name = $client->thumbnail["name"];
+            $thumbnail_img = "img_" . $client->id . "_" . $client->thumbnail["name"];
+            if($client->thumbnail["name"] == NULL){
+              $client->thumbnail_name = $client->thumbnail_name;
+            }else{
+              $client->thumbnail_name = $thumbnail_img;
+            }
             if ($this->Clients->save($client)) {
                 $this->Flash->success(__('インタビュー対処者情報が編集されました'));
                 $input_data ="$client->first_name $client->last_name が編集されました";
                 $this->actionLog($input_data,'インタビュー対象者情報編集');
-                move_uploaded_file($this->request->data['thumbnail']['tmp_name'],  ROOT . "/webroot/img/thumbnail/" . $this->request->data['thumbnail']['name']);
+                move_uploaded_file($this->request->data['thumbnail']['tmp_name'],  ROOT . "/webroot/img/thumbnail/" .$thumbnail_img);
 
                 return $this->redirect(['action' => 'index']);
             }

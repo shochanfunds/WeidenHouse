@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Projects Controller
@@ -10,10 +11,14 @@ use App\Controller\AppController;
  */
 class ProjectsController extends AppController
 {
+
+  public function initialize(){
+
+  }
   public function errorLog($message,$error_name){
     $today = date("Y-m-d");
     $now = date("Y-m-d H:i:s");
-    $file_name = "/Applications/MAMP/htdocs/PersonalTool/webroot/logs/error/" . $today . ".log";
+    $file_name = "/logs/error/" . $today . ".log";
     $file = fopen($file_name,'a');
     $message = $now . ":" ."< $error_name >". $message;
     fwrite($file, $message . "\n");
@@ -22,7 +27,7 @@ class ProjectsController extends AppController
   public function actionLog($message,$action_name){
     $today = date("Y-m-d");
     $now = date("Y-m-d H:i:s");
-    $file_name = "/Applications/MAMP/htdocs/PersonalTool/webroot/logs/action/" . $today . ".log";
+    $file_name = "/logs/action/" . $today . ".log";
     $file = fopen($file_name,'a');
     $message = $now . ":" ."< $action_name >". $message;
     fwrite($file, $message . "\n");
@@ -36,7 +41,12 @@ class ProjectsController extends AppController
      */
     public function index()
     {
+
+        $this->paginate = [
+            'order' => [ 'id' => 'desc']
+        ];
         $projects = $this->paginate($this->Projects);
+
 
         $this->set(compact('projects'));
         $this->set('_serialize', ['projects']);
@@ -54,7 +64,38 @@ class ProjectsController extends AppController
         $project = $this->Projects->get($id, [
             'contain' => []
         ]);
-
+        $sexes = TableRegistry::get("Sexes");
+        $clients_projects = TableRegistry::get("ClientsProjects");
+        $clients = TableRegistry::get("Clients");
+        $client_1=$clients_projects
+          ->find('all')
+          ->contain(['Clients','Projects'])
+          ->where(['ClientsProjects.projects_id' =>$id])
+          ->toArray();
+        $client_2 = $clients
+          ->find('all')
+          ->where(['Clients.projects_id' => $id])
+          ->toArray();
+        $client_1=array_merge($client_1,$client_2);
+        $sexes = $sexes->find('all')->toArray();
+        $sex = array();
+        foreach($sexes as $m_or_l){
+          $sex[$m_or_l->id] = $m_or_l->name;
+        }
+        if($this->request->is('post')){
+          $clients_projects_entitiy = $clients_projects->newEntity();
+          $clients_projects_entitiy->clients_id = $this->request->getData()["clients_id"];
+          $clients_projects_entitiy->projects_id = $id;
+          if ($clients_projects->save($clients_projects_entitiy)) {
+            return $this->redirect(['action' => 'view',$id]);
+          }else{
+            return $this->redirect(['action' => 'view',$id]);
+          }
+        }
+        $clients_ids = $clients->find('list', ['limit' => 200])->order(['Clients.id' => 'DESC']);
+        $this->set('clients_ids',$clients_ids);
+        $this->set('sex',$sex);
+        $this->set('clients',$client_1);
         $this->set('project', $project);
         $this->set('_serialize', ['project']);
     }
@@ -70,7 +111,6 @@ class ProjectsController extends AppController
         if ($this->request->is('post')) {
             $project = $this->Projects->patchEntity($project, $this->request->getData());
             if ($this->Projects->save($project)) {
-                $this->Flash->success(__('プロジェクト情報が新たに追加されました'));
                 $input_data = "$project->name が新たに追加されました";
                 $this->actionLog($input_data,'プロジェクト情報新規登録');
 
@@ -78,7 +118,6 @@ class ProjectsController extends AppController
             }
             $input_data = "$project->name を登録しようとしましたが、登録情報に不正が見つかったため、処理をブロックしました";
             $this->errorLog($input_data,'プロジェクト情報新規登録失敗');
-            $this->Flash->error(__('登録できませんでした。登録内容を再度ご確認ください'));
         }
         $this->set(compact('project'));
         $this->set('_serialize', ['project']);
@@ -99,7 +138,6 @@ class ProjectsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $project = $this->Projects->patchEntity($project, $this->request->getData());
             if ($this->Projects->save($project)) {
-                $this->Flash->success(__('プロジェクト情報を編集しました'));
                 $input_data = "$project->name を編集しました";
                 $this->actionLog($input_data,'プロジェクト情報編集');
 
@@ -107,7 +145,6 @@ class ProjectsController extends AppController
             }
             $input_data = "$client->name を編集しようとしましたが、編集内容に不正が見つかったため処理をブロックしました";
             $this->errorLog($input_data,'新規プロジェクト登録失敗');
-            $this->Flash->error(__('編集に失敗しました。再度編集内容をご確認ください'));
         }
         $this->set(compact('project'));
         $this->set('_serialize', ['project']);
@@ -123,17 +160,21 @@ class ProjectsController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $project = $this->Projects->get($id);
+        $project = $this->Projects->find()->where(['id' => $id])->first();
+        $delete = $this->Projects->query()->delete();
+        $delete->where(['id' => $id]);
+        $delete->execute();
+
+/*
         if ($this->Projects->delete($project)) {
-            $this->Flash->success(__('The project has been deleted.'));
             $input_data = "$project->name を削除しました";
             $this->actionLog($input_data,'プロジェクト情報削除');
         } else {
-            $this->Flash->error(__('The project could not be deleted. Please, try again.'));
             $input_data = "$client->name を削除しようとしましたが、失敗しました";
             $this->errorLog($input_data,'新規プロジェクト削除失敗');
         }
 
+*/
         return $this->redirect(['action' => 'index']);
     }
 }

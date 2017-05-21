@@ -4,10 +4,9 @@
   */
 ?>
     <div class="clearfix all_wrapper">
-      <?php echo $this->element('sidebar');?>
 
       <!--main contents-->
-      <div class="container-fluid col-md-10 clients managers">
+      <div class="container-fluid col-md-12 clients managers">
         <?= $this->Form->create($manager) ?>
         <div class="form-container">
           <div class="title">
@@ -32,6 +31,12 @@
             <p>
               <?php echo $this->Form->control('statuses_id', ['label' => '運営者ステータス' ,'options' => $statuses]);?>
             </p>
+            <p>
+            </p>
+            <div class="input password required">
+              <label for="addpassword">アカウント発行パスワード</label>
+              <input type="password" id="addpassword" required="required" name="addpassword">
+            </div>
           </form>
           <p class="submit-button">
             <?= $this->Form->button(__('送信')) ?>

@@ -19,16 +19,15 @@
             </thead>
             <tbody>
               <?php foreach ($projects as $project): ?>
-              <tr>
                 <td><?= $this->Number->format($project->id) ?></td>
-                <td><?= h($project->name) ?></td>
+                <td><?= $this->Html->link($project->name,['controller'=>'projects','action'=>'view',$project->id]) ?></td>
                 <td><?= h($project->dateof) ?></td>
                 <td><?= h($project->created) ?></td>
                 <td><?= h($project->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('詳細'), ['action' => 'view', $project->id]) ?>
                     <?= $this->Html->link(__('編集'), ['action' => 'edit', $project->id]) ?>
-                    <?= $this->Form->postLink(__('削除'), ['action' => 'delete', $project->id], ['confirm' => __('本当に削除してもよろしいですか？ # {0}?', $project->id)]) ?>
+                    <?= $this->Form->postLink(__('削除'), ['controller'=>'projects','action' => 'delete', $project->id], ['confirm' => __('本当に削除してもよろしいですか？ # {0}?', $project->id)]) ?>
                 </td>
               </tr>
               <?php endforeach; ?>

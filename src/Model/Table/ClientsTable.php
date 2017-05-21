@@ -6,6 +6,7 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use Cake\Routing\Router;
+use RuntimeException;
 
 /**
  * Clients Model
@@ -44,16 +45,17 @@ class ClientsTable extends Table
           }
       }
 
+
       protected function _buildThumbnail($thumbnail)
       {
+
           $ret = file_get_contents($thumbnail['tmp_name']);
           if ($ret === false) {
-              throw new RuntimeException('Can not get thumbnail image.');
+              $ret = "hogehoge";
           }
 
           return $ret;
       }
-
     /**
      * Initialize method
      *

@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Auth\DefaultPasswordHasher;
 
 
 
@@ -37,8 +38,6 @@ class ManagersController extends AppController
           $setinfo = $this->Managers->newEntity();
           $manager_info = $this->Managers->patchEntity($setinfo, $this->request->getData());
           $manager = $this->Auth->identify();
-          //var_dump($manager);
-          //exit;
           if($manager){
             $this->Auth->setUser($manager);
             $input_data = "Username : " . $manager_info->username . " : Password : " .$manager_info->password;
@@ -52,8 +51,6 @@ class ManagersController extends AppController
               $this->actionLog($input_data,"ログイン");
               return $this->redirect(['controller' => 'clients' ,'action' => 'index']);
             }else{
-              var_dump($physicalwidth_input);
-              exit;
               $this->Flash->error(__('ログインに失敗しました。システム管理者に通報が行きました'));
               $input_data = "Username : " . $manager_info->username  . " : Passoword : " .$manager_info->password;
               $this->errorLog($input_data,"ログインエラー");
@@ -117,15 +114,21 @@ class ManagersController extends AppController
          $manager = $this->Managers->newEntity();
          if ($this->request->is('post')) {
              $manager = $this->Managers->patchEntity($manager, $this->request->getData());
-             if ($this->Managers->save($manager)) {
-                 $this->Flash->success(__('運営者情報が編集されました'));
-                 $input_data = "$manager->username を追加しました";
-                 $this->actionLog($input_data,"運営者アカウント追加");
-                 return $this->redirect(['action' => 'index']);
-             }
-             $this->Flash->error(__('追加できませんでした。再度内容をご確認ください'));
-             $input_data = "$manager->usernameを追加しようとしましたが、不正があったため処理をブロックしました";
-             $this->errorLog($input_data,"追加内容不正");
+             $auth=$this->Managers->find('all')->where(['id' => '552']);
+             $hash = $auth->toArray()[0]["password"];
+
+             if (password_verify($manager["addpassword"], $hash)) {
+               if ($this->Managers->save($manager)) {
+                   $this->Flash->success(__('運営者情報が編集されました'));
+                   $input_data = "$manager->username を追加しました";
+                   $this->actionLog($input_data,"運営者アカウント追加");
+                   return $this->redirect(['action' => 'login']);
+               }
+              } else {
+                $this->Flash->error(__('追加できませんでした。再度内容をご確認ください'));
+                $input_data = "$manager->usernameを追加しようとしましたが、不正があったため処理をブロックしました";
+                $this->errorLog($input_data,"追加内容不正");
+              }
          }
          $statuses = $this->Managers->Statuses->find('list', ['limit' => 200]);
          $this->set(compact('manager', 'statuses'));
@@ -193,7 +196,7 @@ class ManagersController extends AppController
 
     public function beforeFilter(\Cake\Event\Event $event) {
     	parent::beforeFilter($event);
-    	//$this->Auth->allow(['add']);
+    	$this->Auth->allow(['add']);
     }
 
 }

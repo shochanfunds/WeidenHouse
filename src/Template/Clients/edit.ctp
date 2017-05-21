@@ -20,7 +20,7 @@
           <?php echo $this->Form->control('managers_id', ['label' => '担当者' ,'options' => $managers]);?>
         </p>
         <p>
-          <?php echo $this->Form->control('age' ,['label' => '年齢']); ?>
+          <?php echo $this->Form->control('age' ,['label' => '年齢','pattern' => "^[0-9A-Za-z]+$"]); ?>
         </p>
         <p>
           <?php echo $this->Form->input('thumbnail', ['label' => 'プロフィール画像','type' => 'file']);?>
@@ -44,7 +44,7 @@
           <?php echo $this->Form->control('last_name_ruby' ,['label' => '名フリガナ']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('post_number',['label' => '郵便番号']);?>
+          <?php echo $this->Form->control('post_number',['label' => '郵便番号','pattern' => "^[0-9A-Za-z]+$"]);?>
         </p>
         <p>
           <?php echo $this->Form->control('email' ,['label' => 'Emailアドレス']);?>
@@ -59,7 +59,7 @@
           <?php echo $this->Form->control('address2',['label' => '建物名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('fee' ,['label' => '謝礼金額']);?>
+          <?php echo $this->Form->control('fee' ,['label' => '謝礼金額','pattern' => "^[0-9A-Za-z]+$"]);?>
         </p>
         <p>
           <?php echo $this->Form->control('howtopays_id', ['label' => '支払い方法','options' => $howtopays]);?>
@@ -71,16 +71,16 @@
           <?php echo $this->Form->control('branch_name' ,['label' => '支店名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('branch_num' ,['label' => '支店番号']);?>
+          <?php echo $this->Form->control('branch_num' ,['label' => '支店番号','pattern' => "^[0-9A-Za-z]+$"]);?>
         </p>
         <p>
-          <?php echo $this->Form->control('bank_number' ,['label' => '口座番号']);?>
+          <?php echo $this->Form->control('bank_number' ,['label' => '口座番号','pattern' => "^[0-9A-Za-z]+$"]);?>
         </p>
         <p>
           <?php echo $this->Form->control('birthday' , array('type' => 'date','dateFormat' => 'YMD','monthNames' => false,'maxYear' => date('Y'),'minYear' => date('Y') - 100,));?>
         </p>
         <p>
-          <?php echo $this->Form->control('phone_number' ,['label' => '電話番号']);?>
+          <?php echo $this->Form->control('phone_number' ,['label' => '電話番号','pattern' => "^[0-9A-Za-z]+$",'class' => 'not_hifun']);?>
         </p>
         <p>
           <?php echo $this->Form->control('evaluation' ,['label' => '評価']);?>
@@ -89,25 +89,25 @@
           <?php echo $this->Form->control('first_recruiter_name' ,['label' => '第一リクルーター名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('first_rectuiter_fee' ,['label' => '第一リクルーター謝礼額']);?>
+          <?php echo $this->Form->control('first_rectuiter_fee' ,['label' => '第一リクルーター謝礼額','pattern' => "^[0-9A-Za-z]+$"]);?>
         </p>
         <p>
           <?php echo $this->Form->control('second_recruiter_name' ,['label' => '第二リクルーター名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('second_recruiter_fee' ,['label' => '第二リクルーター謝礼額']);?>
+          <?php echo $this->Form->control('second_recruiter_fee' ,['label' => '第二リクルーター謝礼額','pattern' => "^[0-9A-Za-z]+$"]);?>
         </p>
         <p>
           <?php echo $this->Form->control('third_recruiter_name' ,['label' => '第三リクルーター名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('third_recruiter_fee',['label' => '第三リクルーター謝礼額']);?>
+          <?php echo $this->Form->control('third_recruiter_fee',['label' => '第三リクルーター謝礼額','pattern' => "^[0-9A-Za-z]+$"]);?>
         </p>
         <p>
           <?php echo $this->Form->control('forth_recruiter_name' ,['label' => '第四リクルーター名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('forth_rectuiter_fee' ,['label' => '第四リクルーター謝礼額']);?>
+          <?php echo $this->Form->control('forth_rectuiter_fee' ,['label' => '第四リクルーター謝礼額','pattern' => "^[0-9A-Za-z]+$"]);?>
         </p>
         <p>
           <?php echo $this->Form->control('projects_id', ['label' => '関わったプロジェクト','options' => $projects]);?>
@@ -122,7 +122,7 @@
           <?php echo $this->Form->control('universities_name' ,['label' => '出身大学名']);?>
         </p>
         <p>
-          <?php echo $this->Form->control('school_year',['label' => '学年']);?>
+          <?php echo $this->Form->control('school_year',['label' => '学年','pattern' => "^[0-9A-Za-z]+$"]);?>
         </p>
         <p>
           <?php echo $this->Form->control('sexes_id', ['label' => '性別' ,'options' => $sexes]);?>
