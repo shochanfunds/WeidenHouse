@@ -16,7 +16,7 @@
               <?php foreach($endclients as $endclient):?>
                   <tr>
                     <td><?= $this->Number->format($endclient->id) ?></td>
-                    <td><?= h($endclient->name) ?></td>
+                    <td><?= $this->Html->link($endclient->name,['controller'=>'endclients','action'=>'view',$endclient->id]) ?></td>
                     <td><?= h($endclient->phone_number) ?></td>
                     <td><?= h($endclient->address) ?></td>
                     <td><?= h($endclient->capital_stock)?></td>

@@ -52,7 +52,17 @@
       <tr><td>評価</td><td><?= $this->Number->format($client->evaluation) ?></td></tr>
       <tr class="infocategory_tag"><td>対人情報</td><td></td></tr>
       <tr><td>リクルート元</td><td>第1:<?= h($client->first_recruiter_name) ?> 第2:<?= h($client->second_recruiter_name)?></td></tr>
-      <tr><td>関連の友達</td><td>飯田、飯田、飯田</td></tr>
+      <tr>
+        <td>関連の友達</td>
+        <td><?php foreach($related_friends as $key => $test){ echo "<a href=/clients/view/". $key . ">" .$test[0]['first_name']."</a><br />" ; }?>
+          <div>
+          <?= $this->Form->create(null)?>
+            <?php echo $this->Form->control('childclients', ['label' => '友達を追加する','options' => $all_friends]);?>
+            <?= $this->Form->button(__('送信'))?>
+            <?= $this->Form->end() ?>
+          </div>
+        </td>
+      </tr>
       <tr class="infocategory_tag"><td>謝礼情報</td><td></td></tr>
       <tr><td>銀行名</td><td><?= h($client->bunk_name)?></td></tr>
       <tr><td>口座番号</td><td><?= h($client->bank_number)?></td></td>

@@ -110,6 +110,9 @@
           <?php echo $this->Form->control('commission_admits_id', ['label' => '手数料差引' ,'options' => $commissionAdmits]);?>
         </p>
         <p>
+          <?php echo $this->Form->input('friends',['value' => $this->request->query('friends'),'label'=>'関連の友達']);?>
+        </p>
+        <p>
           <?php echo $this->Form->control('high_schools_name',['label' => '出身高校名']);?>
         </p>
         <p>

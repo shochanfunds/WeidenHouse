@@ -20,6 +20,7 @@ class ClientsController extends AppController
     {
       parent::initialize();
       $this->projects = TableRegistry::get('Projects');
+      $this->friends = TableRegistry::get('Relationships');
       $this->clientsprojects = TableRegistry::get('ClientsProjects');
     }
     public function errorLog($message,$error_name){
@@ -107,8 +108,12 @@ class ClientsController extends AppController
         $client = $this->Clients->get($id, [
             'contain' => ['Paidstatuses', 'Managers', 'Howtopays', 'Projects', 'CommissionAdmits', 'Sexes', 'PayReasons' ,'Endclients' ,'Categories']
         ]);
-
-        //とりあえずThumbnail画像を表示する
+        $friend_clients=array();
+        $related_friends=$this->friends->find('all')->where(['Relationships.friends'=>$client["first_name"]])->toArray();
+        foreach($related_friends as $related_friend){
+          $client_id=$related_friend["childclients"];
+          $friend_clients[$client_id] = $this->Clients->find('all')->where(['Clients.id'=>$client_id])->select(['first_name'])->toArray();
+        }
         $projects_query = $this->clientsprojects->find('all')->where(['clients_id' =>$id]);
         $project_array = array();
         foreach($projects_query as $data){
@@ -117,11 +122,21 @@ class ClientsController extends AppController
             $project_array[] = $test->name;
           }
         }
+        $all_friends = $this->Clients->find('list')->select(['first_name']);
+        if($this->request->is('post')){
+          $relationship_of_friends=$this->friends->newEntity();
+          $relationship_of_friends->friends = $client->first_name;
+          $relationship_of_friends->childclients = $this->request->getData()["childclients"];
+          $this->friends->save($relationship_of_friends);
+          return $this->redirect(['action' => 'view',$id]);
+        }
         $thumbnail_path = '/img/thumbnail/';
         $this->loadModel('Clients');
         $thumbnail = $this->Clients->thumbnail();
         $this->set("test",$project_array);
+        $this->set("all_friends",$all_friends);
         $this->set('thumbnail',$thumbnail);
+        $this->set('related_friends',$friend_clients);
         $this->set('thumbnail_position' , $thumbnail_path);
         $this->set('client', $client);
         $this->set('_serialize', ['client']);
@@ -138,12 +153,23 @@ class ClientsController extends AppController
         $client = $this->Clients->newEntity();
         if ($this->request->is('post')) {
             $client = $this->Clients->patchEntity($client, $this->request->getData());
+            $relationship_of_friends=$this->friends->newEntity();
+            $relationship_of_friends->friends = $this->request->getData()["first_name"];
+            $relationship_of_friends->childclients = $this->request->getData()["friends"];
+            $this->friends->save($relationship_of_friends);
             $client->thumbnail_name = $this->request->data['thumbnail']['name'];
             $thumbnail_img = "img_" . $client->id . "_" . $this->request->data['thumbnail']['name'];
-            if($this->request->data['thumbnail']['name'] == NULL){
-              $client->thumbnail_name = NULL;
+            $tmp_ary = explode('.', $this->request->data['thumbnail']['name']);
+            $extension = $tmp_ary[count($tmp_ary)-1];
+            $extensions = array("png","jpeg","jpg","gif");
+            if(in_array($extension,$extensions)){
+              if($this->request->data['thumbnail']['name'] == NULL){
+                $client->thumbnail_name = NULL;
+              }else{
+                $client->thumbnail_name = $thumbnail_img;
+              }
             }else{
-              $client->thumbnail_name = $thumbnail_img;
+                $client->thumbnail_name = NULL;
             }
             $this->actionLog($input_data,"インタビュー対象者登録");
             if ($this->Clients->save($client)) {
@@ -156,6 +182,7 @@ class ClientsController extends AppController
             $input_data = "インタビュー対象者情報登録時に不正を検出しました。処理をブロックしました";
             $this->errorLog($input_data,'インタビュー対象者登録失敗');
         }
+        $friends = $this->Clients->find('list')->select(['first_name'])->toArray();
         $paidstatuses = $this->Clients->Paidstatuses->find('list', ['limit' => 200]);
         $managers = $this->Clients->Managers->find('list', ['limit' => 200]);
         $howtopays = $this->Clients->Howtopays->find('list', ['limit' => 200]);
@@ -165,7 +192,7 @@ class ClientsController extends AppController
         $payReasons = $this->Clients->PayReasons->find('list', ['limit' => 200]);
         $endclients = $this->Clients->Endclients->find('list' ,['limit' => 200]);
         $categories = $this->Clients->Categories->find('list' , ['limit' => 200]);
-        $this->set(compact('client', 'paidstatuses', 'managers', 'howtopays', 'projects', 'commissionAdmits', 'sexes', 'payReasons', 'endclients' ,'categories'));
+        $this->set(compact('client', 'paidstatuses', 'managers', 'howtopays', 'projects', 'commissionAdmits', 'sexes', 'payReasons', 'endclients' ,'categories','friends'));
         $this->set('_serialize', ['client']);
     }
 

@@ -27,6 +27,15 @@
     </ul>
   </li>
   <li>
+    <p>
+      プロジェクト管理
+      <ul class="list-unstyled">
+        <li><?php echo $this->Html->link('一覧表示' ,['controller' => 'projects' ,'action' => 'index']); ?></li>
+        <li><?php echo $this->Html->link('登録', ['controller' => 'projects','action' => 'add']); ?></li>
+      </ul>
+    </p>
+  </li>
+  <li>
     <p>謝礼理由管理</p>
     <ul class="list-unstyled">
       <li><?php echo $this->Html->link('一覧表示' ,['controller' => 'pay_reasons' , 'action' => 'index']); ?></li>
