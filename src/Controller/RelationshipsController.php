@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\ORM\TableRegistry;
 /**
  * Relationships Controller
  *
@@ -97,13 +97,15 @@ class RelationshipsController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
+        $clients = TableRegistry::get("Clients");
         $relationship = $this->Relationships->get($id);
+        $client_id=$clients->find('all')->where(['Clients.first_name'=>$relationship->friends])->select(['id'])->toArray()[0];
         if ($this->Relationships->delete($relationship)) {
-            $this->Flash->success(__('The relationship has been deleted.'));
+            $this->Flash->success(__('友達関係を削除しました。'));
         } else {
-            $this->Flash->error(__('The relationship could not be deleted. Please, try again.'));
+            $this->Flash->error(__('失敗しました。'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller'=>'clients','action' => 'view',$client_id["id"]]);
     }
 }

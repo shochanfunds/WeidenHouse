@@ -27,7 +27,7 @@
                   <tr class="gray_background">
                     <td><?= $this->Html->link(__(h($client->first_name) . ' ' . h($client->last_name)), ['action' => 'view', $client->id]) ?> (<?= h($client->age)?>)</td>
                     <td><?= h($client->first_name_ruby)?> <?= h($client->last_name_ruby)?></td>
-                    <td><?= h($client->project->name)?></td>
+                    <td><?= $this->Html->link(h($client->project->name),['controller'=>'Projects','action'=>'view',$client->project->id])?></td>
                     <td><?= h($client->fee)?>円</td>
                     <td><?= h($client->bunk_name) ?></td>
                     <td><?= h($client->bank_number) ?></td>

@@ -54,14 +54,21 @@
       <tr><td>リクルート元</td><td>第1:<?= h($client->first_recruiter_name) ?> 第2:<?= h($client->second_recruiter_name)?></td></tr>
       <tr>
         <td>関連の友達</td>
-        <td><?php foreach($related_friends as $key => $test){ echo "<a href=/clients/view/". $key . ">" .$test[0]['first_name']."</a><br />" ; }?>
-          <div>
+        <td>
+          <ul class="list-unstyled">
+          <?php foreach($related_friends as $key => $test):?>
+             <li><a class="name_space" href="/clients/view/<?php echo $key;?>"><?php echo $test[1][0]["first_name"];?></a>
+             <?= $this->Form->postLink(__('削除'), ['controller'=>'relationships', 'action' => 'delete',$test[0]], ['confirm' => __('本当に削除してよろしいですか？?', $test[0])]) ?></li>
+          <?php endforeach;?>
+          </ul>
+          <div class="related_friends">
           <?= $this->Form->create(null)?>
             <?php echo $this->Form->control('childclients', ['label' => '友達を追加する','options' => $all_friends]);?>
             <?= $this->Form->button(__('送信'))?>
             <?= $this->Form->end() ?>
           </div>
         </td>
+
       </tr>
       <tr class="infocategory_tag"><td>謝礼情報</td><td></td></tr>
       <tr><td>銀行名</td><td><?= h($client->bunk_name)?></td></tr>

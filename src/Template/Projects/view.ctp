@@ -30,10 +30,11 @@
         </div>
       </div>
     </div>
-    <div class="search_form">
+    <div class="search_form project_client">
       <div>
-      <?= $this->Form->create(null)?>
-        <?php echo $this->Form->control('clients_id', ['label' => '参加者を追加する','options' => $clients_ids]);?>
+      <h2><img src="/img/add.jpg" width="25px" height="25px"></h2>
+      <?= $this->Form->create(null,['style'=>'display:none'])?>
+        <?php echo $this->Form->control('clients_id', ['label' => '参加者を追加する','options' => $clients_ids ]);?>
         <?= $this->Form->button(__('送信'))?>
         <?= $this->Form->end() ?>
       </div>

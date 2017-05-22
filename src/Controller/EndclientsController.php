@@ -37,8 +37,10 @@ class EndclientsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'order' => [ 'id' => 'desc']
+        ];
         $endclients = $this->paginate($this->Endclients);
-
         $this->set(compact('endclients'));
         $this->set('_serialize', ['endclients']);
     }

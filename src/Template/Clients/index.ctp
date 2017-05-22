@@ -48,7 +48,7 @@
                     <td><?= $client->has('endclient') ? $this->Html->link($client->endclient->name,['controller' => 'Endclients' , 'action' => 'view', $client->endclient->id]) :''?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('修正'), ['action' => 'edit', $client->id]) ?>
-                        <?= $this->Form->postLink(__('削除'), ['action' => 'delete', $client->id], ['confirm' => __('Are you sure you want to delete # {0}?', $client->id)]) ?>
+                        <?= $this->Form->postLink(__('削除'), ['action' => 'delete', $client->id], ['confirm' => __('本当に削除してもよろしいですか？ # {0}?', $client->id)]) ?>
                     </td>
                   </tr>
               <?php endforeach;?>

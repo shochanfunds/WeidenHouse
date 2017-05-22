@@ -367,4 +367,30 @@ body {
 .managers form .form-container div:nth-child(15) {
   display: none; }
 
+/*5/22*/
+.related_friends .input {
+  width: 250px;
+  float: left; }
+  .related_friends .input select {
+    width: 145px;
+    margin-left: 5px; }
+.related_friends button {
+  margin-top: 2px;
+  background-color: navy;
+  color: white;
+  border-style: none;
+  padding: 5px 10px; }
+.related_friends button:hover {
+  opacity: 0.5; }
+
+.project_client label {
+  text-align: center;
+  margin-top: 0px; }
+.project_client select {
+  width: 150px;
+  margin-top: 5px; }
+
+.name_space {
+  margin-right: 10px; }
+
 /*# sourceMappingURL=style.css.map */

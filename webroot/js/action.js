@@ -19,6 +19,7 @@ $(".not_hifun").keyup(function(){
   }
 });
 //searchformの開閉を制御するスクリプト
+
 $(".search_form").hover(function(){
   $("form").toggleClass("open");
   if($('form').attr('class') == "open"){

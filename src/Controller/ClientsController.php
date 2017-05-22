@@ -112,7 +112,7 @@ class ClientsController extends AppController
         $related_friends=$this->friends->find('all')->where(['Relationships.friends'=>$client["first_name"]])->toArray();
         foreach($related_friends as $related_friend){
           $client_id=$related_friend["childclients"];
-          $friend_clients[$client_id] = $this->Clients->find('all')->where(['Clients.id'=>$client_id])->select(['first_name'])->toArray();
+          $friend_clients[$client_id] = array($related_friend["id"],$this->Clients->find('all')->where(['Clients.id'=>$client_id])->select(['first_name'])->toArray());
         }
         $projects_query = $this->clientsprojects->find('all')->where(['clients_id' =>$id]);
         $project_array = array();
@@ -122,7 +122,7 @@ class ClientsController extends AppController
             $project_array[] = $test->name;
           }
         }
-        $all_friends = $this->Clients->find('list')->select(['first_name']);
+        $all_friends = $this->Clients->find('list')->order(['Clients.first_name' => 'ASC'])->select(['first_name']);
         if($this->request->is('post')){
           $relationship_of_friends=$this->friends->newEntity();
           $relationship_of_friends->friends = $client->first_name;
