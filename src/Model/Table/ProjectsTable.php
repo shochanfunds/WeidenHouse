@@ -40,6 +40,11 @@ class ProjectsTable extends Table
         $this->belongsToMany('Clients',[
           'joinTable' => 'clients_projects',
         ]);
+        $this->belongsTo('Endclients',[
+            'className' => 'Projects.Endclients',
+            'foreignKey' => 'endclients_id',
+            'joinType' => 'LEFT'
+        ]);
     }
 
     /**

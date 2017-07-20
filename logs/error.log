@@ -1,311 +1,7 @@
-2017-05-22 03:22:13 Error: [Cake\Network\Exception\MethodNotAllowedException] Method Not Allowed
-Request URL: /relationships/delete/14
-Stack Trace:
-#0 /var/www/html/WeidenHouse/src/Controller/RelationshipsController.php(99): Cake\Http\ServerRequest->allowMethod(Array)
-#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\RelationshipsController->delete('14')
-#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
-#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\RelationshipsController))
-#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#13 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#14 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
-#15 {main}
-
-
-2017-05-22 03:25:16 Error: [Cake\Network\Exception\MethodNotAllowedException] Method Not Allowed
-Request URL: /relationships/delete/14
-Stack Trace:
-#0 /var/www/html/WeidenHouse/src/Controller/RelationshipsController.php(99): Cake\Http\ServerRequest->allowMethod(Array)
-#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\RelationshipsController->delete('14')
-#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
-#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\RelationshipsController))
-#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#13 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#14 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
-#15 {main}
-
-
-2017-05-22 03:30:52 Error: [Cake\Network\Exception\MethodNotAllowedException] Method Not Allowed
-Request URL: /relationships/delete/14
-Referer URL: https://160.16.228.87/clients/view/14983
-Stack Trace:
-#0 /var/www/html/WeidenHouse/src/Controller/RelationshipsController.php(99): Cake\Http\ServerRequest->allowMethod(Array)
-#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\RelationshipsController->delete('14')
-#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
-#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\RelationshipsController))
-#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#13 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#14 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
-#15 {main}
-
-
-2017-05-22 03:34:20 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
-Request URL: /img/thumbnail/
-Referer URL: https://160.16.228.87/clients/view/10101
-Stack Trace:
-#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
-#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#12 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
-#13 {main}
-
-
-2017-05-22 03:35:08 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
-Request URL: /img/thumbnail/
-Referer URL: https://160.16.228.87/clients/view/10101
-Stack Trace:
-#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
-#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#12 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
-#13 {main}
-
-
-2017-05-22 03:41:11 Error: [Error] Class 'App\Controller\TableRegistry' not found in /var/www/html/WeidenHouse/src/Controller/RelationshipsController.php on line 100
-Request URL: /relationships/delete/17
-Referer URL: https://160.16.228.87/clients/view/14983
-Client IP: 27.140.233.190
-Stack Trace:
-#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\RelationshipsController->delete('17')
-#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
-#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\RelationshipsController))
-#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#13 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
-#14 {main}
-
-
-2017-05-22 03:44:23 Error: [Error] Call to undefined method App\Model\Entity\Client::select() in /var/www/html/WeidenHouse/src/Controller/RelationshipsController.php on line 102
-Request URL: /relationships/delete/17
-Referer URL: https://160.16.228.87/clients/view/14983
-Client IP: 27.140.233.190
-Stack Trace:
-#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\RelationshipsController->delete('17')
-#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
-#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\RelationshipsController))
-#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#13 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
-#14 {main}
-
-
-2017-05-22 03:45:14 Error: [Cake\Routing\Exception\MissingRouteException] A route matching "/clients/view/{
-    "id": 14983
-}" could not be found.
-Request URL: /clients/view/%7B%0A%20%20%20%20%22id%22%3A%2014983%0A%7D
-Referer URL: https://160.16.228.87/clients/view/14983
-Stack Trace:
-#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Router.php(368): Cake\Routing\RouteCollection->parseRequest(Object(Cake\Http\ServerRequest))
-#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(48): Cake\Routing\Router::parseRequest(Object(Cake\Http\ServerRequest))
-#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#9 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
-#10 {main}
-
-
-2017-05-22 03:46:00 Error: [Cake\Routing\Exception\MissingRouteException] A route matching "/clients/view/{
-    "id": 14983
-}" could not be found.
-Request URL: /clients/view/%7B%0A%20%20%20%20%22id%22%3A%2014983%0A%7D
-Referer URL: https://160.16.228.87/clients/view/14983
-Stack Trace:
-#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Router.php(368): Cake\Routing\RouteCollection->parseRequest(Object(Cake\Http\ServerRequest))
-#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(48): Cake\Routing\Router::parseRequest(Object(Cake\Http\ServerRequest))
-#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#9 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
-#10 {main}
-
-
-2017-05-22 03:50:14 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
-Request URL: /img/thumbnail/
-Referer URL: https://160.16.228.87/clients/view/12860
-Stack Trace:
-#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
-#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#12 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
-#13 {main}
-
-
-2017-05-22 03:52:48 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
-Request URL: /img/thumbnail/
-Referer URL: https://160.16.228.87/clients/view/12860
-Stack Trace:
-#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
-#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
-#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
-#12 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
-#13 {main}
-
-
-2017-05-22 03:53:32 Warning: Warning (2): fopen(/logs/action/2017-05-22.log): failed to open stream: No such file or directory in [/var/www/html/WeidenHouse/src/Controller/ClientsController.php, line 39]
-Request URL: /clients/delete/14990
-Referer URL: https://160.16.228.87/clients
-Client IP: 103.5.140.172
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
-fopen - [internal], line ??
-App\Controller\ClientsController::actionLog() - APP/Controller/ClientsController.php, line 39
-App\Controller\ClientsController::delete() - APP/Controller/ClientsController.php, line 265
-Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
-Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
-Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
-Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
-Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
-Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
-Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
-Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
-Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
-[main] - ROOT/webroot/index.php, line 37
-
-
-
-2017-05-22 03:53:32 Warning: Warning (2): fwrite() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ClientsController.php, line 41]
-Request URL: /clients/delete/14990
-Referer URL: https://160.16.228.87/clients
-Client IP: 103.5.140.172
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
-fwrite - [internal], line ??
-App\Controller\ClientsController::actionLog() - APP/Controller/ClientsController.php, line 41
-App\Controller\ClientsController::delete() - APP/Controller/ClientsController.php, line 265
-Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
-Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
-Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
-Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
-Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
-Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
-Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
-Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
-Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
-[main] - ROOT/webroot/index.php, line 37
-
-
-
-2017-05-22 03:53:32 Warning: Warning (2): fclose() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ClientsController.php, line 42]
-Request URL: /clients/delete/14990
-Referer URL: https://160.16.228.87/clients
-Client IP: 103.5.140.172
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
-fclose - [internal], line ??
-App\Controller\ClientsController::actionLog() - APP/Controller/ClientsController.php, line 42
-App\Controller\ClientsController::delete() - APP/Controller/ClientsController.php, line 265
-Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
-Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
-Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
-Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
-Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
-Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
-Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
-Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
-Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
-Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
-Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
-Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
-Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
-[main] - ROOT/webroot/index.php, line 37
-
-
-
-2017-05-22 04:03:44 Warning: Warning (2): fopen(/logs/action/2017-05-22.log): failed to open stream: No such file or directory in [/var/www/html/WeidenHouse/src/Controller/ProjectsController.php, line 31]
+2017-07-12 07:35:26 Warning: Warning (2): fopen(/logs/action/2017-07-12.log): failed to open stream: No such file or directory in [/var/www/html/WeidenHouse/src/Controller/ProjectsController.php, line 31]
 Request URL: /projects/add
 Referer URL: https://160.16.228.87/projects/add
-Client IP: 103.5.140.172
+Client IP: 27.140.208.138
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
 fopen - [internal], line ??
@@ -328,10 +24,10 @@ Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
 
 
 
-2017-05-22 04:03:44 Warning: Warning (2): fwrite() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ProjectsController.php, line 33]
+2017-07-12 07:35:26 Warning: Warning (2): fwrite() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ProjectsController.php, line 33]
 Request URL: /projects/add
 Referer URL: https://160.16.228.87/projects/add
-Client IP: 103.5.140.172
+Client IP: 27.140.208.138
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
 fwrite - [internal], line ??
@@ -354,10 +50,10 @@ Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
 
 
 
-2017-05-22 04:03:44 Warning: Warning (2): fclose() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ProjectsController.php, line 34]
+2017-07-12 07:35:26 Warning: Warning (2): fclose() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ProjectsController.php, line 34]
 Request URL: /projects/add
 Referer URL: https://160.16.228.87/projects/add
-Client IP: 103.5.140.172
+Client IP: 27.140.208.138
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
 fclose - [internal], line ??
@@ -380,15 +76,298 @@ Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
 
 
 
-2017-05-22 04:14:18 Warning: Warning (2): fopen(/Applications/MAMP/htdocs/PersonalTool/webroot/logs/action/2017-05-22.log): failed to open stream: No such file or directory in [/var/www/html/WeidenHouse/src/Controller/EndclientsController.php, line 27]
-Request URL: /endclients/delete/15
+2017-07-12 07:51:46 Warning: Warning (2): fopen(/logs/action/2017-07-12.log): failed to open stream: No such file or directory in [/var/www/html/WeidenHouse/src/Controller/ProjectsController.php, line 31]
+Request URL: /projects/edit/553
+Referer URL: https://160.16.228.87/projects/edit/553
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fopen - [internal], line ??
+App\Controller\ProjectsController::actionLog() - APP/Controller/ProjectsController.php, line 31
+App\Controller\ProjectsController::edit() - APP/Controller/ProjectsController.php, line 147
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-12 07:51:46 Warning: Warning (2): fwrite() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ProjectsController.php, line 33]
+Request URL: /projects/edit/553
+Referer URL: https://160.16.228.87/projects/edit/553
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fwrite - [internal], line ??
+App\Controller\ProjectsController::actionLog() - APP/Controller/ProjectsController.php, line 33
+App\Controller\ProjectsController::edit() - APP/Controller/ProjectsController.php, line 147
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-12 07:51:46 Warning: Warning (2): fclose() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ProjectsController.php, line 34]
+Request URL: /projects/edit/553
+Referer URL: https://160.16.228.87/projects/edit/553
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fclose - [internal], line ??
+App\Controller\ProjectsController::actionLog() - APP/Controller/ProjectsController.php, line 34
+App\Controller\ProjectsController::edit() - APP/Controller/ProjectsController.php, line 147
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-12 07:53:22 Error: [Error] Call to a member function has() on null in /var/www/html/WeidenHouse/src/Template/Projects/index.ctp on line 24
+Request URL: /projects
+Referer URL: https://160.16.228.87/projects/edit/553
+Client IP: 27.140.208.138
+Stack Trace:
+#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/View/View.php(1011): include()
+#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/View/View.php(972): Cake\View\View->_evaluate('/var/www/html/W...', Array)
+#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/View/View.php(596): Cake\View\View->_render('/var/www/html/W...')
+#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(623): Cake\View\View->render(NULL, NULL)
+#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(125): Cake\Controller\Controller->render()
+#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ProjectsController))
+#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#16 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
+#17 {main}
+
+
+2017-07-12 07:55:26 Error: [ParseError] syntax error, unexpected ''order'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /var/www/html/WeidenHouse/src/Controller/ProjectsController.php on line 47
+Request URL: /projects
+Referer URL: https://160.16.228.87/projects/edit/553
+Client IP: 27.140.208.138
+Stack Trace:
+#0 /var/www/html/WeidenHouse/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/var/www/html/W...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controller\\...')
+#2 [internal function]: spl_autoload_call('App\\Controller\\...')
+#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Core/App.php(152): class_exists('App\\Controller\\...')
+#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Core/App.php(64): Cake\Core\App::_classExistsInBase('\\Controller\\Pro...', 'App')
+#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(68): Cake\Core\App::className('Projects', 'Controller', 'Controller')
+#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#13 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#14 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#15 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#16 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
+#18 {main}
+
+
+2017-07-12 07:56:47 Error: [ParseError] syntax error, unexpected 's' (T_STRING), expecting ',' or ')' in /var/www/html/WeidenHouse/src/Template/Projects/index.ctp on line 22
+Request URL: /projects
+Referer URL: https://160.16.228.87/projects/edit/553
+Client IP: 27.140.208.138
+Stack Trace:
+#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/View/View.php(972): Cake\View\View->_evaluate('/var/www/html/W...', Array)
+#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/View/View.php(596): Cake\View\View->_render('/var/www/html/W...')
+#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(623): Cake\View\View->render(NULL, NULL)
+#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(125): Cake\Controller\Controller->render()
+#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ProjectsController))
+#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#13 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#14 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
+#16 {main}
+
+
+2017-07-12 07:56:58 Error: [ParseError] syntax error, unexpected 's' (T_STRING), expecting ',' or ')' in /var/www/html/WeidenHouse/src/Template/Projects/index.ctp on line 22
+Request URL: /projects
+Referer URL: https://160.16.228.87/projects/edit/553
+Client IP: 27.140.208.138
+Stack Trace:
+#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/View/View.php(972): Cake\View\View->_evaluate('/var/www/html/W...', Array)
+#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/View/View.php(596): Cake\View\View->_render('/var/www/html/W...')
+#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(623): Cake\View\View->render(NULL, NULL)
+#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(125): Cake\Controller\Controller->render()
+#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ProjectsController))
+#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#13 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#14 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
+#16 {main}
+
+
+2017-07-12 08:22:16 Error: [ParseError] syntax error, unexpected ''foreignKey'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /var/www/html/WeidenHouse/src/Model/Table/ProjectsTable.php on line 45
+Request URL: /projects
 Referer URL: https://160.16.228.87/endclients
-Client IP: 103.5.140.172
+Client IP: 27.140.208.138
+Stack Trace:
+#0 /var/www/html/WeidenHouse/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/var/www/html/W...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Model\\Table...')
+#2 [internal function]: spl_autoload_call('App\\Model\\Table...')
+#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Core/App.php(152): class_exists('App\\Model\\Table...')
+#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Core/App.php(64): Cake\Core\App::_classExistsInBase('\\Model\\Table\\Pr...', 'App')
+#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(238): Cake\Core\App::className('Projects', 'Model/Table', 'Table')
+#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(193): Cake\ORM\Locator\TableLocator->_getClassName('Projects', Array)
+#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Datasource/ModelAwareTrait.php(112): Cake\ORM\Locator\TableLocator->get('Projects')
+#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(358): Cake\Controller\Controller->loadModel('Projects')
+#9 /var/www/html/WeidenHouse/src/Controller/ProjectsController.php(49): Cake\Controller\Controller->__get('Projects')
+#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\ProjectsController->index()
+#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ProjectsController))
+#13 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#14 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#15 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#16 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#17 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#18 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#19 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#20 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#21 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#23 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
+#24 {main}
+
+
+2017-07-12 08:24:29 Error: [Error] Call to undefined method Cake\ORM\ResultSet::contain() in /var/www/html/WeidenHouse/src/Controller/ProjectsController.php on line 49
+Request URL: /projects
+Client IP: 27.140.208.138
+Stack Trace:
+#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\ProjectsController->index()
+#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ProjectsController))
+#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
+#14 {main}
+
+
+2017-07-12 08:24:50 Error: [Error] Call to undefined method Cake\ORM\ResultSet::contain() in /var/www/html/WeidenHouse/src/Controller/ProjectsController.php on line 49
+Request URL: /projects
+Client IP: 27.140.208.138
+Stack Trace:
+#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\ProjectsController->index()
+#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ProjectsController))
+#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
+#14 {main}
+
+
+2017-07-12 08:30:10 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '568' for key 'PRIMARY'
+Request URL: /endclients/add
+Referer URL: https://160.16.228.87/endclients/add
+Stack Trace:
+#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Database/Connection.php(313): Cake\Database\Statement\MysqlStatement->execute()
+#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Database/Query.php(213): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/ORM/Table.php(1916): Cake\Database\Query->execute()
+#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/ORM/Table.php(1810): Cake\ORM\Table->_insert(Object(App\Model\Entity\Endclient), Array)
+#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/ORM/Table.php(1723): Cake\ORM\Table->_processSave(Object(App\Model\Entity\Endclient), Object(ArrayObject))
+#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/ORM/Table.php(1446): Cake\ORM\Table->Cake\ORM\{closure}()
+#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Database/Connection.php(680): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/ORM/Table.php(1447): Cake\Database\Connection->transactional(Object(Closure))
+#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/ORM/Table.php(1724): Cake\ORM\Table->_executeTransaction(Object(Closure), true)
+#10 /var/www/html/WeidenHouse/src/Controller/EndclientsController.php(83): Cake\ORM\Table->save(Object(App\Model\Entity\Endclient))
+#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Controller/Controller.php(440): App\Controller\EndclientsController->add()
+#12 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#13 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\EndclientsController))
+#14 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#22 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#23 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#24 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
+#25 {main}
+
+
+2017-07-12 08:30:41 Warning: Warning (2): fopen(/Applications/MAMP/htdocs/PersonalTool/webroot/logs/action/2017-07-12.log): failed to open stream: No such file or directory in [/var/www/html/WeidenHouse/src/Controller/EndclientsController.php, line 27]
+Request URL: /endclients/add
+Referer URL: https://160.16.228.87/endclients/add
+Client IP: 27.140.208.138
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
 fopen - [internal], line ??
 App\Controller\EndclientsController::actionLog() - APP/Controller/EndclientsController.php, line 27
-App\Controller\EndclientsController::delete() - APP/Controller/EndclientsController.php, line 132
+App\Controller\EndclientsController::add() - APP/Controller/EndclientsController.php, line 86
 Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
 Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
 Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
@@ -406,15 +385,15 @@ Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
 
 
 
-2017-05-22 04:14:18 Warning: Warning (2): fwrite() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/EndclientsController.php, line 29]
-Request URL: /endclients/delete/15
-Referer URL: https://160.16.228.87/endclients
-Client IP: 103.5.140.172
+2017-07-12 08:30:41 Warning: Warning (2): fwrite() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/EndclientsController.php, line 29]
+Request URL: /endclients/add
+Referer URL: https://160.16.228.87/endclients/add
+Client IP: 27.140.208.138
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
 fwrite - [internal], line ??
 App\Controller\EndclientsController::actionLog() - APP/Controller/EndclientsController.php, line 29
-App\Controller\EndclientsController::delete() - APP/Controller/EndclientsController.php, line 132
+App\Controller\EndclientsController::add() - APP/Controller/EndclientsController.php, line 86
 Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
 Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
 Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
@@ -432,15 +411,387 @@ Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
 
 
 
-2017-05-22 04:14:18 Warning: Warning (2): fclose() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/EndclientsController.php, line 30]
-Request URL: /endclients/delete/15
-Referer URL: https://160.16.228.87/endclients
-Client IP: 103.5.140.172
+2017-07-12 08:30:41 Warning: Warning (2): fclose() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/EndclientsController.php, line 30]
+Request URL: /endclients/add
+Referer URL: https://160.16.228.87/endclients/add
+Client IP: 27.140.208.138
 Trace:
 Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
 fclose - [internal], line ??
 App\Controller\EndclientsController::actionLog() - APP/Controller/EndclientsController.php, line 30
-App\Controller\EndclientsController::delete() - APP/Controller/EndclientsController.php, line 132
+App\Controller\EndclientsController::add() - APP/Controller/EndclientsController.php, line 86
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-12 09:25:31 Warning: Warning (2): fopen(/logs/action/2017-07-12.log): failed to open stream: No such file or directory in [/var/www/html/WeidenHouse/src/Controller/ManagersController.php, line 30]
+Request URL: /managers/login?redirect=%2Fclients%2Fbirthday
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fclients%2Fbirthday
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fopen - [internal], line ??
+App\Controller\ManagersController::actionLog() - APP/Controller/ManagersController.php, line 30
+App\Controller\ManagersController::login() - APP/Controller/ManagersController.php, line 51
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-12 09:25:31 Warning: Warning (2): fwrite() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ManagersController.php, line 32]
+Request URL: /managers/login?redirect=%2Fclients%2Fbirthday
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fclients%2Fbirthday
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fwrite - [internal], line ??
+App\Controller\ManagersController::actionLog() - APP/Controller/ManagersController.php, line 32
+App\Controller\ManagersController::login() - APP/Controller/ManagersController.php, line 51
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-12 09:25:31 Warning: Warning (2): fclose() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ManagersController.php, line 33]
+Request URL: /managers/login?redirect=%2Fclients%2Fbirthday
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fclients%2Fbirthday
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fclose - [internal], line ??
+App\Controller\ManagersController::actionLog() - APP/Controller/ManagersController.php, line 33
+App\Controller\ManagersController::login() - APP/Controller/ManagersController.php, line 51
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-13 07:49:12 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Request URL: /favicon.ico
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fclients%2Fview%2F544
+Stack Trace:
+#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(65): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
+#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-07-13 07:49:28 Warning: Warning (2): fopen(/logs/action/2017-07-13.log): failed to open stream: No such file or directory in [/var/www/html/WeidenHouse/src/Controller/ManagersController.php, line 30]
+Request URL: /managers/login?redirect=%2Fclients%2Fview%2F544
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fclients%2Fview%2F544
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fopen - [internal], line ??
+App\Controller\ManagersController::actionLog() - APP/Controller/ManagersController.php, line 30
+App\Controller\ManagersController::login() - APP/Controller/ManagersController.php, line 51
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-13 07:49:28 Warning: Warning (2): fwrite() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ManagersController.php, line 32]
+Request URL: /managers/login?redirect=%2Fclients%2Fview%2F544
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fclients%2Fview%2F544
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fwrite - [internal], line ??
+App\Controller\ManagersController::actionLog() - APP/Controller/ManagersController.php, line 32
+App\Controller\ManagersController::login() - APP/Controller/ManagersController.php, line 51
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-13 07:49:28 Warning: Warning (2): fclose() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ManagersController.php, line 33]
+Request URL: /managers/login?redirect=%2Fclients%2Fview%2F544
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fclients%2Fview%2F544
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fclose - [internal], line ??
+App\Controller\ManagersController::actionLog() - APP/Controller/ManagersController.php, line 33
+App\Controller\ManagersController::login() - APP/Controller/ManagersController.php, line 51
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-13 08:24:16 Warning: Warning (2): fopen(/logs/action/2017-07-13.log): failed to open stream: No such file or directory in [/var/www/html/WeidenHouse/src/Controller/ManagersController.php, line 30]
+Request URL: /managers/login?redirect=%2Fclients%2Fadd
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fclients%2Fadd
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fopen - [internal], line ??
+App\Controller\ManagersController::actionLog() - APP/Controller/ManagersController.php, line 30
+App\Controller\ManagersController::login() - APP/Controller/ManagersController.php, line 51
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-13 08:24:16 Warning: Warning (2): fwrite() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ManagersController.php, line 32]
+Request URL: /managers/login?redirect=%2Fclients%2Fadd
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fclients%2Fadd
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fwrite - [internal], line ??
+App\Controller\ManagersController::actionLog() - APP/Controller/ManagersController.php, line 32
+App\Controller\ManagersController::login() - APP/Controller/ManagersController.php, line 51
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-13 08:24:16 Warning: Warning (2): fclose() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ManagersController.php, line 33]
+Request URL: /managers/login?redirect=%2Fclients%2Fadd
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fclients%2Fadd
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fclose - [internal], line ??
+App\Controller\ManagersController::actionLog() - APP/Controller/ManagersController.php, line 33
+App\Controller\ManagersController::login() - APP/Controller/ManagersController.php, line 51
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-13 08:29:07 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
+Request URL: /img/thumbnail/
+Referer URL: https://160.16.228.87/clients/view/4403
+Stack Trace:
+#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
+#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-07-13 08:29:35 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
+Request URL: /img/thumbnail/
+Referer URL: https://160.16.228.87/clients/view/4403
+Stack Trace:
+#0 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(70): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
+#1 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(90): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#2 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#3 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#4 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#6 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 /var/www/html/WeidenHouse/vendor/cakephp/cakephp/src/Http/Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 /var/www/html/WeidenHouse/webroot/index.php(37): Cake\Http\Server->run()
+#13 {main}
+
+
+2017-07-13 09:44:36 Warning: Warning (2): fopen(/logs/action/2017-07-13.log): failed to open stream: No such file or directory in [/var/www/html/WeidenHouse/src/Controller/ManagersController.php, line 30]
+Request URL: /managers/login?redirect=%2Fmanagers
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fmanagers
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fopen - [internal], line ??
+App\Controller\ManagersController::actionLog() - APP/Controller/ManagersController.php, line 30
+App\Controller\ManagersController::login() - APP/Controller/ManagersController.php, line 51
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-13 09:44:36 Warning: Warning (2): fwrite() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ManagersController.php, line 32]
+Request URL: /managers/login?redirect=%2Fmanagers
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fmanagers
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fwrite - [internal], line ??
+App\Controller\ManagersController::actionLog() - APP/Controller/ManagersController.php, line 32
+App\Controller\ManagersController::login() - APP/Controller/ManagersController.php, line 51
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 78
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 59
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 92
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 80
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2017-07-13 09:44:36 Warning: Warning (2): fclose() expects parameter 1 to be resource, boolean given in [/var/www/html/WeidenHouse/src/Controller/ManagersController.php, line 33]
+Request URL: /managers/login?redirect=%2Fmanagers
+Referer URL: https://160.16.228.87/managers/login?redirect=%2Fmanagers
+Client IP: 27.140.208.138
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 153
+fclose - [internal], line ??
+App\Controller\ManagersController::actionLog() - APP/Controller/ManagersController.php, line 33
+App\Controller\ManagersController::login() - APP/Controller/ManagersController.php, line 51
 Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 440
 Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 119
 Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 93

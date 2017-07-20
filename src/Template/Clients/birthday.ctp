@@ -26,7 +26,7 @@
                 <?php else:?>
                   <tr class="gray_background" data-paidstatuse = "<?= h($client->paidstatus->status_name)?>" data-username="<?= h($client->first_name)?><?= h($client->last_name) ?>" data-birthday="<?= h($client->birthday)?>" data-phone-number ="<?= h($client->phone_number)?>" data-client-name-ruby="<?= h($client->first_name_ruby) . h($client->last_name_ruby)?>" data-projectname="<?= h($client->project->name)?>" data-groupname="<?= h($client->universities_name) ?>">
                 <?php endif;?>
-                    <td><?= $this->Html->link(__(h($client->first_name) . ' ' . h($client->last_name)), ['action' => 'view', $client->id]) ?> (<?= h($client->age)?>)</td>
+                    <td><?= $this->Html->link(__(h($client->first_name) . ' ' . h($client->last_name)), ['action' => 'view', $client->id]) ?> (<?php echo (int)((date( "Ymd" ) - intval(str_replace("/", "", $client->birthday)))/10000);?>)</td>
                     <td><?= $client->has('sex') ? $this->Html->link($client->sex->name, ['controller' => 'Sexes', 'action' => 'view', $client->sex->id]) : '' ?></td>
                     <td><?= h($client->first_name_ruby)?> <?= h($client->last_name_ruby)?></td>
                     <td><?= $this->Number->format($client->evaluation) ?></td>

@@ -35,6 +35,15 @@
     </p>
   </li>
   <li>
+    <p>
+      カテゴリ管理
+      <ul class="list-unstyled">
+        <li><?php echo $this->Html->link('一覧表示' ,['controller' => 'categories' ,'action' => 'index']); ?></li>
+        <li><?php echo $this->Html->link('登録', ['controller' => 'categories','action' => 'add']); ?></li>
+      </ul>
+    </p>
+  </li>
+  <li>
     <p>謝礼理由管理</p>
     <ul class="list-unstyled">
       <li><?php echo $this->Html->link('一覧表示' ,['controller' => 'pay_reasons' , 'action' => 'index']); ?></li>
@@ -42,7 +51,7 @@
     </ul>
   </li>
   <li>
-    <p>謝礼支払状況管理</p>
+    <p>支払ステータス管理</p>
     <ul class="list-unstyled">
       <li><?php echo $this->Html->link('一覧表示' ,['controller' => 'paidstatuses' , 'action' => 'index']); ?></li>
       <li><?php echo $this->Html->link('登録' ,['controller' => 'paidstatuses' ,'action' =>'add']); ?></li>

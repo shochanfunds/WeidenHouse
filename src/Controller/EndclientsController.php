@@ -40,7 +40,15 @@ class EndclientsController extends AppController
         $this->paginate = [
             'order' => [ 'id' => 'desc']
         ];
-        $endclients = $this->paginate($this->Endclients);
+        if($this->request->query['charged_person']){ $charged_person = $this->request->query['charged_person']; }else{ $charged_person = NULL; }
+        $name = $this->request->query["name"];
+        if($this->request->query['address']){ $address = $this->request->query['address']; }else{ $address = NULL; }
+        $choised_clients = $this->Endclients->find()
+        ->where(['name LIKE' => "%$name"])
+        ->where(['charged_person LIKE' =>"%$charged_person%"])
+        ->where(['address LIKE' =>"%$address%"]);
+        $endclients = $this->paginate($choised_clients);
+        #$endclients = $this->paginate($this->Endclients);
         $this->set(compact('endclients'));
         $this->set('_serialize', ['endclients']);
     }

@@ -6,7 +6,7 @@
   <div class="info-box">
     <table>
       <tr>
-        <td>社名（商号）</td>
+        <td>担当者名</td>
         <td><?= h($endclient->name) ?></td>
       </tr>
       <tr>
@@ -18,7 +18,7 @@
         <td><?= h($endclient->capital_stock) ?></td>
       </tr>
       <tr>
-        <td>担当者</td>
+        <td>会社名</td>
         <td><?= h($endclient->charged_person) ?></td>
       </tr>
       <tr>

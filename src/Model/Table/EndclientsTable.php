@@ -33,6 +33,10 @@ class EndclientsTable extends Table
         $this->setTable('endclients');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
+
+        $this->belongsTo('Projects',[
+            'joinType' => 'LEFT',
+        ]);
     }
 
     /**

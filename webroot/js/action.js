@@ -20,19 +20,18 @@ $(".not_hifun").keyup(function(){
 });
 //searchformの開閉を制御するスクリプト
 
-$(".search_form").hover(function(){
-  $("form").toggleClass("open");
-  if($('form').attr('class') == "open"){
-    $("form").stop().slideDown();
-  }else{
-    $("form").stop().slideUp();
-  }
+$(".hover_effect h2").click(function(){
+  $("#form_div").slideToggle();
 });
+
 
 $('#sidebar_list li p').click(function(){
   $(this).next().slideToggle();
 });
 
+$(".project_client h2").click(function(){
+  $("#form_div").slideToggle();
+});
 
 $(document).ready(function(){
   var data_1 = window.parent.screen.width;

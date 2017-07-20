@@ -231,7 +231,7 @@ return [
             //'port' => 'non_standard_port_number',
             'username' => 'root',
             'password' => 'password',
-            'database' => 'Weiden',
+            'database' => 'PersonalTool_2',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],

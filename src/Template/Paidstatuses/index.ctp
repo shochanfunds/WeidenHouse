@@ -12,7 +12,7 @@
             特定の条件に当てはまるクライアント一覧を表示する画面
            */
           ?>
-          <p class="clients-title">支払状況一覧</p>
+          <p class="clients-title">支払ステータス一覧</p>
           <table id="account-list" class="table">
             <thead>
                 <tr><th>id</th><th>支払状況</th><th>作成日</th><th>修正日</th><th>操作</th><tr>

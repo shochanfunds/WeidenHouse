@@ -17,12 +17,20 @@
             <tbody>
               <?php foreach($clients as $client):?>
                     <tr class="gray_background">
+                      <?php if($client->client->first_name ==NULL):?>
+                        <td><?= $this->Html->link($client["first_name"] . "(" . $client["age"] . ")",['controller' => 'clients' , 'action' => 'view' ,$client["id"]])?></td>
+                      <?php else:?>
                         <td><?= $this->Html->link($client->client->first_name . $client->client->last_name . "(" . $client->client->age . ")",['controller' => 'clients' , 'action' => 'view' ,$client->client->id])?></td>
+                      <?php endif;?>
                         <td><?= h($sex[$client->client->sexes_id]) ?></td>
                         <td><?= h($client->client->first_name_ruby) . h($client->client->last_name_ruby)?></td>
                         <td><?= h($client->client->evaluation)?></td>
                         <td><?= h($project->name)?></td>
-                        <td><?= $this->Form->postLink(__('削除'), ['controller'=>'clientsProjects', 'action' => 'delete',$client->id], ['confirm' => __('本当に削除してよろしいですか？?', $client->id)]) ?></td>
+                        <?php if($client->client->first_name ==NULL):?>
+                          <td></td>
+                        <?php else:?>
+                          <td><?= $this->Form->postLink(__('削除'), ['controller'=>'clientsProjects', 'action' => 'delete',$client->id], ['confirm' => __('本当に削除してよろしいですか？?', $client->id)]) ?></td>
+                        <?php endif;?>
                   </tr>
               <?php endforeach;?>
             </tbody>
@@ -31,12 +39,12 @@
       </div>
     </div>
     <div class="search_form project_client">
-      <div>
       <h2><img src="/img/add.jpg" width="25px" height="25px"></h2>
-      <?= $this->Form->create(null,['style'=>'display:none'])?>
-        <?php echo $this->Form->control('clients_id', ['label' => '参加者を追加する','options' => $clients_ids ]);?>
-        <?= $this->Form->button(__('送信'))?>
-        <?= $this->Form->end() ?>
+      <div id="form_div" style="display:none">
+        <?= $this->Form->create(null)?>
+          <?php echo $this->Form->control('clients_id', ['label' => '参加者を追加する','options' => $clients_ids ]);?>
+          <?= $this->Form->button(__('送信'))?>
+          <?= $this->Form->end() ?>
       </div>
     </div>
     <div class="pagination">

@@ -7,23 +7,30 @@
   <?php echo $this->element('sidebar');?>
   <div class="container-fluid col-md-10 clients">
         <div>
+          <div class="search_form hover_effect">
+            <h2><img src="/img/search_icon.png" width="25px" height="25px"></h2>
+            <div id="form_div" style="display:none">
+            <?= $this->Form->create(null, ['type' => 'get'])?>
+              <?php echo $this->Form->input('name',['value' => $this->request->query('name'),'label'=>'責任者名']);?>
+              <?php echo $this->Form->input('charged_person',['value' => $this->request->query('charged_person'),'label' => '企業名']);?>
+              <?php echo $this->Form->input('address',['value' => $this->request->query('address'),'label' => '住所']);?>
+              <?= $this->Form->button(__('検索'))?>
+              <?= $this->Form->end() ?>
+            </div>
+          </div>
+
           <p class="clients-title">エンドクライアント一覧</p>
           <table class="table">
             <thead>
-              <tr><th>id</th><th>企業名</th><th>電話番号</th><th>住所</th><th>資本金</th><th>部署名</th><th>担当者名</th><th>登録日</th><th>修正日</th><th>操作</th><tr>
+              <tr><th>id</th><th>担当者名</th><th>フリガナ</th><th>企業名</th><th>操作</th><tr>
             </thead>
             <tbody>
               <?php foreach($endclients as $endclient):?>
                   <tr>
                     <td><?= $this->Number->format($endclient->id) ?></td>
                     <td><?= $this->Html->link($endclient->name,['controller'=>'endclients','action'=>'view',$endclient->id]) ?></td>
-                    <td><?= h($endclient->phone_number) ?></td>
-                    <td><?= h($endclient->address) ?></td>
-                    <td><?= h($endclient->capital_stock)?></td>
                     <td><?= h($endclient->department)?></td>
                     <td><?= h($endclient->charged_person)?></td>
-                    <td><?= h($endclient->created)?></td>
-                    <td><?= h($endclient->modified)?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('詳細'), ['action' => 'view', $endclient->id]) ?>
                         <?= $this->Html->link(__('修正'), ['action' => 'edit', $endclient->id]) ?>

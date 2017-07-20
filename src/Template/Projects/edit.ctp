@@ -10,7 +10,7 @@
         <?= $this->Form->create($project) ?>
         <div class="form-container">
           <div class="title">
-            <p>プロジェクト追加</p>
+            <p>プロジェクト変更</p>
           </div>
           <form action="index.html" method="post">
             <p>
@@ -18,6 +18,9 @@
             </p>
             <p>
               <?php echo $this->Form->control('dateof');?>
+            </p>
+            <p>
+              <?php echo $this->Form->control('endclients_id',['label' => 'エンドクライアント名' ,'options' => $endclients]);?>
             </p>
           </form>
           <p class="submit-button">

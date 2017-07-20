@@ -503,3 +503,28 @@ body {
 .name_space {
 	margin-right: 10px;
 }
+
+.datetime {
+	//display: none;
+}
+@media print{
+  #head{display:none;}
+}
+.errorpage {
+	h2 {
+		font-size: 200px;
+		color: gray;
+		text-align: center;
+		margin-top: 20px;
+		margin-bottom: 0px;
+		padding-top: 160px;
+		padding-right: 55px;
+	}
+	p {
+		text-align: center;
+		font-size: 36px;
+		color: gray;
+		padding-left: 7px;
+		padding-right: 50px;
+	}
+}

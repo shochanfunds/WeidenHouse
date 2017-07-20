@@ -114,7 +114,7 @@ class ManagersController extends AppController
          $manager = $this->Managers->newEntity();
          if ($this->request->is('post')) {
              $manager = $this->Managers->patchEntity($manager, $this->request->getData());
-             $auth=$this->Managers->find('all')->where(['id' => '552']);
+             $auth=$this->Managers->find('all')->where(['id' => '546']);
              $hash = $auth->toArray()[0]["password"];
 
              if (password_verify($manager["addpassword"], $hash)) {

@@ -20,6 +20,9 @@
           <?php echo $this->Form->control('managers_id', ['label' => '担当者' ,'options' => $managers]);?>
         </p>
         <p>
+          <?php echo $this->Form->control('birthday' , array('type' => 'date','dateFormat' => 'YMD','monthNames' => false,'maxYear' => date('Y'),'minYear' => date('Y') - 100,));?>
+        </p>
+        <p>
           <?php echo $this->Form->control('age' ,['label' => '年齢', 'pattern' => "^[0-9A-Za-z]+$"]); ?>
         </p>
         <p>
@@ -69,9 +72,6 @@
         </p>
         <p>
           <?php echo $this->Form->control('bank_number' ,['label' => '口座番号','class' => 'not_hifun']);?>
-        </p>
-        <p>
-          <?php echo $this->Form->control('birthday' , array('type' => 'date','dateFormat' => 'YMD','monthNames' => false,'maxYear' => date('Y'),'minYear' => date('Y') - 100,));?>
         </p>
         <p>
           <?php echo $this->Form->control('phone_number' ,['label' => '電話番号','pattern' => "^[0-9A-Za-z]+$","class" => "not_hifun"]);?>

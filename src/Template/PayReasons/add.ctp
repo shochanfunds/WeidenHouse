@@ -17,7 +17,7 @@
               <?php echo $this->Form->control('name',['label'=>'謝礼理由']);?>
             </p>
             <p>
-              <?php echo $this->Form->hidden('modifed');?>
+              <?php echo $this->Form->control('modifed');?>
             </p>
           </form>
           <p class="submit-button">

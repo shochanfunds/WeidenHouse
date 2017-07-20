@@ -10,15 +10,13 @@
           <p class="clients-title">カテゴリ一覧</p>
           <table class="table">
             <thead>
-              <tr><th>id</th><th>カテゴリ名</th><th>作成日</th><th>修正日</th><th>操作</th></tr>
+              <tr><th>id</th><th>カテゴリ名</th><th>操作</th></tr>
             </thead>
             <tbody>
               <?php foreach ($categories as $category): ?>
               <tr>
                   <td><?= $this->Number->format($category->id) ?></td>
                   <td><?= h($category->name) ?></td>
-                  <td><?= h($category->created) ?></td>
-                  <td><?= h($category->modified) ?></td>
                   <td class="actions">
                       <?= $this->Html->link(__('編集'), ['action' => 'edit', $category->id]) ?>
                       <?= $this->Form->postLink(__('削除'), ['action' => 'delete', $category->id], ['confirm' => __('本当に削除してもよろしいですか？ # {0}?', $category->id)]) ?>

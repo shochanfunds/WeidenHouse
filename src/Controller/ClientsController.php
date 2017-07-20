@@ -59,13 +59,14 @@ class ClientsController extends AppController
         $phone_number = $this->request->query["phone_number"];
         $project_name = $this->request->query["project_name"];
         if($this->request->query['first_name_ruby']){ $username_ruby = $this->request->query['first_name_ruby']; }else{ $username_ruby = NULL; }
-        $category = $this->request->query["category"];
+        if($this->request->query["category"]){ $category = $this->request->query["category"]; }else{ $category = NULL; }
         $birth = $this->request->query["birth"];
-        $choised_clients = $this->Clients->find('all')
-        ->contain(['Projects'])
+        $choised_clients = $this->Clients->find()
         ->where(['Clients.first_name LIKE' => "%$username%"])
         ->where(['Clients.phone_number LIKE' => "%$phone_number%"])
         ->where(['Clients.birthday LIKE' => "%$birth%"])
+        ->where(['Categories.name LIKE' => "%$category"])
+        ->where(['Clients.first_name_ruby LIKE' =>"%$username_ruby%"])
         ->where(['Projects.name LIKE' =>"%$project_name%"]);
         $clients = $this->paginate($choised_clients);
         $this->set(compact('clients'));
@@ -77,21 +78,24 @@ class ClientsController extends AppController
           'contain' => ['Paidstatuses', 'Managers', 'Howtopays', 'Projects', 'CommissionAdmits', 'Sexes', 'PayReasons', 'Endclients' ,'Categories'],
           'order' => ['id' => 'desc']
       ];
+      $today = date("m-d");
+      $birthday = count($this->Clients->find('all')->where(['Clients.birthday LIKE' =>  "%$today%" ])->toArray());
       if($this->request->query['username']){ $username = $this->request->query['username']; }else{ $username = NULL; }
-      $username_ruby = $this->request->query['first_name_ruby'];
       $phone_number = $this->request->query["phone_number"];
       $project_name = $this->request->query["project_name"];
-      $category = $this->request->query["category"];
+      if($this->request->query['first_name_ruby']){ $username_ruby = $this->request->query['first_name_ruby']; }else{ $username_ruby = NULL; }
+      if($this->request->query["category"]){ $category = $this->request->query["category"]; }else{ $category = NULL; }
       $birth = $this->request->query["birth"];
-      $choised_clients = $this->Clients->find('all')
-      ->contain(['Projects'])
+      $choised_clients = $this->Clients->find()
       ->where(['Clients.first_name LIKE' => "%$username%"])
       ->where(['Clients.phone_number LIKE' => "%$phone_number%"])
       ->where(['Clients.birthday LIKE' => "%$birth%"])
+      ->where(['Categories.name LIKE' => "%$category"])
+      ->where(['Clients.first_name_ruby LIKE' =>"%$username_ruby%"])
       ->where(['Projects.name LIKE' =>"%$project_name%"]);
       $clients = $this->paginate($choised_clients);
-      //$clients = $this->paginate($this->Clients);
       $this->set(compact('clients'));
+      $this->set(compact('birthday'));
       $this->set('_serialize', ['clients']);
     }
 
@@ -130,6 +134,7 @@ class ClientsController extends AppController
           $this->friends->save($relationship_of_friends);
           return $this->redirect(['action' => 'view',$id]);
         }
+        $project_array[]=array($client->project->name,$client->project->id);
         $thumbnail_path = '/img/thumbnail/';
         $this->loadModel('Clients');
         $thumbnail = $this->Clients->thumbnail();
@@ -182,11 +187,11 @@ class ClientsController extends AppController
             $input_data = "インタビュー対象者情報登録時に不正を検出しました。処理をブロックしました";
             $this->errorLog($input_data,'インタビュー対象者登録失敗');
         }
-        $friends = $this->Clients->find('list')->select(['first_name'])->toArray();
+        $friends = $this->Clients->find('list')->order(['Clients.first_name'=>'ASC'])->select(['first_name'])->toArray();
         $paidstatuses = $this->Clients->Paidstatuses->find('list', ['limit' => 200]);
         $managers = $this->Clients->Managers->find('list', ['limit' => 200]);
         $howtopays = $this->Clients->Howtopays->find('list', ['limit' => 200]);
-        $projects = $this->Clients->Projects->find('list', ['limit' => 200]);
+        $projects = $this->Clients->Projects->find('list');
         $commissionAdmits = $this->Clients->CommissionAdmits->find('list', ['limit' => 200]);
         $sexes = $this->Clients->Sexes->find('list', ['limit' => 200]);
         $payReasons = $this->Clients->PayReasons->find('list', ['limit' => 200]);
@@ -232,12 +237,12 @@ class ClientsController extends AppController
         $paidstatuses = $this->Clients->Paidstatuses->find('list', ['limit' => 200]);
         $managers = $this->Clients->Managers->find('list', ['limit' => 200]);
         $howtopays = $this->Clients->Howtopays->find('list', ['limit' => 200]);
-        $projects = $this->Clients->Projects->find('list', ['limit' => 200]);
+        $projects = $this->Clients->Projects->find('list')->order(['Projects.dateof' => 'DESC']);;
         $commissionAdmits = $this->Clients->CommissionAdmits->find('list', ['limit' => 200]);
         $sexes = $this->Clients->Sexes->find('list', ['limit' => 200]);
         $payReasons = $this->Clients->PayReasons->find('list', ['limit' => 200]);
-        $endclients = $this->Clients->Endclients->find('list' ,['limit' => 200]);
-        $categories = $this->Clients->Categories->find('list' ,['limit' => 200]);
+        $endclients = $this->Clients->Endclients->find('list');
+        $categories = $this->Clients->Categories->find('list');
         $this->set(compact('client', 'paidstatuses', 'managers', 'howtopays', 'projects', 'commissionAdmits', 'sexes', 'payReasons', 'endclients' ,'categories'));
         $this->set('_serialize', ['client']);
     }

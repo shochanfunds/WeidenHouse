@@ -51,6 +51,7 @@ class PayReasonsController extends AppController
         $payReason = $this->PayReasons->newEntity();
         if ($this->request->is('post')) {
             $payReason = $this->PayReasons->patchEntity($payReason, $this->request->getData());
+
             if ($this->PayReasons->save($payReason)) {
                 $this->Flash->success(__('謝礼理由が新たに登録されました'));
 

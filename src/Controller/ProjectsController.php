@@ -13,7 +13,7 @@ class ProjectsController extends AppController
 {
 
   public function initialize(){
-
+    $endclients = TableRegistry::get("Endclients");
   }
   public function errorLog($message,$error_name){
     $today = date("Y-m-d");
@@ -43,10 +43,10 @@ class ProjectsController extends AppController
     {
 
         $this->paginate = [
+            'contain' => ['Endclients'],
             'order' => [ 'id' => 'desc']
         ];
         $projects = $this->paginate($this->Projects);
-
 
         $this->set(compact('projects'));
         $this->set('_serialize', ['projects']);
@@ -92,7 +92,9 @@ class ProjectsController extends AppController
             return $this->redirect(['action' => 'view',$id]);
           }
         }
-        $clients_ids = $clients->find('list', ['limit' => 200])->order(['Clients.id' => 'DESC']);
+        $clients_ids = $clients->find('list')->order(['Clients.first_name' => 'ASC']);
+        $endclients = $this->Projects->Endclients->find('list');
+        $this->set('endclients',$endclients);
         $this->set('clients_ids',$clients_ids);
         $this->set('sex',$sex);
         $this->set('clients',$client_1);
@@ -119,6 +121,8 @@ class ProjectsController extends AppController
             $input_data = "$project->name を登録しようとしましたが、登録情報に不正が見つかったため、処理をブロックしました";
             $this->errorLog($input_data,'プロジェクト情報新規登録失敗');
         }
+        $endclients = $this->Projects->Endclients->find('list');
+        $this->set('endclients',$endclients);
         $this->set(compact('project'));
         $this->set('_serialize', ['project']);
     }
@@ -146,6 +150,8 @@ class ProjectsController extends AppController
             $input_data = "$client->name を編集しようとしましたが、編集内容に不正が見つかったため処理をブロックしました";
             $this->errorLog($input_data,'新規プロジェクト登録失敗');
         }
+        $endclients = $this->Projects->Endclients->find('list');
+        $this->set('endclients',$endclients);
         $this->set(compact('project'));
         $this->set('_serialize', ['project']);
     }

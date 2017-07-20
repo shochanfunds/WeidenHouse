@@ -14,14 +14,15 @@
       カード部分
     */
     ?>
-    <div class="row col-md-12 detal_text">
+    <div id="head" class="row col-md-12 detal_text">
       <ul class="list-unstyled">
         <li class="client_name text-center"><?= h($client->first_name) ?> <?= h($client->last_name) ?></li>
         <li class="client_name_ruby text-center"><?= h($client->first_name_ruby)?> <?= h($client->last_name_ruby)?></li>
         <li class="group_name">所属 <?= h($client->universities_name) ?></li>
         <li class="sex">性別 <?= $client->has('sex') ? h($client->sex->name) : ''?></li>
         <li class="category">カテゴリ <?= $client->has('category') ? h($client->category->name) : ''?></li>
-        <li class="age">年齢 <?= h($client->age)?>歳</li>
+        <li class="age">年齢 <?php echo (int)((date( "Ymd" ) - intval(str_replace("/", "", $client->birthday)))/10000);?>歳</li>
+        <li class="age">生年月日 <?= h($client->birthday)?></li>
         <li>出身地 <?= h($client->lived_place) ?></li>
         <li>住所 <?= h($client->prefecture).h($client->address1).h($client->address2)?></li>
         <li class="email">email <?= h($client->email)?></li>
@@ -43,7 +44,11 @@
         <td>プロジェクト名</td>
         <td>
           <?php foreach($test as $data):?>
-            <p><?= h($data)?></p>
+            <?php if(count($data)==1):?>
+              <p><?= h($data)?></p>
+            <?php else:?>
+              <p><?php echo $client->project->name ;?></p>
+            <?php endif;?>
           <?php endforeach;?>
         </td>
       </tr>

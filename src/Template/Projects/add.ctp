@@ -19,6 +19,9 @@
             <p>
               <?php echo $this->Form->control('dateof' ,['label' => '実施日']);?>
             </p>
+            <p>
+              <?php echo $this->Form->control('endclients_id',['label' => 'エンドクライアント名' ,'options' => $endclients]);?>
+            </p>
           </form>
           <p class="submit-button">
             <?= $this->Form->button(__('送信')) ?>
