@@ -14,12 +14,12 @@
         <td><?= h($endclient->address) ?></td>
       </tr>
       <tr>
-        <td>資本金</td>
-        <td><?= h($endclient->capital_stock) ?></td>
-      </tr>
-      <tr>
         <td>会社名</td>
         <td><?= h($endclient->charged_person) ?></td>
+      </tr>
+      <tr>
+        <td>部署</td>
+        <td><?= h($endclient->capital_stock) ?></td>
       </tr>
       <tr>
         <td>代表電話番号</td>

@@ -14,25 +14,16 @@
       </div>
       <form action="index.html" method="post">
         <p>
-          <?php echo $this->Form->control('paidstatuses_id', ['label' => '支払状況','options' => $paidstatuses]);?>
-        </p>
-        <p>
           <?php echo $this->Form->control('managers_id', ['label' => '担当者' ,'options' => $managers]);?>
         </p>
         <p>
           <?php echo $this->Form->control('birthday' , array('type' => 'date','dateFormat' => 'YMD','monthNames' => false,'maxYear' => date('Y'),'minYear' => date('Y') - 100,));?>
         </p>
         <p>
-          <?php echo $this->Form->control('age' ,['label' => '年齢', 'pattern' => "^[0-9A-Za-z]+$"]); ?>
-        </p>
-        <p>
           <?php echo $this->Form->input('thumbnail', ['label' => 'プロフィール画像','type' => 'file']);?>
         </p>
         <p>
           <?php echo $this->Form->control('categories_id' , ['label' => 'カテゴリ' ,'options' => $categories]);?>
-        </p>
-        <p>
-          <?php echo $this->Form->control('endclients_id',['label' => 'エンドクライアント名' ,'options' => $endclients]);?>
         </p>
         <p>
           <?php echo $this->Form->control('first_name' ,['label' => '氏名']);?>
@@ -54,9 +45,6 @@
         </p>
         <p>
           <?php echo $this->Form->control('address2',['label' => '建物名']);?>
-        </p>
-        <p>
-          <?php echo $this->Form->control('fee' ,['label' => '謝礼金額','pattern' => "^[0-9A-Za-z]+$"]);?>
         </p>
         <p>
           <?php echo $this->Form->control('howtopays_id', ['label' => '支払い方法','options' => $howtopays]);?>
@@ -90,18 +78,6 @@
         </p>
         <p>
           <?php echo $this->Form->control('second_recruiter_fee' ,['label' => '第二リクルーター謝礼額','pattern' => "^[0-9A-Za-z]+$"]);?>
-        </p>
-        <p>
-          <?php echo $this->Form->control('third_recruiter_name' ,['label' => '第三リクルーター名']);?>
-        </p>
-        <p>
-          <?php echo $this->Form->control('third_recruiter_fee',['label' => '第三リクルーター謝礼額','pattern' => "^[0-9A-Za-z]+$"]);?>
-        </p>
-        <p>
-          <?php echo $this->Form->control('forth_recruiter_name' ,['label' => '第四リクルーター名']);?>
-        </p>
-        <p>
-          <?php echo $this->Form->control('forth_rectuiter_fee' ,['label' => '第四リクルーター謝礼額','pattern' => "^[0-9A-Za-z]+$"]);?>
         </p>
         <p>
           <?php echo $this->Form->control('projects_id', ['label' => '関わったプロジェクト','options' => $projects]);?>

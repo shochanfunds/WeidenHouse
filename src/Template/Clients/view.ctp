@@ -39,12 +39,13 @@
   <div class="row col-md-7">
     <table class="table">
       <tr class="infocategory_tag"><td>プロジェクト情報</td><td></td></tr>
+      <tr><td class="col-md-5">操作</td><td class="col-md-7"><?= $this->Html->link(__('修正'), ['action' => 'edit', $client->id]) ?></td></tr>
       <tr><td class="col-md-5">担当者</td><td class="col-md-7"><?= $client->has('manager') ? $this->Html->link($client->manager->username, ['controller' => 'Managers', 'action' => 'view', $client->manager->id]) : '' ?></td></tr>
       <tr>
         <td>プロジェクト名</td>
         <td>
           <?php foreach($test as $data):?>
-            <?php if(count($data)==1):?>
+            <?php if(count($data) == 1):?>
               <p><?= h($data)?></p>
             <?php else:?>
               <p><?php echo $client->project->name ;?></p>
@@ -53,7 +54,6 @@
         </td>
       </tr>
       <tr><td>実施日</td><td><?= h($client->project->dateof)?></td></tr>
-      <tr><td>エンドクライアント名</td><td><?= $client->has('endclient') ? $this->Html->link($client->endclient->name, ['controller' => 'Endclients', 'action' => 'view', $client->endclient->id]) : '' ?></td></tr>
       <tr><td>評価</td><td><?= $this->Number->format($client->evaluation) ?></td></tr>
       <tr class="infocategory_tag"><td>対人情報</td><td></td></tr>
       <tr><td>リクルート元</td><td>第1:<?= h($client->first_recruiter_name) ?> 第2:<?= h($client->second_recruiter_name)?></td></tr>

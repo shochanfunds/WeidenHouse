@@ -15,22 +15,31 @@
                   <th><?= $this->Paginator->sort('Clients.evaluation',"評価")?></th><th><?= $this->Paginator->sort('name','プロジェクト名')?></th><th>操作</th><tr>
             </thead>
             <tbody>
+              <?php $sexes=["","未設定","女","男"];?>
               <?php foreach($clients as $client):?>
+
+
                     <tr class="gray_background">
+
                       <?php if($client->client->first_name ==NULL):?>
-                        <td><?= $this->Html->link($client["first_name"] . "(" . $client["age"] . ")",['controller' => 'clients' , 'action' => 'view' ,$client["id"]])?></td>
+                        <td><?= $this->Html->link($client["first_name"] . $client["last_name"]  . "(" . (int)((date( "Ymd" ) - intval(str_replace("/", "", $client["birthday"])))/10000)  . ")",['controller' => 'clients' , 'action' => 'view' ,$client["id"]])?></td>
                       <?php else:?>
-                        <td><?= $this->Html->link($client->client->first_name . $client->client->last_name . "(" . $client->client->age . ")",['controller' => 'clients' , 'action' => 'view' ,$client->client->id])?></td>
+                        <td><?= $this->Html->link($client->client->first_name . $client->client->last_name . "(" . (int)((date( "Ymd" ) - intval(str_replace("/", "", $client->client->birthday)))/10000)  . ")",['controller' => 'clients' , 'action' => 'view' ,$client->client->id])?></td>
                       <?php endif;?>
-                        <td><?= h($sex[$client->client->sexes_id]) ?></td>
-                        <td><?= h($client->client->first_name_ruby) . h($client->client->last_name_ruby)?></td>
-                        <td><?= h($client->client->evaluation)?></td>
-                        <td><?= h($project->name)?></td>
-                        <?php if($client->client->first_name ==NULL):?>
-                          <td></td>
+                        <?php if($client->client):?>
+                          <td><?= h($client->client->first_name_ruby)?></td>
+                          <td><?= h($sexes[$client->client->sexes_id]) ?></td>
                         <?php else:?>
-                          <td><?= $this->Form->postLink(__('削除'), ['controller'=>'clientsProjects', 'action' => 'delete',$client->id], ['confirm' => __('本当に削除してよろしいですか？?', $client->id)]) ?></td>
+                        　<td><?= h($client["first_name_ruby"])?></td>
+                          <td><?= h($sexes[$client["sexes_id"]]) ?></td>
                         <?php endif;?>
+                        <?php if($client->client->evaluation==Null):?>
+                          <td>評価なし</td>
+                        <?php else:?>
+                          <td><?= h($client->client->evaluation)?></td>
+                        <?php endif;?>
+                        <td><?= h($project->name)?></td>
+                        <td><?= $this->Form->postLink(__('削除'), ['controller' => 'ClientsProjects','action' => 'delete', $client->id], ['confirm' => __('本当に削除してもよろしいですか？ # {0}?', $client->id)]) ?></td>
                   </tr>
               <?php endforeach;?>
             </tbody>

@@ -61,8 +61,8 @@ class ClientsProjectsController extends AppController
             }
             $this->Flash->error(__('登録に失敗しました。再度入力情報のご確認をお願いします'));
         }
-        $clients = $this->ClientsProjects->Clients->find('list', ['limit' => 200]);
-        $projects = $this->ClientsProjects->Projects->find('list', ['limit' => 200]);
+        $clients = $this->ClientsProjects->Clients->find('list');
+        $projects = $this->ClientsProjects->Projects->find('list');
         $this->set(compact('clientsProject', 'clients', 'projects'));
         $this->set('_serialize', ['clientsProject']);
     }
@@ -88,8 +88,8 @@ class ClientsProjectsController extends AppController
             }
             $this->Flash->error(__('The clients project could not be saved. Please, try again.'));
         }
-        $clients = $this->ClientsProjects->Clients->find('list', ['limit' => 200]);
-        $projects = $this->ClientsProjects->Projects->find('list', ['limit' => 200]);
+        $clients = $this->ClientsProjects->Clients->find('list');
+        $projects = $this->ClientsProjects->Projects->find('list');
         $this->set(compact('clientsProject', 'clients', 'projects'));
         $this->set('_serialize', ['clientsProject']);
     }

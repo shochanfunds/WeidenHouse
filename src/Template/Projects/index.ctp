@@ -15,11 +15,10 @@
           <p class="clients-title">プロジェクト一覧</p>
           <table id="account-list" class="table">
             <thead>
-                <tr><th>id</th><th>プロジェクト名</th><th>担当者名</th><th>実施日</th><th>作成日</th><th>操作</th><tr>
+                <tr><th>プロジェクト名</th><th>担当者名</th><th>実施日</th><th>作成日</th><th>操作</th><tr>
             </thead>
             <tbody>
               <?php foreach ($projects as $project): ?>
-                <td><?= $this->Number->format($project->id) ?></td>
                 <td><?= $this->Html->link($project->name,['controller'=>'projects','action'=>'view',$project->id]) ?></td>
                 <td><?= $project->has('endclient') ? $this->Html->link($project->endclient->name,['controller' => 'Endclients' , 'action' => 'view', $project->endclient->id]) :''?></td>
                 <td><?= h($project->dateof) ?></td>

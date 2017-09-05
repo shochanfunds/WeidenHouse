@@ -188,15 +188,15 @@ class ClientsController extends AppController
             $this->errorLog($input_data,'インタビュー対象者登録失敗');
         }
         $friends = $this->Clients->find('list')->order(['Clients.first_name'=>'ASC'])->select(['first_name'])->toArray();
-        $paidstatuses = $this->Clients->Paidstatuses->find('list', ['limit' => 200]);
-        $managers = $this->Clients->Managers->find('list', ['limit' => 200]);
-        $howtopays = $this->Clients->Howtopays->find('list', ['limit' => 200]);
+        $paidstatuses = $this->Clients->Paidstatuses->find('list');
+        $managers = $this->Clients->Managers->find('list');
+        $howtopays = $this->Clients->Howtopays->find('list');
         $projects = $this->Clients->Projects->find('list');
-        $commissionAdmits = $this->Clients->CommissionAdmits->find('list', ['limit' => 200]);
-        $sexes = $this->Clients->Sexes->find('list', ['limit' => 200]);
-        $payReasons = $this->Clients->PayReasons->find('list', ['limit' => 200]);
-        $endclients = $this->Clients->Endclients->find('list' ,['limit' => 200]);
-        $categories = $this->Clients->Categories->find('list' , ['limit' => 200]);
+        $commissionAdmits = $this->Clients->CommissionAdmits->find('list');
+        $sexes = $this->Clients->Sexes->find('list');
+        $payReasons = $this->Clients->PayReasons->find('list');
+        $endclients = $this->Clients->Endclients->find('list');
+        $categories = $this->Clients->Categories->find('list');
         $this->set(compact('client', 'paidstatuses', 'managers', 'howtopays', 'projects', 'commissionAdmits', 'sexes', 'payReasons', 'endclients' ,'categories','friends'));
         $this->set('_serialize', ['client']);
     }
@@ -228,7 +228,12 @@ class ClientsController extends AppController
                 $this->actionLog($input_data,'インタビュー対象者情報編集');
                 move_uploaded_file($this->request->data['thumbnail']['tmp_name'],  ROOT . "/webroot/img/thumbnail/" .$thumbnail_img);
 
-                return $this->redirect(['action' => 'index']);
+                if($this->request->controller=="Clients"){
+                  return $this->redirect(['action' => 'index','page'=>$_GET["page"]]);
+                }elseif($this->request->controller=="Projects"){
+                  return $this->redirect(['action' => 'view',$id]);
+                }
+
             }
             $input_data = "$client->first_name $client->last_name を編集しようとしましたが、編集内容に不正を検出したため処理をブロックしました";
             $this->errorLog($input_data,'インタビュー対象者情報編集失敗');

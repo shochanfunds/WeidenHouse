@@ -44,7 +44,7 @@ class ProjectsController extends AppController
 
         $this->paginate = [
             'contain' => ['Endclients'],
-            'order' => [ 'id' => 'desc']
+            'order' => [ 'dateof' => 'desc']
         ];
         $projects = $this->paginate($this->Projects);
 

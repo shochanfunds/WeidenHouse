@@ -22,7 +22,7 @@
           <p class="clients-title">エンドクライアント一覧</p>
           <table class="table">
             <thead>
-              <tr><th>id</th><th>担当者名</th><th>フリガナ</th><th>企業名</th><th>操作</th><tr>
+              <tr><th>id</th><th>担当者名</th><th>フリガナ</th><th>企業名</th><th>役職名</th><th>操作</th><tr>
             </thead>
             <tbody>
               <?php foreach($endclients as $endclient):?>
@@ -30,6 +30,7 @@
                     <td><?= $this->Number->format($endclient->id) ?></td>
                     <td><?= $this->Html->link($endclient->name,['controller'=>'endclients','action'=>'view',$endclient->id]) ?></td>
                     <td><?= h($endclient->department)?></td>
+                    <td><?= h($endclient->capital_stock)?></td>
                     <td><?= h($endclient->charged_person)?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('詳細'), ['action' => 'view', $endclient->id]) ?>
