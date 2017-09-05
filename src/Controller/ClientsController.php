@@ -53,6 +53,8 @@ class ClientsController extends AppController
             'contain' => ['Paidstatuses', 'Managers', 'Howtopays', 'Projects', 'CommissionAdmits', 'Sexes', 'PayReasons', 'Endclients' ,'Categories'],
             'order' => [ 'id' => 'desc']
         ];
+        $p_ids = [];
+        $c_ids = [];
         $today = date("m-d");
         $birthday = count($this->Clients->find('all')->where(['Clients.birthday LIKE' =>  "%$today%" ])->toArray());
         if($this->request->query['username']){ $username = $this->request->query['username']; }else{ $username = NULL; }
@@ -61,13 +63,36 @@ class ClientsController extends AppController
         if($this->request->query['first_name_ruby']){ $username_ruby = $this->request->query['first_name_ruby']; }else{ $username_ruby = NULL; }
         if($this->request->query["category"]){ $category = $this->request->query["category"]; }else{ $category = NULL; }
         $birth = $this->request->query["birth"];
-        $choised_clients = $this->Clients->find()
-        ->where(['Clients.first_name LIKE' => "%$username%"])
-        ->where(['Clients.phone_number LIKE' => "%$phone_number%"])
-        ->where(['Clients.birthday LIKE' => "%$birth%"])
-        ->where(['Categories.name LIKE' => "%$category"])
-        ->where(['Clients.first_name_ruby LIKE' =>"%$username_ruby%"])
-        ->where(['Projects.name LIKE' =>"%$project_name%"]);
+        $projects = $this->Clients->Projects->find()
+        ->where(['Projects.name LIKE' => "%$project_name%"])
+        ->toArray();
+        foreach($projects as $project){
+          $p_ids[] = $project->id;
+        }
+        $p_id = TableRegistry::get('ClientsProjects')->find()
+        ->where(['ClientsProjects.projects_id IN' => $p_ids])
+        ->toArray();
+        foreach($p_id as $pid){
+          $c_ids[] = $pid->clients_id;
+        }
+        if(count($c_ids) == 0){
+          $choised_clients = $this->Clients->find()
+          ->where(['Clients.first_name LIKE' => "%$username%"])
+          ->where(['Clients.phone_number LIKE' => "%$phone_number%"])
+          ->where(['Clients.birthday LIKE' => "%$birth%"])
+          ->where(['Categories.name LIKE' => "%$category"])
+          ->where(['Clients.first_name_ruby LIKE' =>"%$username_ruby%"])
+          ->where(['Projects.name LIKE' =>"%$project_name%"]);
+        }else{
+          $choised_clients = $this->Clients->find()
+          ->where(['Clients.first_name LIKE' => "%$username%"])
+          ->where(['Clients.phone_number LIKE' => "%$phone_number%"])
+          ->where(['Clients.birthday LIKE' => "%$birth%"])
+          ->where(['Categories.name LIKE' => "%$category"])
+          ->where(['Clients.first_name_ruby LIKE' =>"%$username_ruby%"])
+          ->where(['Projects.name LIKE' =>"%$project_name%"])
+          ->orwhere(['Clients.id IN' => $c_ids]);
+        }
         $clients = $this->paginate($choised_clients);
         $this->set(compact('clients'));
         $this->set(compact('birthday'));
@@ -86,6 +111,8 @@ class ClientsController extends AppController
       if($this->request->query['first_name_ruby']){ $username_ruby = $this->request->query['first_name_ruby']; }else{ $username_ruby = NULL; }
       if($this->request->query["category"]){ $category = $this->request->query["category"]; }else{ $category = NULL; }
       $birth = $this->request->query["birth"];
+
+
       $choised_clients = $this->Clients->find()
       ->where(['Clients.first_name LIKE' => "%$username%"])
       ->where(['Clients.phone_number LIKE' => "%$phone_number%"])
